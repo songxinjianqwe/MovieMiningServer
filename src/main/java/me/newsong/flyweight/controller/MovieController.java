@@ -35,7 +35,7 @@ public class MovieController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/ids", method = RequestMethod.GET)
 	public List<String> findAllMovieIds() {
-		return service.findAllMovieIds();
+		return service.findAllIds();
 	}
 
 	@ResponseStatus(HttpStatus.OK)

@@ -9,6 +9,7 @@ import java.util.TreeMap;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+import me.newsong.flyweight.utils.SpringContextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -18,13 +19,12 @@ import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.MovieReview;
 import me.newsong.flyweight.service.impl.comp.MovieReviewTimeComparator;
 import me.newsong.flyweight.utils.PythonUtil;
-import me.newsong.flyweight.utils.SpringUtils;
 
 @Transactional(readOnly = true)
 @Service
 public abstract class BaseMovieReviewHandler {
 	@Autowired
-	@Qualifier("Cached")
+	@Qualifier("NoCache")
 	protected MovieReviewRepository dao;
 	protected PythonUtil util = PythonUtil.getInstance();
 	/**
@@ -44,7 +44,7 @@ public abstract class BaseMovieReviewHandler {
 	public <T> Map<T, Long> findAccumulatedReviewCountsBy(Class<T> unit, String id, Date begin, Date end) {
 		Map<T, Long> map = findMovieReviewById(id).stream()
 				.filter((review) -> !review.getTime().before(begin) && !review.getTime().after(end))
-				.collect(Collectors.groupingBy(SpringUtils.getBean(unit.getSimpleName()), Collectors.counting()));
+				.collect(Collectors.groupingBy(SpringContextUtil.getBean(unit.getSimpleName()), Collectors.counting()));
 		Map<T, Long> result = new TreeMap<>();
 		result.putAll(map);
 		long accumulatedCount = 0;

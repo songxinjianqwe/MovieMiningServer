@@ -31,7 +31,7 @@ public class UserController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/ids", method = RequestMethod.GET)
 	public List<String> findAllUserIds() {
-		return service.findAllUserIds();
+		return service.findAllIds();
 	}
 
 	@ResponseStatus(HttpStatus.OK)
