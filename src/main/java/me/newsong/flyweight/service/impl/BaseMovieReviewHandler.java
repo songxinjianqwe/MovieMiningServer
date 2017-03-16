@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +24,7 @@ import me.newsong.flyweight.utils.SpringUtils;
 @Service
 public abstract class BaseMovieReviewHandler {
 	@Autowired
+	@Qualifier("Cached")
 	protected MovieReviewRepository dao;
 	protected PythonUtil util = PythonUtil.getInstance();
 	/**

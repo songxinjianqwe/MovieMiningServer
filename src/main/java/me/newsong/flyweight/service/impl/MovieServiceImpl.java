@@ -24,7 +24,7 @@ public class MovieServiceImpl extends BaseMovieReviewHandler implements MovieSer
 	public Movie findMovieByID(String id) {
 		List<MovieReview> reviews = findMovieReviewsSortedByTime(id);
 		Movie movie = new Movie(id, reviews.get(0).getTime(), reviews.get(reviews.size() - 1).getTime(), reviews.size(),
-				getVarianceOfScore(reviews), dao.getMovieKeyWords(id), getAverageScore(reviews));
+				getVarianceOfScore(reviews), super.getKeyWords(reviews), getAverageScore(reviews));
 		return movie;
 	}
 

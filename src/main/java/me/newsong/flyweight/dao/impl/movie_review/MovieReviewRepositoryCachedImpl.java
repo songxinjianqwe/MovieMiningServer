@@ -22,7 +22,7 @@ import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.Index;
 import me.newsong.flyweight.domain.MovieReview;
 
-@Repository
+@Repository("Cached")
 public class MovieReviewRepositoryCachedImpl implements MovieReviewRepository {
 	private Map<String, List<Index>> movieIndexMap;
 	private Map<String, List<Index>> userIndexMap;
@@ -123,16 +123,7 @@ public class MovieReviewRepositoryCachedImpl implements MovieReviewRepository {
 		return new ArrayList<String>(userIndexMap.keySet());
 	}
 	
-	@Override
-	public List<String> getMovieKeyWords(String id) {
-		return movieKeyWords.get(id);
-	}
-	@Override
-	public List<String> getUserKeyWords(String id) {
-		return userKeyWords.get(id);
-	}
 	
-
 	public static void main(String[] args) throws IOException {
 		MovieReviewRepositoryCachedImpl impl = new MovieReviewRepositoryCachedImpl();
 		List<MovieReview> list = impl.findByMovieId("B004SIP910");

@@ -26,7 +26,7 @@ public class UserServiceImpl extends BaseMovieReviewHandler implements UserServi
 	public User findUserById(String id) {
 		List<MovieReview> reviews = findMovieReviewsSortedByTime(id);
 		return new User(id, reviews.get(0).getTime(), reviews.get(reviews.size() - 1).getTime(), reviews.size(),
-				dao.getUserKeyWords(id),getAverageDescLength(reviews));
+				super.getKeyWords(reviews),getAverageDescLength(reviews));
 	}
 
 	protected List<MovieReview> findMovieReviewById(String id) {
