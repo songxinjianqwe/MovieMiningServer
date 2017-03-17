@@ -141,12 +141,12 @@ public class TestMovieService {
 	@Test
 	public void testEarliestAndLastestTime() {
 		Movie movie = service.findMovieByID("B0002RGNRU");
-		System.out.println(movie.getEarliestReviweTime().getTime());
-		System.out.println(movie.getLastestReviweTime().getTime());
+		System.out.println(movie.getEarliestReviewTime().getTime());
+		System.out.println(movie.getLatestReviewTime().getTime());
 		List<MovieReview> reviews = dao.findByMovieId("B0002RGNRU");
-		assertEquals(movie.getEarliestReviweTime(),
+		assertEquals(movie.getEarliestReviewTime(),
 				reviews.stream().collect(Collectors.minBy(new MovieReviewTimeComparator())).get().getTime());
-		assertEquals(movie.getLastestReviweTime(),
+		assertEquals(movie.getLatestReviewTime(),
 				reviews.stream().collect(Collectors.maxBy(new MovieReviewTimeComparator())).get().getTime());
 	}
 
@@ -155,20 +155,20 @@ public class TestMovieService {
 		Movie movie = service.findMovieByID("B0002RGNRU");
 		System.out.println("reviewTimes:" + movie.getReviewTimes());
 		Map<Month, Long> map = service.findAccumulatedReviewCountsBy(Month.class, "B0002RGNRU",
-				movie.getEarliestReviweTime(), movie.getLastestReviweTime());
+				movie.getEarliestReviewTime(), movie.getLatestReviewTime());
 		System.out.println("Result");
 		for (Entry<Month, Long> entry : map.entrySet()) {
 			System.out.println(entry.getKey() + "    " + entry.getValue());
 		}
 		assertEquals(movie.getReviewTimes(), map.get(new Month(2012, 10)).intValue());
 	}
-
+	
 	@Test
 	public void testFindAccumulatedReviewCountsBySeason() {
 		Movie movie = service.findMovieByID("B0002RGNRU");
 		System.out.println("reviewTimes:" + movie.getReviewTimes());
 		Map<Season, Long> map = service.findAccumulatedReviewCountsBy(Season.class, "B0002RGNRU",
-				movie.getEarliestReviweTime(), movie.getLastestReviweTime());
+				movie.getEarliestReviewTime(), movie.getLatestReviewTime());
 		System.out.println("Result");
 		for (Entry<Season, Long> entry : map.entrySet()) {
 			System.out.println(entry.getKey() + "    " + entry.getValue());

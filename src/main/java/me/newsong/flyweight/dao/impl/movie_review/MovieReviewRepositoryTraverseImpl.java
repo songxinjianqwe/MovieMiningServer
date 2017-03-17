@@ -8,37 +8,34 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * Created by SinjinSong on 2017/3/16.
  */
-
-//@Repository("NoCache")
-public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
-    private Map<String, List<MovieReview>> movieIdReviews;
-    private Map<String, List<MovieReview>> userIdReviews;
+@Repository("Traverse")
+public class MovieReviewRepositoryTraverseImpl implements MovieReviewRepository {
     private String path;
     private ResourceBundle rb;
-    
-    public MovieReviewRepositoryNoCacheImpl() {
+
+    public MovieReviewRepositoryTraverseImpl() {
         rb = ResourceBundle.getBundle("fileSystemData");
         if (System.getProperty("os.name").indexOf("Windows") != -1) {
             path = rb.getString("dataDirForWin");
         } else {
             path = rb.getString("dataDirForLinux");
         }
-        movieIdReviews = new HashMap<>();
-        userIdReviews = new HashMap<>();
-        init();
-        removeDuplicateMovies();
-    }
 
-    private void init() {
-        System.out.println("Read File Started ...");
+    }
+    
+    @Override
+    public List<MovieReview> findByMovieId(String id) {
+        List<MovieReview> reviews = new ArrayList<>();
         try {
             String line = null;
-            int curr = 0;
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
             while ((line = br.readLine()) != null && !line.trim().equals("")) {
                 String movieId = line.split(": ")[1].trim();
@@ -60,66 +57,30 @@ public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
                 }
                 String text = br.readLine().split(": ")[1].trim();
                 br.readLine();
-                MovieReview movieReview = new MovieReview(movieId, userId, username, helpful, view, score, time, summary,
-                        text);
-                putMovieReview(movieIdReviews, movieId, movieReview);
-                putMovieReview(userIdReviews, userId, movieReview);
-                curr++;
-                if (curr % 1000 == 0) {
-                    System.out.println("Has read "+curr+" records...");
+                if(id.equals(movieId)){
+                    MovieReview movieReview = new MovieReview(movieId, userId, username, helpful, view, score, time, summary,
+                            text);
+                    reviews.add(movieReview);
                 }
             }
-            System.out.println("File Read Complele!");
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-
-    private void putMovieReview(Map<String, List<MovieReview>> map, String id, MovieReview review) {
-        if (map.get(id) == null) {
-            List<MovieReview> reviews = new ArrayList<>();
-            reviews.add(review);
-            map.put(id, reviews);
-        } else {
-            map.get(id).add(review);
-        }
-    }
-
-    private void removeDuplicateMovies() {
-        System.out.println("Remove Duplicate Movies Started...");
-        Map<String, List<MovieReview>> filteredUserIdReviews = new HashMap<>();
-        for (String id : this.findAllUserIds()) {
-            List<MovieReview> reviews = this.findByUserId(id);
-            Set<MovieReview> set = new HashSet<>(reviews);
-            if (set.size() > 1) {
-                filteredUserIdReviews.put(id, userIdReviews.get(id));
-//				for(MovieReview review:set){
-//					System.out.println(review);
-//				}
-            }
-        }
-        userIdReviews = filteredUserIdReviews;
-        System.out.println("Remove Duplicate Movies Cmplete!");
-    }
-
-    @Override
-    public List<MovieReview> findByMovieId(String id) {
-        return movieIdReviews.get(id);
+        return reviews;
     }
 
     @Override
     public List<MovieReview> findByUserId(String id) {
-        return userIdReviews.get(id);
+        return null;
     }
 
     @Override
     public List<String> findAllMovieIds() {
-        return new ArrayList<>(movieIdReviews.keySet());
+        return null;
     }
 
     @Override
     public List<String> findAllUserIds() {
-        return new ArrayList<>(userIdReviews.keySet());
+        return null;
     }
 }

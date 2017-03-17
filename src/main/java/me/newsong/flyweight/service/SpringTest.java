@@ -2,6 +2,7 @@ package me.newsong.flyweight.service;
 
 import java.util.List;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -13,10 +14,12 @@ import me.newsong.flyweight.service.iface.MovieService;
 public class SpringTest {
 	private ApplicationContext ctx;
 	private MovieService service;
+	private ObjectMapper mapper;
 	@Before
 	public void setUp() throws Exception {
 		ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		service = ctx.getBean(MovieService.class);
+		mapper = new ObjectMapper();
 	}
 
 	@Test
@@ -33,6 +36,7 @@ public class SpringTest {
 //		for(MovieReview review:list){
 //			System.out.println(review);
 //		}
+		
 	}
 	
 }

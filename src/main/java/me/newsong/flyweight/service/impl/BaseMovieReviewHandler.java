@@ -24,7 +24,7 @@ import me.newsong.flyweight.utils.PythonUtil;
 @Service
 public abstract class BaseMovieReviewHandler {
 	@Autowired
-	@Qualifier("NoCache")
+	@Qualifier("Traverse")
 	protected MovieReviewRepository dao;
 	protected PythonUtil util = PythonUtil.getInstance();
 	/**

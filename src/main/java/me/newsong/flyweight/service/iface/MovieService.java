@@ -12,5 +12,6 @@ public interface MovieService extends  BaseMovieReviewTemplate {
 	//以下三个方法都是为获取电影信息服务的
 	double getAverageScore(List<MovieReview> reviews);
 	double getVarianceOfScore(List<MovieReview> reviews);
+	
 	Map<Integer,Long> findScoresByStar(String id);
 }
