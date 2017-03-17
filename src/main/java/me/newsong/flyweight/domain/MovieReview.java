@@ -14,7 +14,6 @@ public class MovieReview {
 	private String content;
 
 	public MovieReview() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public MovieReview(String movieId, String userId, String username, int helpfulTimes, int viewTimes, int score,

@@ -5,7 +5,6 @@ public class Season implements Comparable<Season>{
 	private int season;
 
 	public Season() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Season(int year, int season) {

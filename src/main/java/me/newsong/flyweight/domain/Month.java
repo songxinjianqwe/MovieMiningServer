@@ -5,7 +5,6 @@ public class Month implements Comparable<Month>{
 	private int month;
 
 	public Month() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Month(int year, int month) {

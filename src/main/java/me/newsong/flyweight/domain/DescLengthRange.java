@@ -4,7 +4,6 @@ public class DescLengthRange {
 	private int low;
 	private int high;
 	public DescLengthRange() {
-		// TODO Auto-generated constructor stub
 	}
 	public DescLengthRange(int low, int high) {
 		super();

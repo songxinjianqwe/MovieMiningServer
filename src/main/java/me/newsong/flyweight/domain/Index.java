@@ -4,7 +4,6 @@ public class Index {
 	private int pageIndex;
 	private int movieIndex;
 	public Index() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Index(int pageIndex, int movieIndex) {
