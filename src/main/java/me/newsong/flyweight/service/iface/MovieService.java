@@ -14,4 +14,5 @@ public interface MovieService extends  BaseMovieReviewTemplate {
 	double getVarianceOfScore(List<MovieReview> reviews);
 	
 	Map<Integer,Long> findScoresByStar(String id);
+	List<Movie> findMoviesByNames(String[] names);
 }

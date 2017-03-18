@@ -22,7 +22,7 @@ import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.Index;
 import me.newsong.flyweight.domain.MovieReview;
 
-@Repository("Cached")
+@Repository("CachedReviews")
 public class MovieReviewRepositoryCachedImpl implements MovieReviewRepository {
 	private Map<String, List<Index>> movieIndexMap;
 	private Map<String, List<Index>> userIndexMap;

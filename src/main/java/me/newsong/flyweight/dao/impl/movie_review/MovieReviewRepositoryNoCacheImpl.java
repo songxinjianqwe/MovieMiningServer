@@ -14,7 +14,7 @@ import java.util.*;
  * Created by SinjinSong on 2017/3/16.
  */
 
-//@Repository("NoCache")
+@Repository("NoCacheReviews")
 public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
     private Map<String, List<MovieReview>> movieIdReviews;
     private Map<String, List<MovieReview>> userIdReviews;
@@ -33,7 +33,7 @@ public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
         init();
         removeDuplicateMovies();
     }
-
+    
     private void init() {
         System.out.println("Read File Started ...");
         try {
@@ -65,7 +65,7 @@ public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
                 putMovieReview(movieIdReviews, movieId, movieReview);
                 putMovieReview(userIdReviews, userId, movieReview);
                 curr++;
-                if (curr % 1000 == 0) {
+                if (curr % 100000 == 0) {
                     System.out.println("Has read "+curr+" records...");
                 }
             }

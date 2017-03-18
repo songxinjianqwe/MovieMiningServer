@@ -63,5 +63,10 @@ public class MovieController {
 			@RequestParam("begin") Long begin, @RequestParam("end") Long end, Locale locale) {
 		return service.findAccumulatedReviewCountsBy(Season.class, id, new Date(begin), new Date(end));
 	}
-
+	
+    @ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = "/{names}", method = RequestMethod.GET)
+	public List<Movie> findMoviesByNames(@PathVariable("names") String [] names){
+	    return service.findMoviesByNames(names);
+    }
 }
