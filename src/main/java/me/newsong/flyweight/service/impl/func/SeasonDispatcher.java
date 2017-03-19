@@ -7,9 +7,9 @@ import java.util.function.Function;
 import org.springframework.stereotype.Component;
 
 import me.newsong.flyweight.domain.MovieReview;
-import me.newsong.flyweight.domain.Season;
+import me.newsong.flyweight.domain.time.Season;
 @Component("Season")
-public class SeasonDiapatcher implements Function<MovieReview, Season>{
+public class SeasonDispatcher implements Function<MovieReview, Season>{
 
 	@Override
 	public Season apply(MovieReview review) {

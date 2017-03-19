@@ -1,6 +1,7 @@
 package me.newsong.flyweight.service.iface;
 
 import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.enums.TimeUnit;
 
 import java.util.Date;
 import java.util.List;
@@ -11,6 +12,6 @@ import java.util.Map;
  */
 public interface MovieReviewTemplate {
     List<String> findAllIds();
-    <T> Map<T, Long> findAccumulatedReviewCountsBy(Class<T> unit, String id, Date begin, Date end);
+    <T> Map<T, Long> findAccumulatedReviewCountsBy(TimeUnit unit, String id, Date begin, Date end);
     List<String> getKeyWords(List<MovieReview> reviews);
 }

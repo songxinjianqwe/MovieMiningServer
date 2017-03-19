@@ -32,7 +32,7 @@ public class UserServiceImpl extends MovieReviewTemplateImpl implements UserServ
 	protected List<MovieReview> findMovieReviewById(String id) {
 		List<MovieReview> reviews = dao.findByUserId(id);
 		if (reviews.size() == 0) {
-			throw new UserNotFoundException(id, null);
+			throw new UserNotFoundException(id);
 		}
 		return reviews;
 	}

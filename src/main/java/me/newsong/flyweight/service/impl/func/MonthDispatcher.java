@@ -6,7 +6,7 @@ import java.util.function.Function;
 
 import org.springframework.stereotype.Component;
 
-import me.newsong.flyweight.domain.Month;
+import me.newsong.flyweight.domain.time.Month;
 import me.newsong.flyweight.domain.MovieReview;
 
 @Component("Month")

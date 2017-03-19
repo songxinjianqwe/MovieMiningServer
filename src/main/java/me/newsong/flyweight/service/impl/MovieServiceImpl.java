@@ -1,9 +1,9 @@
 package me.newsong.flyweight.service.impl;
 
 import me.newsong.flyweight.dao.iface.movie.MovieRepository;
-import me.newsong.flyweight.domain.Movie;
-import me.newsong.flyweight.domain.MovieReview;
-import me.newsong.flyweight.domain.RemoteMovieInfo;
+import me.newsong.flyweight.domain.*;
+import me.newsong.flyweight.domain.time.Month;
+import me.newsong.flyweight.enums.MovieSortType;
 import me.newsong.flyweight.enums.MovieTag;
 import me.newsong.flyweight.exceptions.MovieNotFoundException;
 import me.newsong.flyweight.service.iface.MovieService;
@@ -15,10 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -28,17 +25,18 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     private Map<String, List<RemoteMovieInfo>> moviesByName;
     private Map<MovieTag, List<RemoteMovieInfo>> moviesByTagOrderedByScore;
     private Map<MovieTag, List<RemoteMovieInfo>> moviesByTagOrderedByTime;
-    private List<RemoteMovieInfo> movies;
-
+    private List<RemoteMovieInfo> movieSortedByTime;
+    private int pageSize;
     @Autowired
     @Qualifier("CachedMovies")
     private MovieRepository movieDao;
 
     public MovieServiceImpl() {
+        pageSize = Integer.parseInt(ResourceBundle.getBundle("page").getString("pageSize"));
         moviesByName = new ConcurrentHashMap<>();
         moviesByTagOrderedByScore = new ConcurrentHashMap<>();
         moviesByTagOrderedByTime = new ConcurrentHashMap<>();
-        movies = new ArrayList<>();
+        movieSortedByTime = new ArrayList<>();
     }
 
     @PostConstruct
@@ -70,7 +68,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
             for (MovieTag tag : movie.getTags()) {
                 putMovieIntoTagMap(tag, movie);
             }
-            movies.add(movie);
+            movieSortedByTime.add(movie);
         }
         for (Map.Entry<MovieTag, List<RemoteMovieInfo>> entry : moviesByTagOrderedByScore.entrySet()) {
             Collections.sort(entry.getValue(), new RemoteMovieInfoScoreDescComparator());
@@ -78,9 +76,10 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
             Collections.sort(movies, new RemoteMovieInfoTimeDescComparator());
             moviesByTagOrderedByTime.put(entry.getKey(), movies);
         }
-        Collections.sort(movies, new RemoteMovieInfoTimeDescComparator());
+        Collections.sort(movieSortedByTime, new RemoteMovieInfoTimeDescComparator());
+
         System.out.println("MovieService初始化完毕！");
-//        System.out.println(movies.size());
+//        System.out.println(movieSortedByTime.size());
 //        for (Map.Entry<MovieTag, List<RemoteMovieInfo>> entry : moviesByTagOrderedByTime.entrySet()) {
 //            System.out.println(entry.getKey());
 //            for(RemoteMovieInfo info:entry.getValue()){
@@ -90,7 +89,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
 //        System.out.println(moviesByName);
 //        System.out.println(moviesByTagOrderedByScore);
 //        System.out.println(moviesByTagOrderedByTime);
-//        movies.forEach(System.out::println);
+//        movieSortedByTime.forEach(System.out::println);
     }
 
     @Override
@@ -115,7 +114,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     protected List<MovieReview> findMovieReviewById(String id) {
         List<MovieReview> reviews = dao.findByMovieId(id);
         if (reviews.size() == 0) {
-            throw new MovieNotFoundException(id, null);
+            throw new MovieNotFoundException(id);
         }
         return reviews;
     }
@@ -137,14 +136,6 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
                 .collect(Collectors.groupingBy(MovieReview::getScore, Collectors.counting()));
     }
 
-    @Override
-    public List<RemoteMovieInfo> findMoviesByName(String name) {
-        List<RemoteMovieInfo> infos = moviesByName.get(name);
-        for (RemoteMovieInfo info : infos) {
-            info.setMovie(findMovieByID(info.getId()));
-        }
-        return infos;
-    }
 
     @Override
     public double getAverageScore(List<MovieReview> reviews) {
@@ -159,5 +150,90 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         } else {
             moviesByTagOrderedByScore.get(tag).add(movie);
         }
+    }
+
+    @Override
+    public List<String> findAllMovieNames() {
+        return new ArrayList<>(moviesByName.keySet());
+    }
+
+    private PageBean<RemoteMovieInfo> getPageBean(int currPage, List<RemoteMovieInfo> infos) {
+        PageBean<RemoteMovieInfo> pageBean = new PageBean<>(currPage, infos.size(), this.pageSize);
+        List<RemoteMovieInfo> currPageContents = getCopiedSubList(infos, pageBean.getCurrPageBeginIndex(), pageBean.getCurrPageEndIndex());
+        for (RemoteMovieInfo info : currPageContents) {
+            info.setMovie(findMovieByID(info.getId()));
+        }
+        pageBean.setData(currPageContents);
+        return pageBean;
+    }
+
+    private <T> List<T> getCopiedSubList(List<T> list, int begin, int end) {
+        List<T> result = new ArrayList<T>();
+        for (int i = begin; i < end; ++i) {
+            result.add(list.get(i));
+        }
+//        System.out.println("子列长度"+result.size());
+        return result;
+    }
+
+    @Override
+    public PageBean<RemoteMovieInfo> findMoviesByName(String name, int currPage) {
+        if (!moviesByName.containsKey(name)) {
+            throw new MovieNotFoundException(name);
+        }
+        return getPageBean(currPage, moviesByName.get(name));
+    }
+
+    @Override
+    public PageBean<RemoteMovieInfo> findMoviesByNames(String[] names, int currPage) {
+        List<RemoteMovieInfo> list = new ArrayList<>();
+        for (String name : names) {
+            if (!moviesByName.containsKey(name)) {
+                throw new MovieNotFoundException(name);
+            }
+            list.addAll(moviesByName.get(name));
+        }
+        return getPageBean(currPage, list);
+    }
+
+
+    @Override
+    public PageBean<RemoteMovieInfo> findLatestMovies(int currPage) {
+        return getPageBean(currPage, movieSortedByTime);
+    }
+
+    @Override
+    public PageBean<RemoteMovieInfo> findMoviesByTag(MovieTag tag, MovieSortType sortBy, int currPage) {
+        if (sortBy == MovieSortType.Score) {
+            return getPageBean(currPage, moviesByTagOrderedByScore.get(tag));
+        } else if (sortBy == MovieSortType.Time) {
+            return getPageBean(currPage, moviesByTagOrderedByTime.get(tag));
+        }
+        return null;
+    }
+
+    @Override
+    public List<MovieReview> findTop10MovieReviewsById(String id) {
+        return null;
+    }
+
+    @Override
+    public Map<MovieTag, Double> findMovieTagProportions() {
+        return null;
+    }
+
+    @Override
+    public Map<Long, Double> findReviewTimesAndScores() {
+        return null;
+    }
+
+    @Override
+    public Map<Month, Double> findMovieScoresInMonthsById(String id) {
+        return null;
+    }
+
+    @Override
+    public Map<Date, Double> findMovieScoresInDayByIdAndMonthSpan(String id, int monthSpan) {
+        return null;
     }
 }

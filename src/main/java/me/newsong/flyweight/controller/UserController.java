@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import me.newsong.flyweight.enums.TimeUnit;
+import me.newsong.flyweight.exceptions.TimeUnitNotFoundException;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,8 +19,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import me.newsong.flyweight.domain.DescLengthRange;
-import me.newsong.flyweight.domain.Month;
-import me.newsong.flyweight.domain.Season;
+import me.newsong.flyweight.domain.time.Season;
 import me.newsong.flyweight.domain.User;
 import me.newsong.flyweight.service.iface.UserService;
 
@@ -47,18 +49,15 @@ public class UserController {
 		return service.findDescLengthsWithRange(id, gap);
 	}
 
-	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/accum_review_counts_by_month/{id}", method = RequestMethod.GET)
-	public Map<Month, Long> findAccumulatedReviewCountsByMonth(@PathVariable("id") String id,
-			@RequestParam("begin") Long begin, @RequestParam("end") Long end, Locale locale) {
-		return service.findAccumulatedReviewCountsBy(Month.class, id, new Date(begin), new Date(end));
-	}
-
-	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/accum_review_counts_by_season/{id}", method = RequestMethod.GET)
-	public Map<Season, Long> findAccumulatedReviewCountsBySeason(@PathVariable("id") String id, @RequestParam("begin") Long begin, @RequestParam("end") Long end,
-			Locale locale) {
-		return service.findAccumulatedReviewCountsBy(Season.class, id, new Date(begin), new Date(end));
-	}
-
+	
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/accum_review_counts/{id}", method = RequestMethod.GET)
+    public Map<Season, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("timeUnit") String timeUnit,
+                                                         @RequestParam("begin") Long begin, @RequestParam("end") Long end, Locale locale) {
+        TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
+        if (unit == null) {
+            throw new TimeUnitNotFoundException(timeUnit);
+        }
+        return service.findAccumulatedReviewCountsBy(unit, id, new Date(begin), new Date(end));
+    }
 }

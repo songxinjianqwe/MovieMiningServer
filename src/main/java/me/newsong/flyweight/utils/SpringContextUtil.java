@@ -21,7 +21,9 @@ public class SpringContextUtil implements ApplicationContextAware {
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         SpringContextUtil.applicationContext = applicationContext;
     }
-    
+    public static ApplicationContext getApplicationContext() {  
+        return applicationContext;  
+    } 
     public static <T> T getBean(String beanId) {
         T bean = null;
         try {

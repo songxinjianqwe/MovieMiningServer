@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+import me.newsong.flyweight.enums.TimeUnit;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
-import me.newsong.flyweight.domain.Month;
+import me.newsong.flyweight.domain.time.Month;
 import me.newsong.flyweight.domain.Movie;
 import me.newsong.flyweight.domain.MovieReview;
-import me.newsong.flyweight.domain.Season;
+import me.newsong.flyweight.domain.time.Season;
 import me.newsong.flyweight.service.iface.MovieService;
 import me.newsong.flyweight.service.impl.comp.MovieReviewTimeAscComparator;
 
@@ -30,7 +31,7 @@ public class TestMovieService {
 	@Autowired
 	private MovieService service;
 	@Autowired
-	@Qualifier("Cached")
+	@Qualifier("CachedReviews")
 	private MovieReviewRepository dao;
 
 	@Test
@@ -154,7 +155,7 @@ public class TestMovieService {
 	public void testFindAccumulatedReviewCountsByMonth() {
 		Movie movie = service.findMovieByID("B0002RGNRU");
 		System.out.println("reviewTimes:" + movie.getReviewTimes());
-		Map<Month, Long> map = service.findAccumulatedReviewCountsBy(Month.class, "B0002RGNRU",
+		Map<Month, Long> map = service.findAccumulatedReviewCountsBy(TimeUnit.Month, "B0002RGNRU",
 				movie.getEarliestReviewTime(), movie.getLatestReviewTime());
 		System.out.println("Result");
 		for (Entry<Month, Long> entry : map.entrySet()) {
@@ -167,7 +168,7 @@ public class TestMovieService {
 	public void testFindAccumulatedReviewCountsBySeason() {
 		Movie movie = service.findMovieByID("B0002RGNRU");
 		System.out.println("reviewTimes:" + movie.getReviewTimes());
-		Map<Season, Long> map = service.findAccumulatedReviewCountsBy(Season.class, "B0002RGNRU",
+		Map<Season, Long> map = service.findAccumulatedReviewCountsBy(TimeUnit.Season, "B0002RGNRU",
 				movie.getEarliestReviewTime(), movie.getLatestReviewTime());
 		System.out.println("Result");
 		for (Entry<Season, Long> entry : map.entrySet()) {

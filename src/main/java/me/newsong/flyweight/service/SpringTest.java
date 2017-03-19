@@ -4,22 +4,30 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import me.newsong.flyweight.dao.iface.movie.MovieRepository;
 import me.newsong.flyweight.domain.Movie;
 import me.newsong.flyweight.domain.RemoteMovieInfo;
+import me.newsong.flyweight.enums.TimeUnit;
 import me.newsong.flyweight.service.iface.MovieService;
 import me.newsong.flyweight.utils.PythonUtil;
+import me.newsong.flyweight.utils.SpringContextUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class SpringTest {
     @Autowired
+    @Qualifier("CachedMovies")
     private MovieRepository dao;
     @Autowired
     private MovieService service;
@@ -59,6 +67,22 @@ public class SpringTest {
         RemoteMovieInfo info = mapper.readValue(jsonObj.getBytes(), RemoteMovieInfo.class);
         System.out.println(info);
     }
-    
-    
+
+    @Test
+    public void testSubList() {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        System.out.println(list.subList(0, 5));
+    }
+
+    @Test
+    public void testClass() throws ClassNotFoundException {
+//        System.out.println(Class.forName("me.newsong.flyweight.enums.MovieSortType.Time"));
+        String cls = TimeUnit.Month.toString();
+        System.out.println(cls);
+        Function func = SpringContextUtil.getBean("Month");
+        System.out.println(func);
+    }
 }

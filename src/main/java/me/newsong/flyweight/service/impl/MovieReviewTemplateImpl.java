@@ -9,6 +9,7 @@ import java.util.TreeMap;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+import me.newsong.flyweight.enums.TimeUnit;
 import me.newsong.flyweight.utils.SpringContextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -41,10 +42,10 @@ public abstract class MovieReviewTemplateImpl {
 		return reviews;
 	}
 
-	public <T> Map<T, Long> findAccumulatedReviewCountsBy(Class<T> unit, String id, Date begin, Date end) {
-		Map<T, Long> map = findMovieReviewById(id).stream()
+	public <T> Map<T, Long> findAccumulatedReviewCountsBy(TimeUnit unit, String id, Date begin, Date end) {
+        Map<T, Long> map = findMovieReviewById(id).stream()
 				.filter((review) -> !review.getTime().before(begin) && !review.getTime().after(end))
-				.collect(Collectors.groupingBy(SpringContextUtil.getBean(unit.getSimpleName()), Collectors.counting()));
+				.collect(Collectors.groupingBy(SpringContextUtil.getBean(unit.toString()), Collectors.counting()));
 		Map<T, Long> result = new TreeMap<>();
 		result.putAll(map);
 		long accumulatedCount = 0;

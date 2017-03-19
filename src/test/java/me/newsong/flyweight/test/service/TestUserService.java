@@ -24,7 +24,7 @@ public class TestUserService {
 	@Autowired
 	private UserService service;
 	@Autowired
-	@Qualifier("Cached")
+	@Qualifier("CachedReviews")
 	private MovieReviewRepository dao;
 
 	@Test
