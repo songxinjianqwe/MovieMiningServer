@@ -5,13 +5,18 @@ import me.newsong.flyweight.domain.entity.Movie;
 import me.newsong.flyweight.domain.entity.MovieReview;
 import me.newsong.flyweight.domain.entity.PageBean;
 import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
+import me.newsong.flyweight.domain.time.Day;
 import me.newsong.flyweight.domain.time.Month;
+import me.newsong.flyweight.enums.MovieReviewSortType;
 import me.newsong.flyweight.enums.MovieSortType;
 import me.newsong.flyweight.enums.MovieTag;
+import me.newsong.flyweight.enums.TimeUnit;
 import me.newsong.flyweight.exceptions.MovieNotFoundException;
 import me.newsong.flyweight.service.iface.MovieService;
 import me.newsong.flyweight.service.impl.comp.RemoteMovieInfoScoreDescComparator;
 import me.newsong.flyweight.service.impl.comp.RemoteMovieInfoTimeDescComparator;
+import me.newsong.flyweight.utils.MapUtil;
+import me.newsong.flyweight.utils.SpringContextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -28,7 +33,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     private Map<String, List<RemoteMovieInfo>> moviesByName;
     private Map<MovieTag, List<RemoteMovieInfo>> moviesByTagOrderedByScore;
     private Map<MovieTag, List<RemoteMovieInfo>> moviesByTagOrderedByTime;
-    private List<RemoteMovieInfo> movieSortedByTime;
+    private List<RemoteMovieInfo> allMoviesSortedByTime;
     private int pageSize;
     @Autowired
     @Qualifier("CachedMovies")
@@ -39,7 +44,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         moviesByName = new ConcurrentHashMap<>();
         moviesByTagOrderedByScore = new ConcurrentHashMap<>();
         moviesByTagOrderedByTime = new ConcurrentHashMap<>();
-        movieSortedByTime = new ArrayList<>();
+        allMoviesSortedByTime = new ArrayList<>();
     }
 
     @PostConstruct
@@ -52,7 +57,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
                 continue;
             }
             movie.setId(id);
-            movie.setMovieAvgScore(getAverageScore(findMovieReviewById(id)));
+            movie.setMovieAvgScore(getAverageScore(findMovieReviewsById(id)));
             String movieName = movie.getName();
             List<RemoteMovieInfo> list = null;
             if (moviesByName.get(movieName) == null) {
@@ -69,9 +74,9 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
                 continue;
             }
             for (MovieTag tag : movie.getTags()) {
-                putMovieIntoTagMap(tag, movie);
+                MapUtil.putMultiValue(moviesByTagOrderedByScore, tag, movie);
             }
-            movieSortedByTime.add(movie);
+            allMoviesSortedByTime.add(movie);
         }
         for (Map.Entry<MovieTag, List<RemoteMovieInfo>> entry : moviesByTagOrderedByScore.entrySet()) {
             Collections.sort(entry.getValue(), new RemoteMovieInfoScoreDescComparator());
@@ -79,20 +84,9 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
             Collections.sort(movies, new RemoteMovieInfoTimeDescComparator());
             moviesByTagOrderedByTime.put(entry.getKey(), movies);
         }
-        Collections.sort(movieSortedByTime, new RemoteMovieInfoTimeDescComparator());
+        Collections.sort(allMoviesSortedByTime, new RemoteMovieInfoTimeDescComparator());
 
         System.out.println("MovieService初始化完毕！");
-//        System.out.println(movieSortedByTime.size());
-//        for (Map.Entry<MovieTag, List<RemoteMovieInfo>> entry : moviesByTagOrderedByTime.entrySet()) {
-//            System.out.println(entry.getKey());
-//            for(RemoteMovieInfo info:entry.getValue()){
-//                System.out.println(info.getName()+"  "+ info.getReleaseTime());
-//            }
-//        }
-//        System.out.println(moviesByName);
-//        System.out.println(moviesByTagOrderedByScore);
-//        System.out.println(moviesByTagOrderedByTime);
-//        movieSortedByTime.forEach(System.out::println);
     }
 
     @Override
@@ -102,8 +96,8 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
 
     @Override
     public Movie findMovieByID(String id) {
-        List<MovieReview> reviews = findMovieReviewsSortedByTime(id);
-        Movie movie = new Movie(id, reviews.get(0).getTime(), reviews.get(reviews.size() - 1).getTime(), reviews.size(),
+        List<MovieReview> reviews = findMovieReviewsSortedByTimeDesc(id);
+        Movie movie = new Movie(id, reviews.get(reviews.size() - 1).getTime(), reviews.get(0).getTime(), reviews.size(),
                 getVarianceOfScore(reviews), super.getKeyWords(reviews), getAverageScore(reviews));
         return movie;
     }
@@ -114,7 +108,8 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
      * @param id
      * @return
      */
-    protected List<MovieReview> findMovieReviewById(String id) {
+    @Override
+    protected List<MovieReview> findMovieReviewsById(String id) {
         List<MovieReview> reviews = dao.findByMovieId(id);
         if (reviews.size() == 0) {
             throw new MovieNotFoundException(id);
@@ -135,7 +130,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
 
     @Override
     public Map<Integer, Long> findScoresByStar(String id) {
-        return findMovieReviewById(id).stream()
+        return findMovieReviewsById(id).stream()
                 .collect(Collectors.groupingBy(MovieReview::getScore, Collectors.counting()));
     }
 
@@ -145,15 +140,6 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         return reviews.stream().collect(Collectors.averagingDouble(MovieReview::getScore));
     }
 
-    private void putMovieIntoTagMap(MovieTag tag, RemoteMovieInfo movie) {
-        if (moviesByTagOrderedByScore.get(tag) == null) {
-            List<RemoteMovieInfo> list = new ArrayList<>();
-            list.add(movie);
-            moviesByTagOrderedByScore.put(tag, list);
-        } else {
-            moviesByTagOrderedByScore.get(tag).add(movie);
-        }
-    }
 
     @Override
     public List<String> findAllMovieNames() {
@@ -162,7 +148,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
 
     private PageBean<RemoteMovieInfo> getPageBean(int currPage, List<RemoteMovieInfo> infos) {
         PageBean<RemoteMovieInfo> pageBean = new PageBean<>(currPage, infos.size(), this.pageSize);
-        List<RemoteMovieInfo> currPageContents = getCopiedSubList(infos, pageBean.getCurrPageBeginIndex(), pageBean.getCurrPageEndIndex());
+        List<RemoteMovieInfo> currPageContents = infos.subList(pageBean.getCurrPageBeginIndex(), pageBean.getCurrPageEndIndex());
         for (RemoteMovieInfo info : currPageContents) {
             info.setMovie(findMovieByID(info.getId()));
         }
@@ -170,14 +156,6 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         return pageBean;
     }
 
-    private <T> List<T> getCopiedSubList(List<T> list, int begin, int end) {
-        List<T> result = new ArrayList<T>();
-        for (int i = begin; i < end; ++i) {
-            result.add(list.get(i));
-        }
-//        System.out.println("子列长度"+result.size());
-        return result;
-    }
 
     @Override
     public PageBean<RemoteMovieInfo> findMoviesByName(String name, int currPage) {
@@ -202,7 +180,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
 
     @Override
     public PageBean<RemoteMovieInfo> findLatestMovies(int currPage) {
-        return getPageBean(currPage, movieSortedByTime);
+        return getPageBean(currPage, allMoviesSortedByTime);
     }
 
     @Override
@@ -216,27 +194,60 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     }
 
     @Override
-    public List<MovieReview> findTop10MovieReviewsById(String id) {
-        return null;
+    public List<MovieReview> findTop10MovieReviewsById(String id, MovieReviewSortType sort) {
+        List<MovieReview> reviews = findMovieReviewsById(id);
+        Collections.sort(reviews, SpringContextUtil.getBean(sort.toString()));
+        return reviews.subList(0, Math.min(10, reviews.size()));
     }
 
     @Override
     public Map<MovieTag, Double> findMovieTagProportions() {
-        return null;
+        int totalMovies = allMoviesSortedByTime.size();
+        Map<MovieTag, Double> result = new HashMap<>();
+        for (Map.Entry<MovieTag, List<RemoteMovieInfo>> entry : moviesByTagOrderedByTime.entrySet()) {
+            result.put(entry.getKey(), 1.0 * entry.getValue().size() / totalMovies);
+        }
+        return result;
     }
 
     @Override
-    public Map<Long, Double> findReviewTimesAndScores() {
-        return null;
+    public Map<Long, List<Double>> findReviewTimesAndScores() {
+        Map<Long, List<Double>> result = new HashMap<>();
+        List<MovieReview> reviews = null;
+        for (String id : findAllIds()) {
+            reviews = findMovieReviewsById(id);
+            MapUtil.putMultiValue(result, Long.valueOf(reviews.size()), getAverageScore(reviews));
+        }
+        return result;
     }
-
+    
     @Override
     public Map<Month, Double> findMovieScoresInMonthsById(String id) {
-        return null;
+        return findMovieScores(TimeUnit.Month, findMovieReviewsById(id));
     }
 
     @Override
-    public Map<Date, Double> findMovieScoresInDayByIdAndMonthSpan(String id, int monthSpan) {
-        return null;
+    public Map<Day, Double> findMovieScoresInDayByIdAndMonthSpan(String id, int monthSpan) {
+        List<MovieReview> reviews = super.findMovieReviewsSortedByTimeDesc(id);
+        Date begin = reviews.get(reviews.size()-1).getTime();
+        System.out.println(begin);
+        Calendar c = Calendar.getInstance();
+        c.setTime(begin);
+        c.add(Calendar.MONTH, monthSpan);
+        System.out.println(c.getTime());
+        return findMovieScores(TimeUnit.Day, reviews.stream().filter((r) -> r.getTime().before(c.getTime()))
+                .collect(Collectors.toList()));
+    }
+    
+    private <T> Map<T, Double> findMovieScores(TimeUnit unit, List<MovieReview> reviews) {
+        Map<T, List<MovieReview>> midResult = reviews.stream().collect(Collectors.groupingBy(SpringContextUtil.getBean(unit.toString())));
+        Map<T, Double> result = new TreeMap<>();
+        List<MovieReview> lastReviews = new ArrayList<>();
+        for (Map.Entry<T, List<MovieReview>> entry : midResult.entrySet()) {
+            entry.getValue().addAll(lastReviews);
+            result.put(entry.getKey(), entry.getValue().stream().collect(Collectors.averagingDouble((r) -> (double) r.getScore())));
+            lastReviews = entry.getValue();
+        }
+        return result;
     }
 }

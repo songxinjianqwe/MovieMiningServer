@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.entity.MovieReview;
-import me.newsong.flyweight.service.impl.comp.MovieReviewTimeAscComparator;
+import me.newsong.flyweight.service.impl.comp.MovieReviewTimeDescComparator;
 import me.newsong.flyweight.utils.PythonUtil;
 
 @Transactional(readOnly = true)
@@ -34,16 +34,16 @@ public abstract class MovieReviewTemplateImpl {
 	 * @param id
 	 * @return
 	 */
-	protected abstract List<MovieReview> findMovieReviewById(String id);
+	protected abstract List<MovieReview> findMovieReviewsById(String id);
 
-	protected List<MovieReview> findMovieReviewsSortedByTime(String id) {
-		List<MovieReview> reviews = findMovieReviewById(id);
-		Collections.sort(reviews, new MovieReviewTimeAscComparator());
+	protected List<MovieReview> findMovieReviewsSortedByTimeDesc(String id) {
+		List<MovieReview> reviews = findMovieReviewsById(id);
+		Collections.sort(reviews, new MovieReviewTimeDescComparator());
 		return reviews;
 	}
 
 	public <T> Map<T, Long> findAccumulatedReviewCountsBy(TimeUnit unit, String id, Date begin, Date end) {
-        Map<T, Long> map = findMovieReviewById(id).stream()
+        Map<T, Long> map = findMovieReviewsById(id).stream()
 				.filter((review) -> !review.getTime().before(begin) && !review.getTime().after(end))
 				.collect(Collectors.groupingBy(SpringContextUtil.getBean(unit.toString()), Collectors.counting()));
 		Map<T, Long> result = new TreeMap<>();

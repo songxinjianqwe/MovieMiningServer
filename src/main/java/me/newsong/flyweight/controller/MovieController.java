@@ -52,7 +52,6 @@ public class MovieController {
     @RequestMapping(value = "/accum_review_counts/{id}", method = RequestMethod.GET)
     public Map<BaseTimeUnit, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("timeUnit") String timeUnit,
                                                                @RequestParam("begin") Long begin, @RequestParam("end") Long end, Locale locale) {
-        System.out.println(timeUnit);
         TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
         if (unit == null) {
             throw new TimeUnitNotFoundException(timeUnit);
@@ -100,4 +99,28 @@ public class MovieController {
         return service.findMoviesByTag(tag, sort, page);
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/tags/proportions", method = RequestMethod.GET)
+    public Map<MovieTag, Double> findMovieTagProportions() {
+        return service.findMovieTagProportions();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/reviewTimesAndScores", method = RequestMethod.GET)
+    public Map<Long, List<Double>> findReviewTimesAndScores() {
+        return service.findReviewTimesAndScores();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/{id}/scores", method = RequestMethod.GET)
+    public Map<? extends BaseTimeUnit, Double> findMovieScores(@PathVariable("id") String id, @RequestParam("timeUnit") String timeUnit, @RequestParam(value = "monthSpan", required = false, defaultValue = "0") int monthSpan) {
+        TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
+        if (unit == TimeUnit.Month) {
+            return service.findMovieScoresInMonthsById(id);
+        } else if (unit == TimeUnit.Day) {
+            return service.findMovieScoresInDayByIdAndMonthSpan(id, monthSpan);
+        } else {
+            throw new TimeUnitNotFoundException(timeUnit);
+        }
+    }
 }

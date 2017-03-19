@@ -24,12 +24,12 @@ public class UserServiceImpl extends MovieReviewTemplateImpl implements UserServ
 
 	@Override
 	public User findUserById(String id) {
-		List<MovieReview> reviews = findMovieReviewsSortedByTime(id);
+		List<MovieReview> reviews = findMovieReviewsSortedByTimeDesc(id);
 		return new User(id, reviews.get(0).getTime(), reviews.get(reviews.size() - 1).getTime(), reviews.size(),
 				super.getKeyWords(reviews),getAverageDescLength(reviews));
 	}
 
-	protected List<MovieReview> findMovieReviewById(String id) {
+	protected List<MovieReview> findMovieReviewsById(String id) {
 		List<MovieReview> reviews = dao.findByUserId(id);
 		if (reviews.size() == 0) {
 			throw new UserNotFoundException(id);
@@ -39,7 +39,7 @@ public class UserServiceImpl extends MovieReviewTemplateImpl implements UserServ
 	
 	@Override
 	public Map<DescLengthRange, Long> findDescLengthsWithRange(String id, int gap) {
-		return findMovieReviewById(id).stream().map((review) -> review.getContent().length())
+		return findMovieReviewsById(id).stream().map((review) -> review.getContent().length())
 				.collect(Collectors.groupingBy((len) -> {
 					int level = len / gap;
 					DescLengthRange descLengthRange = new DescLengthRange(level * gap, (level + 1) * gap);

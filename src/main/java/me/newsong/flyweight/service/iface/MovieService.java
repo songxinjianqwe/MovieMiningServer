@@ -4,7 +4,9 @@ import me.newsong.flyweight.domain.entity.Movie;
 import me.newsong.flyweight.domain.entity.MovieReview;
 import me.newsong.flyweight.domain.entity.PageBean;
 import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
+import me.newsong.flyweight.domain.time.Day;
 import me.newsong.flyweight.domain.time.Month;
+import me.newsong.flyweight.enums.MovieReviewSortType;
 import me.newsong.flyweight.enums.MovieSortType;
 import me.newsong.flyweight.enums.MovieTag;
 
@@ -31,13 +33,13 @@ public interface MovieService extends MovieReviewTemplate {
 
     PageBean<RemoteMovieInfo> findMoviesByTag(MovieTag tag, MovieSortType sortBy, int currPage);
 
-    List<MovieReview> findTop10MovieReviewsById(String id);
+    List<MovieReview> findTop10MovieReviewsById(String id, MovieReviewSortType sort);
     
     Map<MovieTag, Double> findMovieTagProportions();
 
-    Map<Long, Double> findReviewTimesAndScores();
+    Map<Long, List<Double>> findReviewTimesAndScores();
 
     Map<Month, Double> findMovieScoresInMonthsById(String id);
 
-    Map<Date, Double> findMovieScoresInDayByIdAndMonthSpan(String id, int monthSpan);
+    Map<Day, Double> findMovieScoresInDayByIdAndMonthSpan(String id, int monthSpan);
 }

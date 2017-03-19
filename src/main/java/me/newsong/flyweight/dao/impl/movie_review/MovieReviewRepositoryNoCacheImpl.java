@@ -4,6 +4,7 @@ import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.entity.MovieReview;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -73,6 +74,9 @@ public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
             e.printStackTrace();
         }
         removeDuplicateMovies();
+//        for(Map.Entry<String,List<MovieReview>> entry:movieIdReviews.entrySet()){
+//            entry.getValue().forEach(System.out::println);
+//        }
     }
 
 

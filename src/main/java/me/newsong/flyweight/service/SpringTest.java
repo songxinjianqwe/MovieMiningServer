@@ -2,9 +2,15 @@ package me.newsong.flyweight.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.newsong.flyweight.dao.iface.movie.MovieRepository;
+import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
+import me.newsong.flyweight.domain.entity.Movie;
+import me.newsong.flyweight.domain.entity.MovieReview;
 import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
+import me.newsong.flyweight.enums.MovieReviewSortType;
 import me.newsong.flyweight.enums.TimeUnit;
 import me.newsong.flyweight.service.iface.MovieService;
+import me.newsong.flyweight.service.impl.comp.MovieReviewHelpfulDescComparator;
+import me.newsong.flyweight.service.impl.comp.MovieReviewTimeDescComparator;
 import me.newsong.flyweight.utils.SpringContextUtil;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +22,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 
@@ -26,8 +34,12 @@ public class SpringTest {
     @Qualifier("CachedMovies")
     private MovieRepository dao;
     @Autowired
+    @Qualifier("CachedReviews")
+    private MovieReviewRepository reviewsDao;
+    @Autowired
     private MovieService service;
     private ObjectMapper mapper;
+
 
     @Before
     public void setUp() throws Exception {
@@ -80,5 +92,41 @@ public class SpringTest {
         System.out.println(cls);
         Function func = SpringContextUtil.getBean("Month");
         System.out.println(func);
+    }
+
+    @Test
+    public void testOrder() {
+        for (String id : service.findAllIds()) {
+            System.out.println();
+            System.out.println(id);
+            List<MovieReview> reviews = service.findTop10MovieReviewsById(id, MovieReviewSortType.Helpful);
+            System.out.println("Max:" + 1.0 * reviews.get(0).getHelpfulTimes() / reviews.get(0).getViewTimes());
+            System.out.println("Min:" + 1.0 * reviews.get(reviews.size() - 1).getHelpfulTimes() / reviews.get(reviews.size() - 1).getViewTimes());
+        }
+    }
+    
+    @Test
+    public void test5() {
+        List<MovieReview> reviews = reviewsDao.findByMovieId("6304994567").subList(200,220);
+        reviews.forEach(System.out::println);
+        Collections.sort(reviews, new MovieReviewHelpfulDescComparator());
+        System.out.println("排序");
+        reviews.forEach(System.out::println);
+    }
+    
+    @Test
+    public void testOrder2(){
+        List<MovieReview> reviews = new ArrayList<>();
+        for(int i = 0 ; i < 20;++i){
+            MovieReview review = new MovieReview();
+            review.setMovieId(i+"");
+            review.setHelpfulTimes(i);
+            review.setViewTimes(20-i);
+            reviews.add(review);
+        }
+        reviews.forEach(System.out::println);
+        Collections.sort(reviews,new MovieReviewHelpfulDescComparator());
+        System.out.println("排序后");
+        reviews.forEach(System.out::println);
     }
 }

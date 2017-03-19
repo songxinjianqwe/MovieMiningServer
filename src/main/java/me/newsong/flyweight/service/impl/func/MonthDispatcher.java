@@ -16,7 +16,6 @@ public class MonthDispatcher implements Function<MovieReview, Month> {
 	public Month apply(MovieReview review) {
 		LocalDate date = review.getTime().toInstant().atZone(ZoneId.of("UTC")).toLocalDate();
 		Month month = new Month(date.getYear(), date.getMonth().getValue());
-//		System.out.println("Month:"+month);
 		return month;
 	}
 

@@ -23,7 +23,7 @@ import me.newsong.flyweight.domain.entity.Movie;
 import me.newsong.flyweight.domain.entity.MovieReview;
 import me.newsong.flyweight.domain.time.Season;
 import me.newsong.flyweight.service.iface.MovieService;
-import me.newsong.flyweight.service.impl.comp.MovieReviewTimeAscComparator;
+import me.newsong.flyweight.service.impl.comp.MovieReviewTimeDescComparator;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })
@@ -146,9 +146,9 @@ public class TestMovieService {
 		System.out.println(movie.getLatestReviewTime().getTime());
 		List<MovieReview> reviews = dao.findByMovieId("B0002RGNRU");
 		assertEquals(movie.getEarliestReviewTime(),
-				reviews.stream().collect(Collectors.minBy(new MovieReviewTimeAscComparator())).get().getTime());
+				reviews.stream().collect(Collectors.minBy(new MovieReviewTimeDescComparator())).get().getTime());
 		assertEquals(movie.getLatestReviewTime(),
-				reviews.stream().collect(Collectors.maxBy(new MovieReviewTimeAscComparator())).get().getTime());
+				reviews.stream().collect(Collectors.maxBy(new MovieReviewTimeDescComparator())).get().getTime());
 	}
 
 	@Test

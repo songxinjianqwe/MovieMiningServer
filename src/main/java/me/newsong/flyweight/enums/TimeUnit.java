@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum TimeUnit {
-	Month,Season;
+	Month,Season,Day;
 	 private static final Map<String, TimeUnit> stringToEnum = new HashMap<>();
     
     static {
