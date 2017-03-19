@@ -14,7 +14,6 @@ public class Movie {
 	private double varianceOfScore;
 	private List<String> keyWords;
 	private double avgScore;
-	private RemoteMovieInfo removeInfo;
 	
 	
 	public Movie() {
@@ -86,14 +85,6 @@ public class Movie {
         this.avgScore = avgScore;
     }
 
-    public RemoteMovieInfo getRemoveInfo() {
-        return removeInfo;
-    }
-
-    public void setRemoveInfo(RemoteMovieInfo removeInfo) {
-        this.removeInfo = removeInfo;
-    }
-
     @Override
     public String toString() {
         return "Movie{" +
@@ -104,7 +95,6 @@ public class Movie {
                 ", varianceOfScore=" + varianceOfScore +
                 ", keyWords=" + keyWords +
                 ", avgScore=" + avgScore +
-                ", removeInfo=" + removeInfo +
                 '}';
     }
 
@@ -123,8 +113,7 @@ public class Movie {
             return false;
         if (latestReviewTime != null ? !latestReviewTime.equals(movie.latestReviewTime) : movie.latestReviewTime != null)
             return false;
-        if (keyWords != null ? !keyWords.equals(movie.keyWords) : movie.keyWords != null) return false;
-        return removeInfo != null ? removeInfo.equals(movie.removeInfo) : movie.removeInfo == null;
+        return keyWords != null ? keyWords.equals(movie.keyWords) : movie.keyWords == null;
     }
 
     @Override
@@ -140,7 +129,6 @@ public class Movie {
         result = 31 * result + (keyWords != null ? keyWords.hashCode() : 0);
         temp = Double.doubleToLongBits(avgScore);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (removeInfo != null ? removeInfo.hashCode() : 0);
         return result;
     }
 }   

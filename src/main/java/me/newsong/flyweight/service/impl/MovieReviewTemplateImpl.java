@@ -17,14 +17,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.MovieReview;
-import me.newsong.flyweight.service.impl.comp.MovieReviewTimeComparator;
+import me.newsong.flyweight.service.impl.comp.MovieReviewTimeAscComparator;
 import me.newsong.flyweight.utils.PythonUtil;
 
 @Transactional(readOnly = true)
 @Service
-public abstract class BaseMovieReviewHandler {
+public abstract class MovieReviewTemplateImpl {
 	@Autowired
-	@Qualifier("NoCacheReviews")
+	@Qualifier("CachedReviews")
 	protected MovieReviewRepository dao;
 	protected PythonUtil util = PythonUtil.getInstance();
 	/**
@@ -37,7 +37,7 @@ public abstract class BaseMovieReviewHandler {
 
 	protected List<MovieReview> findMovieReviewsSortedByTime(String id) {
 		List<MovieReview> reviews = findMovieReviewById(id);
-		Collections.sort(reviews, new MovieReviewTimeComparator());
+		Collections.sort(reviews, new MovieReviewTimeAscComparator());
 		return reviews;
 	}
 

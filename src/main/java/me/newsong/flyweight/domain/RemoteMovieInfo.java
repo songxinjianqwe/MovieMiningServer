@@ -2,42 +2,40 @@ package me.newsong.flyweight.domain;
 
 import me.newsong.flyweight.enums.MovieTag;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by SinjinSong on 2017/3/18.
  */
 public class RemoteMovieInfo {
+    private String id;
     private String posterURL;
-	private String name;
-	private MovieTag[] tags;
-	private Date releaseTime;
-	private String[] directors;
-	private String[] writers;
-	private String[] actors;
-	private String[] languages;
-	private String[] countries;
-	private String summary;
-	private double imdbScore;
-	private int duration;
-	public RemoteMovieInfo(){
-	    
+    private String name;
+    private MovieTag[] tags;
+    private Date releaseTime;
+    private String[] directors;
+    private String[] writers;
+    private String[] actors;
+    private String[] languages;
+    private String[] countries;
+    private String summary;
+    private double imdbScore;
+    private int duration;
+    private Movie movie = new Movie();
+
+    public RemoteMovieInfo() {
+
     }
 
-    public RemoteMovieInfo(String posterURL, String name, MovieTag[] tags, Date releaseTime, String[] directors, String[] writers, String[] actors, String[] languages, String[] countries, String summary, double imdbScore, int duration) {
-        this.posterURL = posterURL;
-        this.name = name;
-        this.tags = tags;
-        this.releaseTime = releaseTime;
-        this.directors = directors;
-        this.writers = writers;
-        this.actors = actors;
-        this.languages = languages;
-        this.countries = countries;
-        this.summary = summary;
-        this.imdbScore = imdbScore;
-        this.duration = duration;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getPosterURL() {
@@ -136,10 +134,23 @@ public class RemoteMovieInfo {
         this.duration = duration;
     }
 
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
+
+    public void setMovieAvgScore(double avgScore) {
+        this.movie.setAvgScore(avgScore);
+    }
+
     @Override
     public String toString() {
         return "RemoteMovieInfo{" +
-                "posterURL='" + posterURL + '\'' +
+                "id=" + id +
+                ", posterURL='" + posterURL + '\'' +
                 ", name='" + name + '\'' +
                 ", tags=" + Arrays.toString(tags) +
                 ", releaseTime=" + releaseTime +
@@ -151,6 +162,7 @@ public class RemoteMovieInfo {
                 ", summary='" + summary + '\'' +
                 ", imdbScore=" + imdbScore +
                 ", duration=" + duration +
+                ", movie=" + movie +
                 '}';
     }
 

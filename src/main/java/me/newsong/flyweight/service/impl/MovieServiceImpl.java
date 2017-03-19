@@ -3,9 +3,12 @@ package me.newsong.flyweight.service.impl;
 import me.newsong.flyweight.dao.iface.movie.MovieRepository;
 import me.newsong.flyweight.domain.Movie;
 import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.domain.RemoteMovieInfo;
 import me.newsong.flyweight.enums.MovieTag;
 import me.newsong.flyweight.exceptions.MovieNotFoundException;
 import me.newsong.flyweight.service.iface.MovieService;
+import me.newsong.flyweight.service.impl.comp.RemoteMovieInfoScoreDescComparator;
+import me.newsong.flyweight.service.impl.comp.RemoteMovieInfoTimeDescComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -21,54 +24,74 @@ import java.util.stream.Collectors;
 
 @Transactional(readOnly = true)
 @Service
-public class MovieServiceImpl extends BaseMovieReviewHandler implements MovieService {
-    private Map<String, List<Movie>> moviesByName;
-    private Map<MovieTag, List<Movie>> moviesByTag;
-    private List<Movie> movies;
+public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieService {
+    private Map<String, List<RemoteMovieInfo>> moviesByName;
+    private Map<MovieTag, List<RemoteMovieInfo>> moviesByTagOrderedByScore;
+    private Map<MovieTag, List<RemoteMovieInfo>> moviesByTagOrderedByTime;
+    private List<RemoteMovieInfo> movies;
 
     @Autowired
-    @Qualifier("NoCacheMovies")
+    @Qualifier("CachedMovies")
     private MovieRepository movieDao;
 
     public MovieServiceImpl() {
         moviesByName = new ConcurrentHashMap<>();
-        moviesByTag = new ConcurrentHashMap<>();
+        moviesByTagOrderedByScore = new ConcurrentHashMap<>();
+        moviesByTagOrderedByTime = new ConcurrentHashMap<>();
         movies = new ArrayList<>();
     }
 
-//    @PostConstruct
+    @PostConstruct
     private void init() {
+        System.out.println("开始初始化MovieService...");
+        RemoteMovieInfo movie = null;
         for (String id : findAllIds()) {
-            Movie movie = findMovieByID(id);
-            movie.setRemoveInfo(movieDao.findMovieViaCrawler(id));
-            String movieName = movie.getRemoveInfo().getName();
-            List<Movie> list = null;
+            movie = movieDao.findMovieViaCrawler(id);
+            if (movie == null) {
+                continue;
+            }
+            movie.setId(id);
+            movie.setMovieAvgScore(getAverageScore(findMovieReviewById(id)));
+            String movieName = movie.getName();
+            List<RemoteMovieInfo> list = null;
             if (moviesByName.get(movieName) == null) {
                 list = new ArrayList<>();
                 list.add(movie);
                 moviesByName.put(movieName, list);
-            } else {
+            } else if (!moviesByName.get(movieName).contains(movie)) {
+//                System.out.println("同名新电影");
+//                moviesByName.get(movieName).forEach(System.out::println);
+//                System.out.println(movie);
                 moviesByName.get(movieName).add(movie);
+            } else {
+//                System.out.println("已存在该电影 "+movieName);
+                continue;
             }
-            for (MovieTag tag : movie.getRemoveInfo().getTags()) {
+            for (MovieTag tag : movie.getTags()) {
                 putMovieIntoTagMap(tag, movie);
             }
             movies.add(movie);
         }
-        Collections.sort(movies, (m1, m2) -> {
-            if (m1.getRemoveInfo().getReleaseTime().before(m2.getRemoveInfo().getReleaseTime())) {
-                return 1;
-            } else if (m1.getRemoveInfo().getReleaseTime().after(m2.getRemoveInfo().getReleaseTime())) {
-                return -1;
-            } else {
-                return 0;
-            }
-        });
-        System.out.println(moviesByName);
-        System.out.println(moviesByTag);
-        System.out.println(movies);
+        for (Map.Entry<MovieTag, List<RemoteMovieInfo>> entry : moviesByTagOrderedByScore.entrySet()) {
+            Collections.sort(entry.getValue(), new RemoteMovieInfoScoreDescComparator());
+            List<RemoteMovieInfo> movies = new ArrayList<>(entry.getValue());
+            Collections.sort(movies, new RemoteMovieInfoTimeDescComparator());
+            moviesByTagOrderedByTime.put(entry.getKey(), movies);
+        }
+        Collections.sort(movies, new RemoteMovieInfoTimeDescComparator());
+        System.out.println("MovieService初始化完毕！");
+//        System.out.println(movies.size());
+//        for (Map.Entry<MovieTag, List<RemoteMovieInfo>> entry : moviesByTagOrderedByTime.entrySet()) {
+//            System.out.println(entry.getKey());
+//            for(RemoteMovieInfo info:entry.getValue()){
+//                System.out.println(info.getName()+"  "+ info.getReleaseTime());
+//            }
+//        }
+//        System.out.println(moviesByName);
+//        System.out.println(moviesByTagOrderedByScore);
+//        System.out.println(moviesByTagOrderedByTime);
+//        movies.forEach(System.out::println);
     }
-
 
     @Override
     public List<String> findAllIds() {
@@ -105,8 +128,6 @@ public class MovieServiceImpl extends BaseMovieReviewHandler implements MovieSer
         long squareSum = reviews.stream()
                 .collect(Collectors.summarizingInt((review) -> review.getScore() * review.getScore())).getSum();
         double avg = reviews.stream().collect(Collectors.averagingDouble(MovieReview::getScore));
-        // System.out.println("SquareSum "+squareSum);
-        // System.out.println("avg "+avg);
         return 1.0 * squareSum / reviews.size() - avg * avg;
     }
 
@@ -117,13 +138,12 @@ public class MovieServiceImpl extends BaseMovieReviewHandler implements MovieSer
     }
 
     @Override
-    public List<Movie> findMoviesByNames(String[] names) {
-
-        List<Movie> movies = new ArrayList<>();
-        for (String name : names) {
-            movies.addAll(moviesByName.get(name));
+    public List<RemoteMovieInfo> findMoviesByName(String name) {
+        List<RemoteMovieInfo> infos = moviesByName.get(name);
+        for (RemoteMovieInfo info : infos) {
+            info.setMovie(findMovieByID(info.getId()));
         }
-        return movies;
+        return infos;
     }
 
     @Override
@@ -131,13 +151,13 @@ public class MovieServiceImpl extends BaseMovieReviewHandler implements MovieSer
         return reviews.stream().collect(Collectors.averagingDouble(MovieReview::getScore));
     }
 
-    private void putMovieIntoTagMap(MovieTag tag, Movie movie) {
-        if (moviesByTag.get(tag) == null) {
-            List<Movie> list = new ArrayList<>();
+    private void putMovieIntoTagMap(MovieTag tag, RemoteMovieInfo movie) {
+        if (moviesByTagOrderedByScore.get(tag) == null) {
+            List<RemoteMovieInfo> list = new ArrayList<>();
             list.add(movie);
-            moviesByTag.put(tag, list);
+            moviesByTagOrderedByScore.put(tag, list);
         } else {
-            moviesByTag.get(tag).add(movie);
+            moviesByTagOrderedByScore.get(tag).add(movie);
         }
     }
 }

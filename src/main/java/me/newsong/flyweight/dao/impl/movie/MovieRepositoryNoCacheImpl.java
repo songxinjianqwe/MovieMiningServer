@@ -18,18 +18,19 @@ import java.util.Map;
  */
 @Repository("NoCacheMovies")
 public class MovieRepositoryNoCacheImpl implements MovieRepository {
-    private PythonUtil util = PythonUtil.getInstance();
+    private PythonUtil util ;
     private Map<String, RemoteMovieInfo> moviesById;
     @Autowired
     @Qualifier("NoCacheReviews")
     private MovieReviewRepository dao;
 
     public MovieRepositoryNoCacheImpl() {
+        util = PythonUtil.getInstance();
         moviesById = new HashMap<>();
     }
     
 //    @PostConstruct
-    public void init() {
+    private void init() {
         for (String id : dao.findAllMovieIds()) {
             moviesById.put(id, findMovieViaCrawler(id));
         }
@@ -37,6 +38,7 @@ public class MovieRepositoryNoCacheImpl implements MovieRepository {
     
     @Override
     public RemoteMovieInfo findMovieViaCrawler(String id) {
+        System.out.println("连接Python服务器启动爬虫");
         return util.call("crawl", Arrays.asList(id), RemoteMovieInfo.class);
     }
     

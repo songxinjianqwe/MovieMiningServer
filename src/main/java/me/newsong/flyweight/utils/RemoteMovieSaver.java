@@ -36,9 +36,8 @@ public class RemoteMovieSaver {
         Map<String, RemoteMovieInfo> movies = new HashMap<>();
         List<String> ids = reviewDao.findAllMovieIds();
         for (int i = 0; i < ids.size(); ++i) {
-            System.out.println(i);
+            System.out.println(i+" : "+ids.get(i));
             RemoteMovieInfo movie = movieDao.findMovieViaCrawler(ids.get(i));
-            
             if(movie != null && movie.getPosterURL() != null){
                 movies.put(ids.get(i), movie);
             }

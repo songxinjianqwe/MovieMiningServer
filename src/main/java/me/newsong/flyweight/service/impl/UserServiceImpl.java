@@ -15,7 +15,7 @@ import me.newsong.flyweight.service.iface.UserService;
 
 @Transactional(readOnly = true)
 @Service
-public class UserServiceImpl extends BaseMovieReviewHandler implements UserService {
+public class UserServiceImpl extends MovieReviewTemplateImpl implements UserService {
 	
 	@Override
 	public List<String> findAllIds() {

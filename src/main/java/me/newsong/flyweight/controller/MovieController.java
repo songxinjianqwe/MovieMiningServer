@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import me.newsong.flyweight.domain.RemoteMovieInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,8 +41,8 @@ public class MovieController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Movie findMovieByID(@PathVariable("id") String id) {
+	@RequestMapping(value = "/id", method = RequestMethod.GET)
+	public Movie findMovieByID(@RequestParam("id")  String id) {
 		return service.findMovieByID(id);
 	}
 
@@ -65,8 +67,10 @@ public class MovieController {
 	}
 	
     @ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/{names}", method = RequestMethod.GET)
-	public List<Movie> findMoviesByNames(@PathVariable("names") String [] names){
-	    return service.findMoviesByNames(names);
+	@RequestMapping(value = "/name", method = RequestMethod.GET)
+	public List<RemoteMovieInfo> findMoviesByNames(@RequestParam("name") String  name){
+	    return service.findMoviesByName(name);
     }
+    
+    
 }

@@ -33,12 +33,12 @@ public class MovieRepositoryCachedImpl implements MovieRepository {
     public MovieRepositoryCachedImpl() {
         rb = ResourceBundle.getBundle("fileSystemData");
         mapper = new ObjectMapper();
-//        try {
-//            moviesById = mapper.readValue(MovieRepositoryCachedImpl.class.getClassLoader().getResourceAsStream(rb.getString("remoteMovieDir")),
-//                    new TypeReference<Map<String, RemoteMovieInfo>>(){});
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            moviesById = mapper.readValue(MovieRepositoryCachedImpl.class.getClassLoader().getResourceAsStream(rb.getString("remoteMovieDir")),
+                    new TypeReference<Map<String, RemoteMovieInfo>>(){});
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

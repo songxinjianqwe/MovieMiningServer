@@ -115,21 +115,12 @@ public class MovieReviewRepositoryCachedImpl implements MovieReviewRepository {
 
 	@Override
 	public List<String> findAllMovieIds() {
-		return new ArrayList<String>(movieIndexMap.keySet());
+		return new ArrayList<>(movieIndexMap.keySet());
 	}
 
 	@Override
 	public List<String> findAllUserIds() {
-		return new ArrayList<String>(userIndexMap.keySet());
-	}
-	
-	
-	public static void main(String[] args) throws IOException {
-		MovieReviewRepositoryCachedImpl impl = new MovieReviewRepositoryCachedImpl();
-		List<MovieReview> list = impl.findByMovieId("B004SIP910");
-		FileWriter writer = new FileWriter("D:/content.txt");
-		writer.append(list.stream().map(MovieReview::getContent).collect(Collectors.joining()));
-		writer.close();
+		return new ArrayList<>(userIndexMap.keySet());
 	}
 
 }

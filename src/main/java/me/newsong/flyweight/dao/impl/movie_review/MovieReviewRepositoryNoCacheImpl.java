@@ -4,6 +4,7 @@ import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.MovieReview;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,7 +21,7 @@ public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
     private Map<String, List<MovieReview>> userIdReviews;
     private String path;
     private ResourceBundle rb;
-    
+
     public MovieReviewRepositoryNoCacheImpl() {
         rb = ResourceBundle.getBundle("fileSystemData");
         if (System.getProperty("os.name").indexOf("Windows") != -1) {
@@ -30,10 +31,9 @@ public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
         }
         movieIdReviews = new HashMap<>();
         userIdReviews = new HashMap<>();
-        init();
-        removeDuplicateMovies();
     }
-    
+
+//    @PostConstruct
     private void init() {
         System.out.println("Read File Started ...");
         try {
@@ -66,13 +66,14 @@ public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
                 putMovieReview(userIdReviews, userId, movieReview);
                 curr++;
                 if (curr % 100000 == 0) {
-                    System.out.println("Has read "+curr+" records...");
+                    System.out.println("Has read " + curr + " records...");
                 }
             }
             System.out.println("File Read Complele!");
         } catch (IOException e) {
             e.printStackTrace();
         }
+        removeDuplicateMovies();
     }
 
 
@@ -94,15 +95,12 @@ public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
             Set<MovieReview> set = new HashSet<>(reviews);
             if (set.size() > 1) {
                 filteredUserIdReviews.put(id, userIdReviews.get(id));
-//				for(MovieReview review:set){
-//					System.out.println(review);
-//				}
             }
         }
         userIdReviews = filteredUserIdReviews;
         System.out.println("Remove Duplicate Movies Cmplete!");
     }
-
+    
     @Override
     public List<MovieReview> findByMovieId(String id) {
         return movieIdReviews.get(id);

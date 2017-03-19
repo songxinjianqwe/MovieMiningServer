@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import me.newsong.flyweight.domain.MovieReview;
 
-public class MovieReviewTimeComparator implements Comparator<MovieReview> {
+public class MovieReviewTimeAscComparator implements Comparator<MovieReview> {
 	
 	@Override
 	public int compare(MovieReview r1, MovieReview r2) {
