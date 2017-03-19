@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.dao.impl.movie_review.MovieReviewRepositoryCachedImpl;
 import me.newsong.flyweight.domain.Index;
-import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.domain.entity.MovieReview;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:applicationContext.xml" })

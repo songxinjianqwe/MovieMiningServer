@@ -2,7 +2,7 @@ package me.newsong.flyweight.dao.iface.movie_review;
 
 import java.util.List;
 
-import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.domain.entity.MovieReview;
 
 public interface MovieReviewRepository {
     List<MovieReview> findByMovieId(String id);

@@ -2,8 +2,8 @@ package me.newsong.flyweight.test.service;
 
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.DescLengthRange;
-import me.newsong.flyweight.domain.MovieReview;
-import me.newsong.flyweight.domain.User;
+import me.newsong.flyweight.domain.entity.MovieReview;
+import me.newsong.flyweight.domain.entity.User;
 import me.newsong.flyweight.service.iface.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

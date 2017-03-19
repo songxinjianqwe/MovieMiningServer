@@ -1,10 +1,9 @@
 package me.newsong.flyweight.controller;
 
+import me.newsong.flyweight.domain.entity.Movie;
+import me.newsong.flyweight.domain.entity.PageBean;
+import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
 import me.newsong.flyweight.domain.time.BaseTimeUnit;
-import me.newsong.flyweight.domain.time.Month;
-import me.newsong.flyweight.domain.Movie;
-import me.newsong.flyweight.domain.PageBean;
-import me.newsong.flyweight.domain.RemoteMovieInfo;
 import me.newsong.flyweight.enums.MovieSortType;
 import me.newsong.flyweight.enums.MovieTag;
 import me.newsong.flyweight.enums.TimeUnit;
@@ -78,7 +77,6 @@ public class MovieController {
     public PageBean<RemoteMovieInfo> findMoviesByNames(@PathVariable("names") String name, @RequestParam(value = "page", required = false, defaultValue = "0") int page) {
         return service.findMoviesByNames(name.split(","), page);
     }
-
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/latest", method = RequestMethod.GET)

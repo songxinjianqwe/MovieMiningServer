@@ -2,7 +2,6 @@ package me.newsong.flyweight.dao.impl.movie_review;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel.MapMode;
@@ -11,7 +10,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.Index;
-import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.domain.entity.MovieReview;
 
 @Repository("CachedReviews")
 public class MovieReviewRepositoryCachedImpl implements MovieReviewRepository {

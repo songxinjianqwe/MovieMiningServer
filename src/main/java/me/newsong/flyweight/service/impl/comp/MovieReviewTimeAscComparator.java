@@ -2,7 +2,7 @@ package me.newsong.flyweight.service.impl.comp;
 
 import java.util.Comparator;
 
-import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.domain.entity.MovieReview;
 
 public class MovieReviewTimeAscComparator implements Comparator<MovieReview> {
 	

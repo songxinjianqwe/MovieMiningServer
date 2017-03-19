@@ -6,7 +6,7 @@ import java.util.function.Function;
 
 import org.springframework.stereotype.Component;
 
-import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.domain.entity.MovieReview;
 import me.newsong.flyweight.domain.time.Season;
 @Component("Season")
 public class SeasonDispatcher implements Function<MovieReview, Season>{

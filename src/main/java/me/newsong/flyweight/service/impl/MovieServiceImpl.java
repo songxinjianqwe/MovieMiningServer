@@ -1,7 +1,10 @@
 package me.newsong.flyweight.service.impl;
 
 import me.newsong.flyweight.dao.iface.movie.MovieRepository;
-import me.newsong.flyweight.domain.*;
+import me.newsong.flyweight.domain.entity.Movie;
+import me.newsong.flyweight.domain.entity.MovieReview;
+import me.newsong.flyweight.domain.entity.PageBean;
+import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
 import me.newsong.flyweight.domain.time.Month;
 import me.newsong.flyweight.enums.MovieSortType;
 import me.newsong.flyweight.enums.MovieTag;

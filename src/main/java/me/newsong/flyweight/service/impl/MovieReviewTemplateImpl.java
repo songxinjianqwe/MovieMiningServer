@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
-import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.domain.entity.MovieReview;
 import me.newsong.flyweight.service.impl.comp.MovieReviewTimeAscComparator;
 import me.newsong.flyweight.utils.PythonUtil;
 

@@ -2,13 +2,12 @@ package me.newsong.flyweight.dao.impl.movie;
 
 import me.newsong.flyweight.dao.iface.movie.MovieRepository;
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
-import me.newsong.flyweight.domain.RemoteMovieInfo;
+import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
 import me.newsong.flyweight.utils.PythonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;

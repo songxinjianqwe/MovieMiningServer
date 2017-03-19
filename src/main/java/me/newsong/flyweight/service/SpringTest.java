@@ -2,11 +2,9 @@ package me.newsong.flyweight.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.newsong.flyweight.dao.iface.movie.MovieRepository;
-import me.newsong.flyweight.domain.Movie;
-import me.newsong.flyweight.domain.RemoteMovieInfo;
+import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
 import me.newsong.flyweight.enums.TimeUnit;
 import me.newsong.flyweight.service.iface.MovieService;
-import me.newsong.flyweight.utils.PythonUtil;
 import me.newsong.flyweight.utils.SpringContextUtil;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,9 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 

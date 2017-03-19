@@ -19,8 +19,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.time.Month;
-import me.newsong.flyweight.domain.Movie;
-import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.domain.entity.Movie;
+import me.newsong.flyweight.domain.entity.MovieReview;
 import me.newsong.flyweight.domain.time.Season;
 import me.newsong.flyweight.service.iface.MovieService;
 import me.newsong.flyweight.service.impl.comp.MovieReviewTimeAscComparator;

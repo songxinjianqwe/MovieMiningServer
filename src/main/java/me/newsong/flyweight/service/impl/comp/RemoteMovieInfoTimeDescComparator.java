@@ -1,8 +1,7 @@
 package me.newsong.flyweight.service.impl.comp;
 
-import me.newsong.flyweight.domain.RemoteMovieInfo;
+import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
 
-import java.rmi.Remote;
 import java.util.Comparator;
 
 /**

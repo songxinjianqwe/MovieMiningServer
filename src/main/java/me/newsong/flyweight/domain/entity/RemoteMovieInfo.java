@@ -1,11 +1,9 @@
-package me.newsong.flyweight.domain;
+package me.newsong.flyweight.domain.entity;
 
 import me.newsong.flyweight.enums.MovieTag;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by SinjinSong on 2017/3/18.

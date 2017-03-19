@@ -1,4 +1,4 @@
-package me.newsong.flyweight.domain;
+package me.newsong.flyweight.domain.entity;
 
 import me.newsong.flyweight.exceptions.PageOutOfBoundsException;
 

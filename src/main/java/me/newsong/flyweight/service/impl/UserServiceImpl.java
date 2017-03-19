@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import me.newsong.flyweight.domain.DescLengthRange;
-import me.newsong.flyweight.domain.MovieReview;
-import me.newsong.flyweight.domain.User;
+import me.newsong.flyweight.domain.entity.MovieReview;
+import me.newsong.flyweight.domain.entity.User;
 import me.newsong.flyweight.exceptions.UserNotFoundException;
 import me.newsong.flyweight.service.iface.UserService;
 

@@ -1,6 +1,6 @@
 package me.newsong.flyweight.service.iface;
 
-import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.domain.entity.MovieReview;
 import me.newsong.flyweight.enums.TimeUnit;
 
 import java.util.Date;

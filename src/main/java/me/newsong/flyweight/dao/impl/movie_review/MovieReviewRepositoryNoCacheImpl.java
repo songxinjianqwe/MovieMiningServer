@@ -1,10 +1,9 @@
 package me.newsong.flyweight.dao.impl.movie_review;
 
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
-import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.domain.entity.MovieReview;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;

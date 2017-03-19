@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import me.newsong.flyweight.domain.DescLengthRange;
-import me.newsong.flyweight.domain.MovieReview;
-import me.newsong.flyweight.domain.User;
+import me.newsong.flyweight.domain.entity.MovieReview;
+import me.newsong.flyweight.domain.entity.User;
 
 public interface UserService extends MovieReviewTemplate {
     User findUserById(String id);

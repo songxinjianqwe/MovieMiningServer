@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import me.newsong.flyweight.domain.DescLengthRange;
 import me.newsong.flyweight.domain.time.Season;
-import me.newsong.flyweight.domain.User;
+import me.newsong.flyweight.domain.entity.User;
 import me.newsong.flyweight.service.iface.UserService;
 
 @CrossOrigin

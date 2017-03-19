@@ -17,7 +17,7 @@ import java.util.Map;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import me.newsong.flyweight.domain.Index;
-import me.newsong.flyweight.domain.MovieReview;
+import me.newsong.flyweight.domain.entity.MovieReview;
 
 public class FileConverter {
 	private Map<String, List<Index>> movieIndIndexMap;
