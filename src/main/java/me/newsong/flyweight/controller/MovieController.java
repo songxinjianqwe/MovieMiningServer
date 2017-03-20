@@ -111,7 +111,7 @@ public class MovieController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/review_times_and_scores", method = RequestMethod.GET)
-    public Map<Long, Double> findReviewTimesAndScores() {
+    public Map<Long, List<Double>> findReviewTimesAndScores() {
         return service.findReviewTimesAndScores();
     }
 

@@ -37,7 +37,7 @@ public interface MovieService extends MovieReviewTemplate {
     
     Map<MovieTag, Double> findMovieTagProportions();
 
-    Map<Long, Double> findReviewTimesAndScores();
+    Map<Long, List<Double>> findReviewTimesAndScores();
 
     Map<Month, Double> findMovieScoresInMonthsById(String id);
 
