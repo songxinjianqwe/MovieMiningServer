@@ -70,7 +70,7 @@ public class MovieController {
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/names/{name}", method = RequestMethod.GET)
     public PageBean<RemoteMovieInfo> findMoviesByName(@PathVariable("name") String name, @RequestParam(value = "page", required = false, defaultValue = "0") int page,@RequestParam(value="mode",required =false,defaultValue = "single") String mode) {
-        QueryMode queryMode = QueryMode.fromString(mode);
+        QueryMode queryMode = QueryMode.fromString(StringUtils.capitalize(mode));
         if(queryMode == QueryMode.Single){
             return service.findMoviesByName(name, page);
         }else if(queryMode == QueryMode.Batch){
