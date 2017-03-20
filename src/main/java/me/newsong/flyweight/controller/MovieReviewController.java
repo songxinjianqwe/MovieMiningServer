@@ -16,7 +16,7 @@ import java.util.List;
  */
 @RestController
 @CrossOrigin
-@RequestMapping("/movieReviews")
+@RequestMapping("/movie_reviews")
 public class MovieReviewController {
     @Autowired
     private MovieService service;

@@ -211,16 +211,20 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     }
 
     @Override
-    public Map<Long, List<Double>> findReviewTimesAndScores() {
-        Map<Long, List<Double>> result = new HashMap<>();
+    public Map<Long, Double> findReviewTimesAndScores() {
+        Map<Long, List<Double>> midResult = new HashMap<>();
         List<MovieReview> reviews = null;
         for (String id : findAllIds()) {
             reviews = findMovieReviewsById(id);
-            MapUtil.putMultiValue(result, Long.valueOf(reviews.size()), getAverageScore(reviews));
+            MapUtil.putMultiValue(midResult, Long.valueOf(reviews.size()), getAverageScore(reviews));
+        }
+        Map<Long, Double> result = new HashMap<>();
+        for (Map.Entry<Long, List<Double>> entry : midResult.entrySet()) {
+            result.put(entry.getKey(), entry.getValue().stream().collect(Collectors.averagingDouble((e) -> e)));
         }
         return result;
     }
-    
+
     @Override
     public Map<Month, Double> findMovieScoresInMonthsById(String id) {
         return findMovieScores(TimeUnit.Month, findMovieReviewsById(id));
@@ -229,7 +233,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     @Override
     public Map<Day, Double> findMovieScoresInDayByIdAndMonthSpan(String id, int monthSpan) {
         List<MovieReview> reviews = super.findMovieReviewsSortedByTimeDesc(id);
-        Date begin = reviews.get(reviews.size()-1).getTime();
+        Date begin = reviews.get(reviews.size() - 1).getTime();
         System.out.println(begin);
         Calendar c = Calendar.getInstance();
         c.setTime(begin);
@@ -238,7 +242,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         return findMovieScores(TimeUnit.Day, reviews.stream().filter((r) -> r.getTime().before(c.getTime()))
                 .collect(Collectors.toList()));
     }
-    
+
     private <T> Map<T, Double> findMovieScores(TimeUnit unit, List<MovieReview> reviews) {
         Map<T, List<MovieReview>> midResult = reviews.stream().collect(Collectors.groupingBy(SpringContextUtil.getBean(unit.toString())));
         Map<T, Double> result = new TreeMap<>();

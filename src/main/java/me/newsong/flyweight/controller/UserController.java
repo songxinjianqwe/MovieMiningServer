@@ -43,7 +43,7 @@ public class UserController {
 	}
 
 	@ResponseStatus(HttpStatus.OK)
-	@RequestMapping(value = "/desc_lengths/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{id}/desc_lengths", method = RequestMethod.GET)
 	public Map<DescLengthRange, Long> findDescLengthsWithRange(@PathVariable("id") String id,
 			@RequestParam(defaultValue = "20", required = false) int gap) {
 		return service.findDescLengthsWithRange(id, gap);
@@ -51,8 +51,8 @@ public class UserController {
 
 	
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/accum_review_counts/{id}", method = RequestMethod.GET)
-    public Map<Season, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("timeUnit") String timeUnit,
+    @RequestMapping(value = "/{id}/accum_review_counts", method = RequestMethod.GET)
+    public Map<Season, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("time_unit") String timeUnit,
                                                          @RequestParam("begin") Long begin, @RequestParam("end") Long end, Locale locale) {
         TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
         if (unit == null) {

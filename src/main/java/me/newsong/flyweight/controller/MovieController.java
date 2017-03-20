@@ -6,7 +6,9 @@ import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
 import me.newsong.flyweight.domain.time.BaseTimeUnit;
 import me.newsong.flyweight.enums.MovieSortType;
 import me.newsong.flyweight.enums.MovieTag;
+import me.newsong.flyweight.enums.QueryMode;
 import me.newsong.flyweight.enums.TimeUnit;
+import me.newsong.flyweight.exceptions.QueryModeNotFoundException;
 import me.newsong.flyweight.exceptions.SortTypeNotFoundException;
 import me.newsong.flyweight.exceptions.TimeUnitNotFoundException;
 import me.newsong.flyweight.service.iface.MovieService;
@@ -43,15 +45,15 @@ public class MovieController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/scores/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/scores_distribution", method = RequestMethod.GET)
     public Map<Integer, Long> findScoresByStar(@PathVariable("id") String id) {
         return service.findScoresByStar(id);
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/accum_review_counts/{id}", method = RequestMethod.GET)
-    public Map<BaseTimeUnit, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("timeUnit") String timeUnit,
-                                                               @RequestParam("begin") Long begin, @RequestParam("end") Long end, Locale locale) {
+    @RequestMapping(value = "/{id}/accum_review_counts", method = RequestMethod.GET)
+    public Map<? extends BaseTimeUnit, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("time_unit") String timeUnit,
+                                                               @RequestParam("begin") Long begin, @RequestParam("end") Long end) {
         TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
         if (unit == null) {
             throw new TimeUnitNotFoundException(timeUnit);
@@ -67,15 +69,17 @@ public class MovieController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/names/{name}", method = RequestMethod.GET)
-    public PageBean<RemoteMovieInfo> findMoviesByName(@PathVariable("name") String name, @RequestParam(value = "page", required = false, defaultValue = "0") int page) {
-        return service.findMoviesByName(name, page);
+    public PageBean<RemoteMovieInfo> findMoviesByName(@PathVariable("name") String name, @RequestParam(value = "page", required = false, defaultValue = "0") int page,@RequestParam(value="mode",required =false,defaultValue = "single") String mode) {
+        QueryMode queryMode = QueryMode.fromString(mode);
+        if(queryMode == QueryMode.Single){
+            return service.findMoviesByName(name, page);
+        }else if(queryMode == QueryMode.Batch){
+            return service.findMoviesByNames(name.split(","),page);
+        }else{
+            throw new QueryModeNotFoundException(mode);
+        }
     }
 
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/names/batch/{names}", method = RequestMethod.GET)
-    public PageBean<RemoteMovieInfo> findMoviesByNames(@PathVariable("names") String name, @RequestParam(value = "page", required = false, defaultValue = "0") int page) {
-        return service.findMoviesByNames(name.split(","), page);
-    }
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/latest", method = RequestMethod.GET)
@@ -106,14 +110,14 @@ public class MovieController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/reviewTimesAndScores", method = RequestMethod.GET)
-    public Map<Long, List<Double>> findReviewTimesAndScores() {
+    @RequestMapping(value = "/review_times_and_scores", method = RequestMethod.GET)
+    public Map<Long, Double> findReviewTimesAndScores() {
         return service.findReviewTimesAndScores();
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/{id}/scores", method = RequestMethod.GET)
-    public Map<? extends BaseTimeUnit, Double> findMovieScores(@PathVariable("id") String id, @RequestParam("timeUnit") String timeUnit, @RequestParam(value = "monthSpan", required = false, defaultValue = "0") int monthSpan) {
+    @RequestMapping(value = "/{id}/scores_variation", method = RequestMethod.GET)
+    public Map<? extends BaseTimeUnit, Double> findMovieScores(@PathVariable("id") String id, @RequestParam("time_unit") String timeUnit, @RequestParam(value = "month_span", required = false, defaultValue = "0") int monthSpan) {
         TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
         if (unit == TimeUnit.Month) {
             return service.findMovieScoresInMonthsById(id);
