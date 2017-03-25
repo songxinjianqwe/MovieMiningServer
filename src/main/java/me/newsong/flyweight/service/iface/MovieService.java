@@ -10,9 +10,9 @@ import me.newsong.flyweight.enums.MovieReviewSortType;
 import me.newsong.flyweight.enums.MovieSortType;
 import me.newsong.flyweight.enums.MovieTag;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public interface MovieService extends MovieReviewTemplate {
     Movie findMovieByID(String id);
@@ -37,7 +37,7 @@ public interface MovieService extends MovieReviewTemplate {
     
     Map<MovieTag, Double> findMovieTagProportions();
 
-    Map<Long, List<Double>> findReviewTimesAndScores();
+    Map<Long, Set<Double>> findReviewTimesAndScores();
 
     Map<Month, Double> findMovieScoresInMonthsById(String id);
 

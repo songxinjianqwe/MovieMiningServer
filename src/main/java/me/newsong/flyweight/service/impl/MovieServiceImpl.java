@@ -211,12 +211,19 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     }
 
     @Override
-    public Map<Long, List<Double>> findReviewTimesAndScores() {
-        Map<Long, List<Double>> result = new HashMap<>();
+    public Map<Long, Set<Double>> findReviewTimesAndScores() {
+        Map<Long, Set<Double>> result = new HashMap<>();
         List<MovieReview> reviews = null;
         for (String id : findAllIds()) {
             reviews = findMovieReviewsById(id);
-            MapUtil.putMultiValue(result, Long.valueOf(reviews.size()), getAverageScore(reviews));
+            Long reviewTimes = Long.valueOf(reviews.size());
+            if(!result.containsKey(reviewTimes)){
+                Set<Double> scores = new HashSet<>();
+                scores.add(getAverageScore(reviews));
+                result.put(reviewTimes,scores);
+            }else{
+                result.get(reviewTimes).add(getAverageScore(reviews));
+            }
         }
         return result;
     }
