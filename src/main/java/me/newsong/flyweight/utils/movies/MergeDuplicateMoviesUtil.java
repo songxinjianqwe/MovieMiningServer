@@ -1,4 +1,4 @@
-package me.newsong.flyweight.util.movies;
+package me.newsong.flyweight.utils.movies;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,12 +10,9 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 
-import me.newsong.flyweight.util.BaseSpringTester;
+import me.newsong.flyweight.utils.BaseSpringTester;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

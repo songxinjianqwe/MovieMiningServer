@@ -1,16 +1,13 @@
-package me.newsong.flyweight.util.movies;
+package me.newsong.flyweight.utils.movies;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.newsong.flyweight.dao.iface.movie.MovieRepository;
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
-import me.newsong.flyweight.util.BaseSpringTester;
+import me.newsong.flyweight.utils.BaseSpringTester;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.FileWriter;
 import java.io.IOException;

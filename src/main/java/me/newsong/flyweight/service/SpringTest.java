@@ -9,7 +9,7 @@ import me.newsong.flyweight.enums.MovieReviewSortType;
 import me.newsong.flyweight.enums.TimeUnit;
 import me.newsong.flyweight.service.iface.MovieService;
 import me.newsong.flyweight.service.impl.comp.MovieReviewHelpfulDescComparator;
-import me.newsong.flyweight.util.SpringContextUtil;
+import me.newsong.flyweight.utils.SpringContextUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -5,13 +5,10 @@ import me.newsong.flyweight.domain.DescLengthRange;
 import me.newsong.flyweight.domain.entity.MovieReview;
 import me.newsong.flyweight.domain.entity.User;
 import me.newsong.flyweight.service.iface.UserService;
-import me.newsong.flyweight.util.BaseSpringTester;
+import me.newsong.flyweight.utils.BaseSpringTester;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 import java.util.Map;

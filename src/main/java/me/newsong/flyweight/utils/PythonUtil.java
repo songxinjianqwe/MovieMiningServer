@@ -1,4 +1,4 @@
-package me.newsong.flyweight.util;
+package me.newsong.flyweight.utils;
 
 import java.net.ConnectException;
 import java.net.MalformedURLException;

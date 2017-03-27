@@ -10,13 +10,10 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import me.newsong.flyweight.enums.TimeUnit;
-import me.newsong.flyweight.util.BaseSpringTester;
+import me.newsong.flyweight.utils.BaseSpringTester;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.time.Month;

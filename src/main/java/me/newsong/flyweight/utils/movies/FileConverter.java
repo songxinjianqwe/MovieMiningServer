@@ -1,4 +1,4 @@
-package me.newsong.flyweight.util.movies;
+package me.newsong.flyweight.utils.movies;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -10,7 +10,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 
-import me.newsong.flyweight.util.InternationalizeUtil;
+import me.newsong.flyweight.utils.InternationalizeUtil;
 
 public class BaseRESTException extends RuntimeException {
     private HttpStatus status;

@@ -1,4 +1,4 @@
-package me.newsong.flyweight.util;
+package me.newsong.flyweight.utils;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

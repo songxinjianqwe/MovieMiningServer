@@ -1,4 +1,4 @@
-package me.newsong.flyweight.util.movies;
+package me.newsong.flyweight.utils.movies;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,13 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import me.newsong.flyweight.util.BaseSpringTester;
-import me.newsong.flyweight.util.PythonUtil;
+import me.newsong.flyweight.utils.BaseSpringTester;
+import me.newsong.flyweight.utils.PythonUtil;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
