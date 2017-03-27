@@ -1,18 +1,16 @@
 package me.newsong.flyweight.exceptions;
 
-import java.util.Locale;
-
+import me.newsong.flyweight.exceptions.annotation.RESTField;
+import me.newsong.flyweight.exceptions.annotation.RESTResponseStatus;
 import org.springframework.http.HttpStatus;
 
-import me.newsong.flyweight.exceptions.base.BaseRestException;
+import me.newsong.flyweight.exceptions.base.BaseRESTException;
 
-public class UserNotFoundException extends BaseRestException {
-	private static final HttpStatus STATUS = HttpStatus.NOT_FOUND;
-	private static final int CODE = 40401;
+@RESTResponseStatus(value = HttpStatus.NOT_FOUND, code = 1)
+@RESTField("id")
+public class UserNotFoundException extends BaseRESTException {
+    public UserNotFoundException(String id) {
+        super(id);
+    }
 
-
-	public UserNotFoundException(String id) {
-		super(STATUS, CODE, null, "id",id);
-	}
-	
 }

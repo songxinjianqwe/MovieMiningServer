@@ -10,6 +10,7 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import me.newsong.flyweight.enums.TimeUnit;
+import me.newsong.flyweight.util.BaseSpringTester;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,8 @@ import me.newsong.flyweight.domain.time.Season;
 import me.newsong.flyweight.service.iface.MovieService;
 import me.newsong.flyweight.service.impl.comp.MovieReviewTimeDescComparator;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:applicationContext.xml" })
-public class TestMovieService {
+
+public class TestMovieService extends BaseSpringTester {
 	@Autowired
 	private MovieService service;
 	@Autowired

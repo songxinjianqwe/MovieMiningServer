@@ -1,4 +1,4 @@
-package me.newsong.flyweight.utils;
+package me.newsong.flyweight.util;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeansException;

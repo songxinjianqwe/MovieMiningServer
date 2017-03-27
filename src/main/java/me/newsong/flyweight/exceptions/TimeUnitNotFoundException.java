@@ -1,20 +1,17 @@
 package me.newsong.flyweight.exceptions;
 
-import me.newsong.flyweight.enums.TimeUnit;
-import me.newsong.flyweight.exceptions.base.BaseRestException;
+import me.newsong.flyweight.exceptions.annotation.RESTField;
+import me.newsong.flyweight.exceptions.annotation.RESTResponseStatus;
+import me.newsong.flyweight.exceptions.base.BaseRESTException;
 import org.springframework.http.HttpStatus;
-
-import java.util.Locale;
 
 /**
  * Created by SinjinSong on 2017/3/19.
  */
-public class TimeUnitNotFoundException extends BaseRestException {
-    private static final HttpStatus STATUS = HttpStatus.NOT_FOUND;
-	private static final int CODE = 40404;
-
-
+@RESTResponseStatus(value = HttpStatus.NOT_FOUND, code = 4)
+@RESTField("timeUnit")
+public class TimeUnitNotFoundException extends BaseRESTException {
 	public TimeUnitNotFoundException(String unit) {
-		super(STATUS, CODE, null, "TimeUnit",unit);
+		super(unit);
 	}
 }

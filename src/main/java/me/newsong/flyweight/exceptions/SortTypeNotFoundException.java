@@ -1,15 +1,17 @@
 package me.newsong.flyweight.exceptions;
 
-import me.newsong.flyweight.exceptions.base.BaseRestException;
+import me.newsong.flyweight.exceptions.annotation.RESTField;
+import me.newsong.flyweight.exceptions.annotation.RESTResponseStatus;
+import me.newsong.flyweight.exceptions.base.BaseRESTException;
 import org.springframework.http.HttpStatus;
 
 /**
  * Created by SinjinSong on 2017/3/19.
  */
-public class SortTypeNotFoundException extends BaseRestException {
-    private static final HttpStatus STATUS = HttpStatus.NOT_FOUND;
-	private static final int CODE = 40403;
-	public SortTypeNotFoundException(String sort) {
-		super(STATUS, CODE, null, "sort",sort);
-	}
+@RESTResponseStatus(value = HttpStatus.NOT_FOUND, code = 3)
+@RESTField("sort")
+public class SortTypeNotFoundException extends BaseRESTException {
+    public SortTypeNotFoundException(String sort) {
+        super(sort);
+    }
 }

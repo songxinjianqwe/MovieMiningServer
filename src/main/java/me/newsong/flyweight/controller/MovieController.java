@@ -14,6 +14,7 @@ import me.newsong.flyweight.exceptions.TimeUnitNotFoundException;
 import me.newsong.flyweight.service.iface.MovieService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,11 @@ import java.util.*;
 
 /**
  * @author Sinjin Song
+ * 方法不需要加Locale参数
+ * 可以使用
+ * LocaleContextHolder.getLocale()获得Locale
+ * 无论是逻辑层还是控制器都可通过此方法获得
+ * 
  */
 @CrossOrigin
 @RestController

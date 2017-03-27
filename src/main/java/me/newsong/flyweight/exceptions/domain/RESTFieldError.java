@@ -2,18 +2,18 @@ package me.newsong.flyweight.exceptions.domain;
 
 import org.springframework.validation.FieldError;
 
-public class RestFieldError {
+public class RESTFieldError {
 	private String field;
 	private Object rejectedValue;
 	private String message;
 	
-	public RestFieldError(FieldError error) {
+	public RESTFieldError(FieldError error) {
 		this.field = error.getField();
 		this.rejectedValue = error.getRejectedValue();
 		this.message = error.getDefaultMessage();
 	}
 	
-	public RestFieldError(String field, Object rejectedValue, String message) {
+	public RESTFieldError(String field, Object rejectedValue, String message) {
 		super();
 		this.field = field;
 		this.rejectedValue = rejectedValue;
@@ -46,7 +46,7 @@ public class RestFieldError {
 
 	@Override
 	public String toString() {
-		return "RestFieldError [field=" + field + ", rejectedValue=" + rejectedValue + ", message=" + message + "]";
+		return "RESTFieldError [field=" + field + ", rejectedValue=" + rejectedValue + ", message=" + message + "]";
 	}
 
 	

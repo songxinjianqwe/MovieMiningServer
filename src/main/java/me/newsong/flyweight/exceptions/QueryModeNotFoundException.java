@@ -1,17 +1,19 @@
 package me.newsong.flyweight.exceptions;
 
-import me.newsong.flyweight.exceptions.base.BaseRestException;
+import me.newsong.flyweight.exceptions.annotation.RESTField;
+import me.newsong.flyweight.exceptions.annotation.RESTResponseStatus;
+import me.newsong.flyweight.exceptions.base.BaseRESTException;
 import org.springframework.http.HttpStatus;
 
 /**
  * Created by SinjinSong on 2017/3/20.
  */
-public class QueryModeNotFoundException extends BaseRestException {
-     private static final HttpStatus STATUS = HttpStatus.NOT_FOUND;
-	private static final int CODE = 40405;
+@RESTResponseStatus(value = HttpStatus.NOT_FOUND, code = 5)
+@RESTField("queryMode")
+public class QueryModeNotFoundException extends BaseRESTException {
 
 
 	public QueryModeNotFoundException(String mode) {
-		super(STATUS, CODE, null, "queryMode",mode);
+		super(mode);
 	}
 }

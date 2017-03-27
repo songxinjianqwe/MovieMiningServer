@@ -1,4 +1,4 @@
-package me.newsong.flyweight.utils;
+package me.newsong.flyweight.util.movies;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import me.newsong.flyweight.util.BaseSpringTester;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,7 @@ import me.newsong.flyweight.dao.impl.movie_review.MovieReviewRepositoryCachedImp
 import me.newsong.flyweight.domain.Index;
 import me.newsong.flyweight.domain.entity.MovieReview;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:applicationContext.xml" })
-public class MergeDuplicateMoviesUtil {
+public class MergeDuplicateMoviesUtil extends BaseSpringTester{
 	@Autowired
 	private MovieReviewRepository dao;
 	private ResourceBundle rb;

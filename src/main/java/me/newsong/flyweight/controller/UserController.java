@@ -53,7 +53,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}/accum_review_counts", method = RequestMethod.GET)
     public Map<Season, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("time_unit") String timeUnit,
-                                                         @RequestParam("begin") Long begin, @RequestParam("end") Long end, Locale locale) {
+                                                         @RequestParam("begin") Long begin, @RequestParam("end") Long end) {
         TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
         if (unit == null) {
             throw new TimeUnitNotFoundException(timeUnit);

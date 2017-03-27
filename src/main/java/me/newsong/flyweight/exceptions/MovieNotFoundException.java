@@ -1,16 +1,15 @@
 package me.newsong.flyweight.exceptions;
 
-import java.util.Locale;
-
+import me.newsong.flyweight.exceptions.annotation.RESTField;
+import me.newsong.flyweight.exceptions.annotation.RESTResponseStatus;
 import org.springframework.http.HttpStatus;
 
-import me.newsong.flyweight.exceptions.base.BaseRestException;
+import me.newsong.flyweight.exceptions.base.BaseRESTException;
 
-public class MovieNotFoundException extends BaseRestException{
-	private static final HttpStatus STATUS = HttpStatus.NOT_FOUND;
-	private static final int CODE = 40402;
-	public MovieNotFoundException(String idOrName) {
-		super(STATUS, CODE, null, "id/name",idOrName);
-	}
-	
+@RESTResponseStatus(value = HttpStatus.NOT_FOUND, code = 2)
+@RESTField("id/name")
+public class MovieNotFoundException extends BaseRESTException {
+    public MovieNotFoundException(String idOrName) {
+        super(idOrName);
+    }
 }

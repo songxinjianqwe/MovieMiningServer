@@ -1,9 +1,10 @@
-package me.newsong.flyweight.utils;
+package me.newsong.flyweight.util.movies;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.newsong.flyweight.dao.iface.movie.MovieRepository;
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
+import me.newsong.flyweight.util.BaseSpringTester;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,7 @@ import java.util.Map;
 /**
  * Created by SinjinSong on 2017/3/18.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
-public class RemoteMovieSaver {
+public class RemoteMovieSaver extends BaseSpringTester {
     @Autowired
     @Qualifier("NoCacheMovies")
     private MovieRepository movieDao;
@@ -35,9 +34,9 @@ public class RemoteMovieSaver {
         Map<String, RemoteMovieInfo> movies = new HashMap<>();
         List<String> ids = reviewDao.findAllMovieIds();
         for (int i = 0; i < ids.size(); ++i) {
-            System.out.println(i+" : "+ids.get(i));
+            System.out.println(i + " : " + ids.get(i));
             RemoteMovieInfo movie = movieDao.findMovieViaCrawler(ids.get(i));
-            if(movie != null && movie.getPosterURL() != null){
+            if (movie != null && movie.getPosterURL() != null) {
                 movies.put(ids.get(i), movie);
             }
         }

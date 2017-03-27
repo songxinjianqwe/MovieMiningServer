@@ -1,15 +1,16 @@
 package me.newsong.flyweight.exceptions;
 
+import me.newsong.flyweight.exceptions.annotation.RESTField;
+import me.newsong.flyweight.exceptions.annotation.RESTResponseStatus;
 import org.springframework.http.HttpStatus;
 
-import me.newsong.flyweight.exceptions.base.BaseRestException;
-
-public class PythonServerErrorException extends BaseRestException{
-	private static final HttpStatus STATUS = HttpStatus.SERVICE_UNAVAILABLE;
-	private static final int CODE = 50301;
+import me.newsong.flyweight.exceptions.base.BaseRESTException;
+@RESTResponseStatus(value = HttpStatus.SERVICE_UNAVAILABLE, code = 1)
+@RESTField("PythonServer")
+public class PythonServerErrorException extends BaseRESTException {
 
 
 	public PythonServerErrorException() {
-		super(STATUS, CODE, null, "PythonServer","Error");
+		super("Error");
 	}
 }

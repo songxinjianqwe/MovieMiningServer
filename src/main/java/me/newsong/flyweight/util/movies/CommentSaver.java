@@ -1,4 +1,4 @@
-package me.newsong.flyweight.utils;
+package me.newsong.flyweight.util.movies;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import me.newsong.flyweight.util.BaseSpringTester;
+import me.newsong.flyweight.util.PythonUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.entity.MovieReview;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:applicationContext.xml" })
-public class CommentSaver {
+public class CommentSaver extends BaseSpringTester{
 	@Autowired
 	private MovieReviewRepository dao;
 	private final String movieBaseDir = "E:/movie_comments/comment";

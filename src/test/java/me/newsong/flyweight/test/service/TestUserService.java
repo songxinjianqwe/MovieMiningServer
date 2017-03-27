@@ -5,6 +5,7 @@ import me.newsong.flyweight.domain.DescLengthRange;
 import me.newsong.flyweight.domain.entity.MovieReview;
 import me.newsong.flyweight.domain.entity.User;
 import me.newsong.flyweight.service.iface.UserService;
+import me.newsong.flyweight.util.BaseSpringTester;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,7 @@ import java.util.Map.Entry;
 
 import static org.junit.Assert.*;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:applicationContext.xml" })
-public class TestUserService {
+public class TestUserService extends BaseSpringTester {
 	@Autowired
 	private UserService service;
 	@Autowired

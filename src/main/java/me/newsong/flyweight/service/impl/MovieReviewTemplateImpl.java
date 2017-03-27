@@ -10,7 +10,7 @@ import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 import me.newsong.flyweight.enums.TimeUnit;
-import me.newsong.flyweight.utils.SpringContextUtil;
+import me.newsong.flyweight.util.SpringContextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.entity.MovieReview;
 import me.newsong.flyweight.service.impl.comp.MovieReviewTimeDescComparator;
-import me.newsong.flyweight.utils.PythonUtil;
+import me.newsong.flyweight.util.PythonUtil;
 
 @Transactional(readOnly = true)
 @Service

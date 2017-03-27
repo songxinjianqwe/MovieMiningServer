@@ -67,5 +67,5 @@
 		<property name="basename" value="i18n"></property>
 	</bean>
     
-    <bean id="springContextUtil" class="me.newsong.flyweight.utils.SpringContextUtil"></bean>
+    <bean id="springContextUtil" class="me.newsong.flyweight.util.SpringContextUtil"></bean>
 </beans>
