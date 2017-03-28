@@ -24,42 +24,43 @@ import me.newsong.flyweight.utils.PythonUtil;
 @Transactional(readOnly = true)
 @Service
 public abstract class MovieReviewTemplateImpl {
-	@Autowired
-	@Qualifier("CachedReviews")
-	protected MovieReviewRepository dao;
-	protected PythonUtil util = PythonUtil.getInstance();
-	/**
-	 * 模板方法
-	 * 
-	 * @param id
-	 * @return
-	 */
-	protected abstract List<MovieReview> findMovieReviewsById(String id);
+    @Autowired
+    @Qualifier("CachedReviews")
+    protected MovieReviewRepository dao;
+    protected PythonUtil util = PythonUtil.getInstance();
 
-	protected List<MovieReview> findMovieReviewsSortedByTimeDesc(String id) {
-		List<MovieReview> reviews = findMovieReviewsById(id);
-		Collections.sort(reviews, new MovieReviewTimeDescComparator());
-		return reviews;
-	}
+    /**
+     * 模板方法
+     *
+     * @param id
+     * @return
+     */
+    protected abstract List<MovieReview> findMovieReviewsById(String id);
 
-	public <T> Map<T, Long> findAccumulatedReviewCountsBy(TimeUnit unit, String id, Date begin, Date end) {
+    protected List<MovieReview> findMovieReviewsSortedByTimeDesc(String id) {
+        List<MovieReview> reviews = findMovieReviewsById(id);
+        Collections.sort(reviews, new MovieReviewTimeDescComparator());
+        return reviews;
+    }
+
+    public <T> Map<T, Long> findAccumulatedReviewCountsBy(TimeUnit unit, String id, Date begin, Date end) {
         Map<T, Long> map = findMovieReviewsById(id).stream()
-				.filter((review) -> !review.getTime().before(begin) && !review.getTime().after(end))
-				.collect(Collectors.groupingBy(SpringContextUtil.getBean(unit.toString()), Collectors.counting()));
-		Map<T, Long> result = new TreeMap<>();
-		result.putAll(map);
-		long accumulatedCount = 0;
-		for (Entry<T, Long> entry : result.entrySet()) {
-			entry.setValue(entry.getValue() + accumulatedCount);
-			accumulatedCount = entry.getValue();
-		}
-		return result;
-	}
-	
-	public List<String> getKeyWords(List<MovieReview> reviews) {
-		String content = reviews.stream()
-			    .map(MovieReview::getContent)
-			    .collect(Collectors.joining());
-		return util.callForRawList("findKeyWords", Arrays.asList(content,5), String.class);
-	}
+                .filter((review) -> !review.getTime().before(begin) && !review.getTime().after(end))
+                .collect(Collectors.groupingBy(SpringContextUtil.getBean(unit.toString()), Collectors.counting()));
+        Map<T, Long> result = new TreeMap<>();
+        result.putAll(map);
+        long accumulatedCount = 0;
+        for (Entry<T, Long> entry : result.entrySet()) {
+            entry.setValue(entry.getValue() + accumulatedCount);
+            accumulatedCount = entry.getValue();
+        }
+        return result;
+    }
+
+    public List<String> getKeyWords(List<MovieReview> reviews) {
+        String content = reviews.stream()
+                .map(MovieReview::getContent)
+                .collect(Collectors.joining());
+        return util.callForRawList("findKeyWords", Arrays.asList(content, 5), String.class);
+    }
 }

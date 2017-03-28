@@ -41,9 +41,9 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
 
     public MovieServiceImpl() {
         pageSize = Integer.parseInt(ResourceBundle.getBundle("page").getString("pageSize"));
-        moviesByName = new ConcurrentHashMap<>();
-        moviesByTagOrderedByScore = new ConcurrentHashMap<>();
-        moviesByTagOrderedByTime = new ConcurrentHashMap<>();
+        moviesByName = new HashMap<>();
+        moviesByTagOrderedByScore = new HashMap<>();
+        moviesByTagOrderedByTime = new HashMap<>();
         allMoviesSortedByTime = new ArrayList<>();
     }
 
@@ -85,7 +85,10 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
             moviesByTagOrderedByTime.put(entry.getKey(), movies);
         }
         Collections.sort(allMoviesSortedByTime, new RemoteMovieInfoTimeDescComparator());
-
+        moviesByName = Collections.unmodifiableMap(moviesByName);
+        moviesByTagOrderedByScore = Collections.unmodifiableMap(moviesByTagOrderedByScore);
+        moviesByTagOrderedByTime = Collections.unmodifiableMap(moviesByTagOrderedByTime);
+        allMoviesSortedByTime = Collections.unmodifiableList(allMoviesSortedByTime);
         System.out.println("MovieService初始化完毕！");
     }
 
@@ -157,7 +160,6 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     }
 
 
-
     @Override
     public PageBean<RemoteMovieInfo> findMoviesByNames(String[] names, int currPage) {
         List<RemoteMovieInfo> list = new ArrayList<>();
@@ -210,11 +212,11 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         for (String id : findAllIds()) {
             reviews = findMovieReviewsById(id);
             Long reviewTimes = Long.valueOf(reviews.size());
-            if(!result.containsKey(reviewTimes)){
+            if (!result.containsKey(reviewTimes)) {
                 Set<Double> scores = new HashSet<>();
                 scores.add(getAverageScore(reviews));
-                result.put(reviewTimes,scores);
-            }else{
+                result.put(reviewTimes, scores);
+            } else {
                 result.get(reviewTimes).add(getAverageScore(reviews));
             }
         }

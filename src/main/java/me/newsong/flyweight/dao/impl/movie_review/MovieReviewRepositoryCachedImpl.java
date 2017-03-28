@@ -16,6 +16,8 @@ import me.newsong.flyweight.dao.iface.movie_review.MovieReviewRepository;
 import me.newsong.flyweight.domain.Index;
 import me.newsong.flyweight.domain.entity.MovieReview;
 
+import javax.annotation.PostConstruct;
+
 @Repository("CachedReviews")
 public class MovieReviewRepositoryCachedImpl implements MovieReviewRepository {
     private Map<String, List<Index>> movieIndexMap;
@@ -30,6 +32,11 @@ public class MovieReviewRepositoryCachedImpl implements MovieReviewRepository {
     public MovieReviewRepositoryCachedImpl() {
         rb = ResourceBundle.getBundle("fileSystemData");
         mapper = new ObjectMapper();
+
+    }
+    
+//    @PostConstruct
+    public void init() {
         try {
             movieIndexMap = Collections.unmodifiableMap(mapper.readValue(
                     MovieReviewRepositoryCachedImpl.class.getClassLoader().getResourceAsStream(rb.getString("movieIndex")),
