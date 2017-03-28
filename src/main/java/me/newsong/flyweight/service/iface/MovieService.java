@@ -26,7 +26,6 @@ public interface MovieService extends MovieReviewTemplate {
 
     // 迭代二新需求
     List<String> findAllMovieNames();
-    PageBean<RemoteMovieInfo> findMoviesByName(String name, int currPage);
     PageBean<RemoteMovieInfo> findMoviesByNames(String[] names, int currPage);
     
     PageBean<RemoteMovieInfo> findLatestMovies(int currPage);

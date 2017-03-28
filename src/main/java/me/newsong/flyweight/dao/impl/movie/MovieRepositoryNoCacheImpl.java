@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +34,7 @@ public class MovieRepositoryNoCacheImpl implements MovieRepository {
         for (String id : dao.findAllMovieIds()) {
             moviesById.put(id, findMovieViaCrawler(id));
         }
+        moviesById = Collections.unmodifiableMap(moviesById);
     }
     
     @Override

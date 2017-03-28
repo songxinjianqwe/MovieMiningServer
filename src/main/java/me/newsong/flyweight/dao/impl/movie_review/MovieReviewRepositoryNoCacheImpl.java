@@ -74,9 +74,8 @@ public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
             e.printStackTrace();
         }
         removeDuplicateMovies();
-//        for(Map.Entry<String,List<MovieReview>> entry:movieIdReviews.entrySet()){
-//            entry.getValue().forEach(System.out::println);
-//        }
+        movieIdReviews = Collections.unmodifiableMap(movieIdReviews);
+        userIdReviews = Collections.unmodifiableMap(userIdReviews);
     }
 
 

@@ -8,6 +8,7 @@ import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -26,8 +27,8 @@ public class MovieRepositoryCachedImpl implements MovieRepository {
         rb = ResourceBundle.getBundle("fileSystemData");
         mapper = new ObjectMapper();
         try {
-            moviesById = mapper.readValue(MovieRepositoryCachedImpl.class.getClassLoader().getResourceAsStream(rb.getString("remoteMovieDir")),
-                    new TypeReference<Map<String, RemoteMovieInfo>>(){});
+            moviesById = Collections.unmodifiableMap(mapper.readValue(MovieRepositoryCachedImpl.class.getClassLoader().getResourceAsStream(rb.getString("remoteMovieDir")),
+                    new TypeReference<Map<String, RemoteMovieInfo>>(){}));
         } catch (IOException e) {
             e.printStackTrace();
         }

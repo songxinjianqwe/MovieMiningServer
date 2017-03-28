@@ -157,13 +157,6 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     }
 
 
-    @Override
-    public PageBean<RemoteMovieInfo> findMoviesByName(String name, int currPage) {
-        if (!moviesByName.containsKey(name)) {
-            throw new MovieNotFoundException(name);
-        }
-        return getPageBean(currPage, moviesByName.get(name));
-    }
 
     @Override
     public PageBean<RemoteMovieInfo> findMoviesByNames(String[] names, int currPage) {

@@ -6,9 +6,8 @@ import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
 import me.newsong.flyweight.domain.time.BaseTimeUnit;
 import me.newsong.flyweight.enums.MovieSortType;
 import me.newsong.flyweight.enums.MovieTag;
-import me.newsong.flyweight.enums.QueryMode;
 import me.newsong.flyweight.enums.TimeUnit;
-import me.newsong.flyweight.exceptions.QueryModeNotFoundException;
+import me.newsong.flyweight.exceptions.PageOutOfBoundsException;
 import me.newsong.flyweight.exceptions.SortTypeNotFoundException;
 import me.newsong.flyweight.exceptions.TimeUnitNotFoundException;
 import me.newsong.flyweight.service.iface.MovieService;
@@ -74,21 +73,20 @@ public class MovieController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/names/{name}", method = RequestMethod.GET)
-    public PageBean<RemoteMovieInfo> findMoviesByName(@PathVariable("name") String name, @RequestParam(value = "page", required = false, defaultValue = "0") int page,@RequestParam(value="mode",required =false,defaultValue = "single") String mode) {
-        QueryMode queryMode = QueryMode.fromString(StringUtils.capitalize(mode));
-        if(queryMode == QueryMode.Single){
-            return service.findMoviesByName(name, page);
-        }else if(queryMode == QueryMode.Batch){
-            return service.findMoviesByNames(name.split(","),page);
-        }else{
-            throw new QueryModeNotFoundException(mode);
+    public PageBean<RemoteMovieInfo> findMoviesByNames(@PathVariable("name") String name, @RequestParam(value = "page", required = false, defaultValue = "0") int page) {
+        if(page < 0 ){
+            throw new PageOutOfBoundsException(page);
         }
+        return service.findMoviesByNames(name.split(","),page);
     }
 
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/latest", method = RequestMethod.GET)
     public PageBean<RemoteMovieInfo> findLatestMovies(@RequestParam(value = "page", required = false, defaultValue = "0") int page) {
+        if(page < 0 ){
+            throw new PageOutOfBoundsException(page);
+        }
         return service.findLatestMovies(page);
     }
 
