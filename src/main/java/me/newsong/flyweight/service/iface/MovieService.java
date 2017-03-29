@@ -16,6 +16,7 @@ import java.util.Set;
 
 public interface MovieService extends MovieReviewTemplate {
     Movie findMovieByID(String id);
+    Movie findSimpleMovieByID(String id);
 
     //以下三个方法都是为获取电影信息服务的
     double getAverageScore(List<MovieReview> reviews);

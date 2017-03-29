@@ -33,7 +33,7 @@ public class MovieReviewRepositoryNoCacheImpl implements MovieReviewRepository {
         userIdReviews = new HashMap<>();
     }
 
-    @PostConstruct
+//    @PostConstruct
     private void init() {
         System.out.println("Read File Started ...");
         try {

@@ -35,7 +35,7 @@ public class MovieReviewRepositoryCachedImpl implements MovieReviewRepository {
 
     }
     
-//    @PostConstruct
+    @PostConstruct
     public void init() {
         try {
             movieIndexMap = Collections.unmodifiableMap(mapper.readValue(
