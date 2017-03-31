@@ -237,7 +237,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>MovieMiningServerIt2</finalName>
+        <finalName>MovieMiningServer</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>

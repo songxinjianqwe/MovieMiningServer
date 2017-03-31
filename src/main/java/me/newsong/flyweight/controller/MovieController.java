@@ -16,10 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.*;
 
 /**
  * @author Sinjin Song
@@ -77,7 +76,17 @@ public class MovieController {
         if(page < 0 ){
             throw new PageOutOfBoundsException(page);
         }
-        return service.findMoviesByNames(name.split(","),page);
+        String [] names = name.split("_");
+        System.out.println(Arrays.toString(names));
+        for(int i = 0; i < names.length;++i){
+            try {
+                names[i] = URLDecoder.decode(names[i],"UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+        }
+       System.out.println(Arrays.toString(names));
+        return service.findMoviesByNames(names,page);
     }
 
 

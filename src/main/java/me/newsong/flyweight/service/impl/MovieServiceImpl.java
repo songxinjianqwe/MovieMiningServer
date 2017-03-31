@@ -105,10 +105,6 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         return movie;
     }
 
-    @Override
-    public Movie findSimpleMovieByID(String id) {
-        return null;
-    }
 
     /**
      * 只在一个地方抛出异常
@@ -148,7 +144,6 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         return reviews.stream().collect(Collectors.averagingDouble(MovieReview::getScore));
     }
 
-
     @Override
     public List<String> findAllMovieNames() {
         return new ArrayList<>(moviesByName.keySet());
@@ -156,7 +151,12 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
 
     private PageBean<RemoteMovieInfo> getPageBean(int currPage, List<RemoteMovieInfo> infos) {
         PageBean<RemoteMovieInfo> pageBean = new PageBean<>(currPage, infos.size(), this.pageSize);
-        pageBean.setData(infos.subList(pageBean.getCurrPageBeginIndex(), pageBean.getCurrPageEndIndex()));
+        List<RemoteMovieInfo> content = infos.subList(pageBean.getCurrPageBeginIndex(), pageBean.getCurrPageEndIndex());
+        for (RemoteMovieInfo info:
+             content) {
+            info.getMovie().setReviewTimes(findMovieReviewsById(info.getId()).size());
+        }
+        pageBean.setData(content);
         return pageBean;
     }
 
@@ -172,7 +172,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         return getPageBean(currPage, list);
     }
 
-
+    
 
     @Override
     public PageBean<RemoteMovieInfo> findLatestMovies(int currPage) {
