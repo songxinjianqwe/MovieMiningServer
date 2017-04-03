@@ -13,7 +13,6 @@ import me.newsong.flyweight.exceptions.TimeUnitNotFoundException;
 import me.newsong.flyweight.service.iface.MovieService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
@@ -22,11 +21,10 @@ import java.util.*;
 
 /**
  * @author Sinjin Song
- * 方法不需要加Locale参数
- * 可以使用
- * LocaleContextHolder.getLocale()获得Locale
- * 无论是逻辑层还是控制器都可通过此方法获得
- * 
+ *         方法不需要加Locale参数
+ *         可以使用
+ *         LocaleContextHolder.getLocale()获得Locale
+ *         无论是逻辑层还是控制器都可通过此方法获得
  */
 @CrossOrigin
 @RestController
@@ -35,28 +33,24 @@ public class MovieController {
     @Autowired
     private MovieService service;
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/ids", method = RequestMethod.GET)
     public List<String> findAllMovieIds() {
         return service.findAllIds();
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/ids/{id}", method = RequestMethod.GET)
     public Movie findMovieByID(@PathVariable("id") String id) {
         return service.findMovieByID(id);
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}/scores_distribution", method = RequestMethod.GET)
     public Map<Integer, Long> findScoresByStar(@PathVariable("id") String id) {
         return service.findScoresByStar(id);
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}/accum_review_counts", method = RequestMethod.GET)
     public Map<? extends BaseTimeUnit, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("time_unit") String timeUnit,
-                                                               @RequestParam("begin") Long begin, @RequestParam("end") Long end) {
+                                                                         @RequestParam("begin") Long begin, @RequestParam("end") Long end) {
         TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
         if (unit == null) {
             throw new TimeUnitNotFoundException(timeUnit);
@@ -64,48 +58,43 @@ public class MovieController {
         return service.findAccumulatedReviewCountsBy(unit, id, new Date(begin), new Date(end));
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/names", method = RequestMethod.GET)
     public List<String> findAllMovieNames() {
         return service.findAllMovieNames();
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/names/{name}", method = RequestMethod.GET)
     public PageBean<RemoteMovieInfo> findMoviesByNames(@PathVariable("name") String name, @RequestParam(value = "page", required = false, defaultValue = "0") int page) {
-        if(page < 0 ){
+        if (page < 0) {
             throw new PageOutOfBoundsException(page);
         }
-        String [] names = name.split("_");
+        String[] names = name.split("_");
         System.out.println(Arrays.toString(names));
-        for(int i = 0; i < names.length;++i){
-            try {
-                names[i] = URLDecoder.decode(names[i],"UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+        try {
+            for (int i = 0; i < names.length; ++i) {
+                names[i] = URLDecoder.decode(names[i], "UTF-8").replace('*', '.');
             }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
-       System.out.println(Arrays.toString(names));
-        return service.findMoviesByNames(names,page);
+        System.out.println(Arrays.toString(names));
+        return service.findMoviesByNames(names, page);
     }
 
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/latest", method = RequestMethod.GET)
     public PageBean<RemoteMovieInfo> findLatestMovies(@RequestParam(value = "page", required = false, defaultValue = "0") int page) {
-        if(page < 0 ){
+        if (page < 0) {
             throw new PageOutOfBoundsException(page);
         }
         return service.findLatestMovies(page);
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/tags", method = RequestMethod.GET)
     public MovieTag[] findAllMovieTags() {
         return MovieTag.values();
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/tags/{tag}", method = RequestMethod.GET)
     public PageBean<RemoteMovieInfo> findMoviesByTag(@PathVariable("tag") MovieTag tag, @RequestParam("sort") String sortBy, @RequestParam(value = "page", required = false, defaultValue = "0") int page) {
         MovieSortType sort = MovieSortType.fromString(StringUtils.capitalize(sortBy));
@@ -115,19 +104,16 @@ public class MovieController {
         return service.findMoviesByTag(tag, sort, page);
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/tags/proportions", method = RequestMethod.GET)
     public Map<MovieTag, Double> findMovieTagProportions() {
         return service.findMovieTagProportions();
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/review_times_and_scores", method = RequestMethod.GET)
     public Map<Long, Set<Double>> findReviewTimesAndScores() {
         return service.findReviewTimesAndScores();
     }
 
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}/scores_variation", method = RequestMethod.GET)
     public Map<? extends BaseTimeUnit, Double> findMovieScores(@PathVariable("id") String id, @RequestParam("time_unit") String timeUnit, @RequestParam(value = "month_span", required = false, defaultValue = "0") int monthSpan) {
         TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
