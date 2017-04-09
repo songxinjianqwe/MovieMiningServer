@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 @Transactional(readOnly = true)
@@ -121,16 +121,51 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         return reviews;
     }
 
+    @Override
+    public double getVarianceOfScore(List<MovieReview> reviews) {
+        return getIntegerVariance(reviews.stream().map(MovieReview::getScore).collect(Collectors.toList()));
+    }
+
+    /**
+     * 计算Integer的平均数
+     *
+     * @param numbers
+     * @return
+     */
+    private double avgInteger(Collection<Integer> numbers) {
+        return numbers.stream().collect(Collectors.averagingDouble((num) -> 1.0 * num));
+    }
+
+    /**
+     * 计算Double的平均数
+     *
+     * @param numbers
+     * @return
+     */
+    private double avgDouble(Collection<Double> numbers) {
+        return numbers.stream().collect(Collectors.averagingDouble((num) -> num));
+    }
+
     /**
      * 平方的平均-平均的平方
      */
-    @Override
-    public double getVarianceOfScore(List<MovieReview> reviews) {
-        long squareSum = reviews.stream()
-                .collect(Collectors.summarizingInt((review) -> review.getScore() * review.getScore())).getSum();
-        double avg = reviews.stream().collect(Collectors.averagingDouble(MovieReview::getScore));
-        return 1.0 * squareSum / reviews.size() - avg * avg;
+    private double getIntegerVariance(Collection<Integer> numbers) {
+        long squareSum = numbers.stream()
+                .collect(Collectors.summarizingInt((num) -> num * num)).getSum();
+        double avg = avgInteger(numbers);
+        return 1.0 * squareSum / numbers.size() - avg * avg;
     }
+
+    /**
+     * 平方的平均-平均的平方
+     */
+    private double getDoubleVariance(Collection<Double> numbers) {
+        double squareSum = numbers.stream()
+                .collect(Collectors.summingDouble((num) -> num * num));
+        double avg = avgDouble(numbers);
+        return 1.0 * squareSum / numbers.size() - avg * avg;
+    }
+
 
     @Override
     public Map<Integer, Long> findScoresByStar(String id) {
@@ -144,6 +179,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         return reviews.stream().collect(Collectors.averagingDouble(MovieReview::getScore));
     }
 
+
     @Override
     public List<String> findAllMovieNames() {
         return new ArrayList<>(moviesByName.keySet());
@@ -152,8 +188,8 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     private PageBean<RemoteMovieInfo> getPageBean(int currPage, List<RemoteMovieInfo> infos) {
         PageBean<RemoteMovieInfo> pageBean = new PageBean<>(currPage, infos.size(), this.pageSize);
         List<RemoteMovieInfo> content = infos.subList(pageBean.getCurrPageBeginIndex(), pageBean.getCurrPageEndIndex());
-        for (RemoteMovieInfo info:
-             content) {
+        for (RemoteMovieInfo info :
+                content) {
             info.getMovie().setReviewTimes(findMovieReviewsById(info.getId()).size());
         }
         pageBean.setData(content);
@@ -172,7 +208,6 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         return getPageBean(currPage, list);
     }
 
-    
 
     @Override
     public PageBean<RemoteMovieInfo> findLatestMovies(int currPage) {
@@ -207,12 +242,12 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     }
 
     @Override
-    public Map<Long, Set<Double>> findReviewTimesAndScores() {
-        Map<Long, Set<Double>> result = new HashMap<>();
+    public Map<Integer, Set<Double>> findReviewTimesAndScores() {
+        Map<Integer, Set<Double>> result = new HashMap<>();
         List<MovieReview> reviews = null;
         for (String id : findAllIds()) {
             reviews = findMovieReviewsById(id);
-            Long reviewTimes = Long.valueOf(reviews.size());
+            Integer reviewTimes = Integer.valueOf(reviews.size());
             if (!result.containsKey(reviewTimes)) {
                 Set<Double> scores = new HashSet<>();
                 scores.add(getAverageScore(reviews));
@@ -222,6 +257,22 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
             }
         }
         return result;
+    }
+
+    @Override
+    public double getCorrelationCoefficientOfReviewTimesAndScores(Map<Integer, Set<Double>> map) {
+        List<Integer> x = new ArrayList<>();
+        List<Double> y = new ArrayList<>();
+        List<Double> xy = new ArrayList<>();
+        for (Map.Entry<Integer, Set<Double>> entry : map.entrySet()) {
+            y.addAll(entry.getValue());
+            for (Double d : entry.getValue()) {
+                x.add(entry.getKey());
+                xy.add(entry.getKey() * d);
+            }
+        }
+        double cov = avgDouble(xy) - avgInteger(x) * avgDouble(y);
+        return cov / Math.sqrt(getIntegerVariance(x)) * Math.sqrt(getDoubleVariance(y));
     }
 
     @Override

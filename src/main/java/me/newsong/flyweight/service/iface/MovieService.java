@@ -26,17 +26,20 @@ public interface MovieService extends MovieReviewTemplate {
 
     // 迭代二新需求
     List<String> findAllMovieNames();
+
     PageBean<RemoteMovieInfo> findMoviesByNames(String[] names, int currPage);
-    
+
     PageBean<RemoteMovieInfo> findLatestMovies(int currPage);
 
     PageBean<RemoteMovieInfo> findMoviesByTag(MovieTag tag, MovieSortType sortBy, int currPage);
 
     List<MovieReview> findTop10MovieReviewsById(String id, MovieReviewSortType sort);
-    
+
     Map<MovieTag, Double> findMovieTagProportions();
 
-    Map<Long, Set<Double>> findReviewTimesAndScores();
+    Map<Integer, Set<Double>> findReviewTimesAndScores();
+
+    double getCorrelationCoefficientOfReviewTimesAndScores(Map<Integer, Set<Double>> map);
 
     Map<Month, Double> findMovieScoresInMonthsById(String id);
 

@@ -3,6 +3,7 @@ package me.newsong.flyweight.controller;
 import me.newsong.flyweight.domain.entity.Movie;
 import me.newsong.flyweight.domain.entity.PageBean;
 import me.newsong.flyweight.domain.entity.RemoteMovieInfo;
+import me.newsong.flyweight.domain.entity.ReviewTimesAndScores;
 import me.newsong.flyweight.domain.time.BaseTimeUnit;
 import me.newsong.flyweight.enums.MovieSortType;
 import me.newsong.flyweight.enums.MovieTag;
@@ -110,9 +111,12 @@ public class MovieController {
     }
 
     @RequestMapping(value = "/review_times_and_scores", method = RequestMethod.GET)
-    public Map<Long, Set<Double>> findReviewTimesAndScores() {
-        return service.findReviewTimesAndScores();
+    public ReviewTimesAndScores findReviewTimesAndScores() {
+        Map<Integer, Set<Double>> reviewTimesAndScores = service.findReviewTimesAndScores();
+        double correlationCoefficient = service.getCorrelationCoefficientOfReviewTimesAndScores(reviewTimesAndScores);
+        return new ReviewTimesAndScores(reviewTimesAndScores,correlationCoefficient);
     }
+
 
     @RequestMapping(value = "/{id}/scores_variation", method = RequestMethod.GET)
     public Map<? extends BaseTimeUnit, Double> findMovieScores(@PathVariable("id") String id, @RequestParam("time_unit") String timeUnit, @RequestParam(value = "month_span", required = false, defaultValue = "0") int monthSpan) {
