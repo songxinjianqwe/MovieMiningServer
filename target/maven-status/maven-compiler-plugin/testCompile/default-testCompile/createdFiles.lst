@@ -1,0 +1,5 @@
+me\newsong\test\dao\TestMovieTagDOMapper.class
+me\newsong\test\service\TestUserService.class
+me\newsong\test\dao\TestMovieReviewDOMapper.class
+me\newsong\test\service\TestMovieService.class
+me\newsong\test\dao\TestRemoteMovieInfoDOMapper.class
