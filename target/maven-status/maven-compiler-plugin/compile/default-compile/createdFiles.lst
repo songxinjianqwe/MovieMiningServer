@@ -30,14 +30,12 @@ me\newsong\domain\entity\MovieDirectorKey.class
 me\newsong\cache\RedisCacheConfig.class
 me\newsong\domain\entity\MovieWriterKey.class
 me\newsong\domain\entity\LanguageDO.class
-me\newsong\util\movie\MovieDBInserter.class
 me\newsong\validator\Not999Validator.class
 me\newsong\dao\MovieCountryMapper.class
 me\newsong\security\https\HTTPSCoder.class
 me\newsong\util\InternationalizeUtil.class
 me\newsong\service\comp\RemoteMovieInfoTimeDescComparator.class
 me\newsong\exception\SortTypeNotFoundException.class
-me\newsong\util\movie\RemoteMovieInfo.class
 me\newsong\domain\entity\MovieTagDO.class
 me\newsong\exception\MovieNotFoundException.class
 me\newsong\domain\entity\CountryDO.class
@@ -57,7 +55,6 @@ me\newsong\domain\entity\MovieTagKey.class
 me\newsong\domain\time\BaseTimeUnit.class
 me\newsong\domain\entity\MovieLanguageKey.class
 me\newsong\exception\domain\RESTFieldError.class
-me\newsong\util\movie\MovieDBInserter$1.class
 me\newsong\service\comp\MovieReviewTimeDescComparator.class
 me\newsong\security\coder\DESUtil.class
 me\newsong\service\func\DayDispatcher.class

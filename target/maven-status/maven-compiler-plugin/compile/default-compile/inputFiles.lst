@@ -5,6 +5,7 @@ D:\idea\MovieMiningServer\src\main\java\me\newsong\dao\LanguageDOMapper.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\exception\SortTypeNotFoundException.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\util\movie\MovieReview.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\dao\MovieTagMapper.java
+D:\idea\MovieMiningServer\src\main\java\me\newsong\dao\UserDOMapper.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\dao\DirectorDOMapper.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\SpringTest.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\time\Day.java
@@ -27,7 +28,7 @@ D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\entity\MovieLanguageKe
 D:\idea\MovieMiningServer\src\main\java\me\newsong\dao\RemoteMovieInfoDOMapper.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\time\Month.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\util\PythonUtil.java
-D:\idea\MovieMiningServer\src\main\java\me\newsong\util\movie\MovieDBInserter.java
+D:\idea\MovieMiningServer\src\main\java\me\newsong\util\movie\RemoteMovieInfoDTO.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\entity\DirectorDO.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\util\SpringContextUtil.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\service\comp\MovieReviewHelpfulDescComparator.java
@@ -58,6 +59,7 @@ D:\idea\MovieMiningServer\src\main\java\me\newsong\exception\MovieNotFoundExcept
 D:\idea\MovieMiningServer\src\main\java\me\newsong\util\ConvertUtil.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\common\ReviewTimesAndScores.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\service\MovieService.java
+D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\entity\UserDO.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\entity\RemoteMovieInfoDO.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\dao\MovieActorMapper.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\entity\Movie.java
@@ -65,7 +67,6 @@ D:\idea\MovieMiningServer\src\main\java\me\newsong\service\MovieReviewTemplate.j
 D:\idea\MovieMiningServer\src\main\java\me\newsong\util\InternationalizeUtil.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\exception\domain\RESTError.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\util\MapUtil.java
-D:\idea\MovieMiningServer\src\main\java\me\newsong\util\movie\RemoteMovieInfo.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\exception\annotation\RESTAnnotationUtil.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\controller\MovieReviewController.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\dao\CountryDOMapper.java

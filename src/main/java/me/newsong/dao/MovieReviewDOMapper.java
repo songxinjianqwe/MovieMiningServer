@@ -70,4 +70,5 @@ public interface MovieReviewDOMapper {
     Integer countByMovieId(@Param("id") String id);
 
     void insertBatch(@Param("reviews") List<MovieReviewDO> reviews);
+    List<MovieReviewDO> findAllUnDisplay();
 }

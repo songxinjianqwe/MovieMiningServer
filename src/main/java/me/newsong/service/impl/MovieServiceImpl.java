@@ -153,7 +153,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         if (sortBy == MovieSortType.Score) {
             return addMovieStatistics(remoteMovieInfoDOMapper.findByTagOrderByScore(tag, pageNum, pageSize).toPageInfo());
         } else if (sortBy == MovieSortType.Time) {
-            addMovieStatistics(remoteMovieInfoDOMapper.findByTagOrderByTime(tag, pageNum, pageSize).toPageInfo());
+            return addMovieStatistics(remoteMovieInfoDOMapper.findByTagOrderByTime(tag, pageNum, pageSize).toPageInfo());
         }
         return null;
     }

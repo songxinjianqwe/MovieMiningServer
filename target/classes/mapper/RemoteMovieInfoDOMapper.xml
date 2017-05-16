@@ -183,6 +183,7 @@
         where tag_name = #{tag} )
         ) t
         on movie.id = t.movie_id
+        where movie.is_display = 1
         order by imdb_score desc
     </select>
 
@@ -200,6 +201,7 @@
         where tag_name = #{tag} )
         ) t
         on movie.id = t.movie_id
+        where movie.is_display = 1
         order by release_time desc
     </select>
 
@@ -228,7 +230,7 @@
         select
         <include refid="Base_Column_List"/>
         from movie
-        where movie_id like #{_movieId}
+        where movie_id like #{_movieId} and is_display = 1
     </select>
 
     <select id="findByCountryContaining" resultMap="DetailedResultMap">
@@ -245,6 +247,7 @@
         from country
         where country_name like #{_country} )
         ) t
+        where movie.is_display = 1
         on movie.id = t.movie_id
     </select>
 
@@ -262,6 +265,7 @@
         from director
         where director_name like #{_director} )
         ) t
+        where movie.is_display = 1
         on movie.id = t.movie_id
     </select>
 
@@ -279,6 +283,7 @@
         from language
         where language_name like #{_language} )
         ) t
+        where movie.is_display = 1
         on movie.id = t.movie_id
     </select>
 
@@ -296,6 +301,7 @@
         from writer
         where writer_name like #{_writer} )
         ) t
+        where movie.is_display = 1
         on movie.id = t.movie_id
     </select>
 

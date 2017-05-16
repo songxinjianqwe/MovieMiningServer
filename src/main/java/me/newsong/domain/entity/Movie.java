@@ -1,20 +1,28 @@
 package me.newsong.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class Movie {
-	private String id;
-	private LocalDateTime earliestReviewTime;
-	private LocalDateTime latestReviewTime;
-	private int reviewTimes;
-	private double varianceOfScore;
-	private List<String> keyWords;
-	private double avgScore;
-	
-	
-	public Movie() {
-	}
+    private String id;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    private LocalDateTime earliestReviewTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    private LocalDateTime latestReviewTime;
+    private int reviewTimes;
+    private double varianceOfScore;
+    private List<String> keyWords;
+    private double avgScore;
+
+
+    public Movie() {
+    }
 
     public Movie(String id, LocalDateTime earliestReviewTime, LocalDateTime latestReviewTime, int reviewTimes, double varianceOfScore, List<String> keyWords, double avgScore) {
         this.id = id;

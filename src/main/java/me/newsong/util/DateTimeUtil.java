@@ -1,5 +1,6 @@
 package me.newsong.util;
 
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -54,5 +55,9 @@ public class DateTimeUtil {
         return null;
     }
 
+    
+    public static long toLong(LocalDateTime localDateTime){
+        return Timestamp.valueOf(localDateTime).getTime();
+    }
 
 }

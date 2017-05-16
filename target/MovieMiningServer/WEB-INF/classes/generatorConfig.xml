@@ -24,7 +24,7 @@
         <!-- 生成的POJO类所在的目录-->
         <javaModelGenerator targetPackage="me.me.newsong.domain.entity" targetProject="src/main/java">
             <!-- 是否对model添加 构造函数 -->
-            <property name="constructorBased" value="true"/>
+            <property name="constructorBased" value="false"/>
             <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
             <property name="enableSubPackages" value="false"/>
             <!-- 建立的Model对象是否 不可改变  如果为true，那么生成的Model对象不会有 setter方法，只有构造方法 -->
@@ -38,55 +38,14 @@
         </sqlMapGenerator>
 
         <!--Mapper接口生成所在的目录-->
-        <javaClientGenerator targetPackage="me.me.newsong.dao" targetProject="src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="me.newsong.dao" targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
             <property name="methodNameCalculator" value="default"/>
-            <property name="rootInterface" value="false"/>
+            <property name="rootInterface" value=""/>
         </javaClientGenerator>
 
-        <table tableName="movie_actor"
-               domainObjectName="MovieActor"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>
-        <table tableName="movie_country"
-               domainObjectName="MovieCountry"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>
-        <table tableName="movie_director"
-               domainObjectName="MovieDirector"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>
-        <table tableName="movie_language"
-               domainObjectName="MovieLanguage"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>
-        <table tableName="movie_tag"
-               domainObjectName="MovieTag"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>
-        
-        <table tableName="movie_writer"
-               domainObjectName="MovieWriter"
+        <table tableName="user"
+               domainObjectName="UserDO"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

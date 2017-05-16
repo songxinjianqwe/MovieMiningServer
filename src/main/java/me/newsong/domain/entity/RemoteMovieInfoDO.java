@@ -1,5 +1,9 @@
 package me.newsong.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -42,6 +46,8 @@ public class RemoteMovieInfoDO {
      *
      * @mbggenerated
      */
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = LocalDateSerializer.class)
     private LocalDate releaseTime;
 
     /**
@@ -80,8 +86,8 @@ public class RemoteMovieInfoDO {
     private Integer gross;
     private Boolean isDisplay;
     private Long movieRecommendId;
-    
-    
+
+
     public RemoteMovieInfoDO(Long id, String movieId, String posterUrl, String name, LocalDate releaseTime, String summary, Double imdbScore, Integer duration) {
         this.id = id;
         this.movieId = movieId;

@@ -1,601 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="730535d6-0abf-412c-bfa7-15fe520c2752" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_javacsv_javacsv_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/newsong/dao/UserDOMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/UserDO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../restful-spring-security-master/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../restful-spring-security-master/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../restful-spring-security-master/.idea/workspace.xml" />
-      <change type="DELETED" beforePath="D:/FlyweightMovieMiningClien/iBase4J/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ALU/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ALU/.idea/kotlinc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ALU/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ALU/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ALU/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ALU/ALU.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ALU/src/ALU.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ALU/src/ALUTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../FlyweightMovieMiningServer" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/artifacts/MyBatisTest_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/artifacts/MyBatisTest_war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/kotlinc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__com_sun_mail_javax_mail_1_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__commons_io_commons_io_2_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__commons_pool_commons_pool_1_5_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__javax_javaee_api_7_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__mysql_mysql_connector_java_6_0_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__net_sf_ehcache_ehcache_2_10_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_aspectj_aspectjrt_1_8_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_mybatis_mybatis_3_4_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_aop_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_beans_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_context_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_context_support_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_core_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_expression_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_jdbc_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_orm_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_test_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_tx_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_web_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__org_springframework_spring_webmvc_4_3_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/MyBatisTest.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/controller/HelloController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/controller/advice/RestExceptionHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/dao/iface/UserRepository.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/exceptions/UsernameExistedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/exceptions/annotation/RESTAnnotationUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/exceptions/annotation/RESTField.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/exceptions/annotation/RESTFieldAnnotationNotFoundException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/exceptions/annotation/RESTResponseStatus.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/exceptions/annotation/RESTResponseStatusAnnotationNotFoundException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/exceptions/base/BaseRESTException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/exceptions/domain/RESTError.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/exceptions/domain/RESTFieldError.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/service/SpringTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/service/iface/UserService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/service/impl/UserServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/utils/BaseSpringTester.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/utils/ConvertUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/utils/InternationalizeUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/utils/LoggingAspect.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/utils/MapUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/java/me/newsong/utils/SpringContextUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/resources/applicationContext.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/resources/ehcache.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/resources/generator.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/resources/generatorConfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/resources/i18n_en_US.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/resources/i18n_zh_CN.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/resources/jdbc.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/resources/log4j.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/resources/mybatis-config.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/resources/springmvc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/webapp/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../MyBatisTest/src/main/webapp/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ShiroTest/.idea/artifacts/ShiroTest_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ShiroTest/.idea/artifacts/ShiroTest_war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ShiroTest/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../ShiroTest/.idea/libraries/Maven__junit_junit_3_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/SpringTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/aop/LoggingAspect.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/cache/CacheManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/cache/RedisCacheConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/cache/impl/RedisCacheManagerImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/config/SwaggerConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/controller/CaptchaController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/controller/FileController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/controller/TokenController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/controller/UserController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/controller/advice/RESTExceptionHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/controller/handler/login/LoginHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/controller/handler/login/impl/PhoneLoginHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/controller/handler/login/impl/UsernameLoginHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/controller/handler/user/query/QueryUserHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/controller/handler/user/query/impl/QueryUserByIdHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/controller/handler/user/query/impl/QueryUserByUsernameHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/dao/UserDOMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/domain/dto/Captcha.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/domain/dto/LoginInfo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/domain/entity/UserDO.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/enumeration/FileSource.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/enumeration/FileType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/enumeration/LoginMode.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/enumeration/UserStatus.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/enumeration/conversion/mybatis/UserStatusTypeHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/enumeration/conversion/springmvc/StringToEnumConverterFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/ValidationException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/annotation/RESTExceptionAnnotationUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/annotation/RESTField.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/annotation/RESTFieldAnnotationNotFoundException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/annotation/RESTResponseStatus.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/annotation/RESTResponseStatusAnnotationNotFoundException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/base/BaseRESTException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/domain/RESTError.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/domain/RESTFieldError.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/file/FileDownloadException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/file/FileNotFoundException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/file/FileTypeNotSuppertedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/file/FileUploadException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/token/ActivationCodeValidationException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/token/AuthenticationException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/token/CaptchaValidationException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/token/LoginInfoException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/token/LoginValidationException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/token/UserUnactivatedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/user/QueryUserModeNotFoundException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/exception/user/UsernameExistedException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/properties/AuthenticationProperties.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/properties/ThirdPartyProperties.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/quartz/Quartz.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/activate/ActivationManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/activate/impl/ActivationManagerImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/annotation/RESTAuthentication.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/captcha/CaptchaManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/captcha/impl/CaptchaManagerImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/coder/AESUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/coder/DESUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/https/HTTPSCoder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/https/HTTPSPKCSCoder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/interceptor/AuthenticationInterceptor.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/oauth/ThirdPartyLoginHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/oauth/ThirdPartyUser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/token/TokenManager.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/token/TokenState.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/security/token/impl/TokenManagerImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/service/UserService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/service/impl/UserServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/util/BaseSpringTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/util/CaptchaUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/util/ConvertUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/util/FileUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/util/InternationalizeUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/util/MailUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/util/MapUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/util/SpringContextUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/util/UUIDUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/validator/Not999.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../TestArchetype/src/main/java/me/flyweight/newsong/validator/Not999Validator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/artifacts/bdp_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/artifacts/bdp_war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/kotlinc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__c3p0_c3p0_0_9_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_36.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_9_13.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_9_13.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_mybatis_mybatis_3_3_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_2_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_data_spring_data_redis_1_6_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_spring_aop_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_spring_beans_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_spring_context_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_spring_context_support_4_1_7_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_spring_core_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_spring_expression_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_spring_jdbc_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_spring_orm_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_spring_tx_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_spring_web_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__org_springframework_spring_webmvc_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/libraries/Maven__redis_clients_jedis_2_7_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../bdp/bdp.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/artifacts/beauty_ssm_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/artifacts/beauty_ssm_war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/kotlinc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__com_alibaba_druid_1_0_20.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__com_alibaba_fastjson_1_2_8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__com_dyuproject_protostuff_protostuff_api_1_0_8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__com_dyuproject_protostuff_protostuff_collectionschema_1_0_8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__com_dyuproject_protostuff_protostuff_core_1_0_8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__com_dyuproject_protostuff_protostuff_runtime_1_0_8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_7_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_7_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_7_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__com_google_guava_guava_18_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__commons_collections_commons_collections_3_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__javax_transaction_jta_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__javax_validation_validation_api_1_0_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__jstl_jstl_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__junit_junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_38.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_hibernate_hibernate_validator_4_2_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_mybatis_mybatis_3_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_quartz_scheduler_quartz_1_8_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_13.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_5.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_data_spring_data_redis_1_6_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_aop_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_aspects_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_beans_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_context_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_context_support_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_core_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_expression_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_jdbc_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_oxm_4_1_9_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_test_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_tx_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_web_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__org_springframework_spring_webmvc_4_2_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__redis_clients_jedis_2_8_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/libraries/Maven__taglibs_standard_1_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../beauty_ssm-master/beauty_ssm.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/artifacts/Gradle___favorites_web_0_1_0_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/artifacts/Gradle___favorites_web_0_1_0_war__exploded_.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/gradle.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/kotlinc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__antlr_antlr_2_7_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__ch_qos_logback_logback_classic_1_1_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__ch_qos_logback_logback_core_1_1_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__com_fasterxml_classmate_1_3_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_annotations_2_8_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_core_2_8_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__com_fasterxml_jackson_core_jackson_databind_2_8_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__com_jayway_jsonpath_json_path_2_2_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__com_sun_mail_javax_mail_1_5_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__dom4j_dom4j_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__javax_activation_activation_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__javax_transaction_javax_transaction_api_1_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__javax_validation_validation_api_1_1_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__junit_junit_4_12.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__mysql_mysql_connector_java_5_1_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__net_minidev_accessors_smart_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__net_minidev_json_smart_2_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__nz_net_ultraq_thymeleaf_thymeleaf_layout_dialect_1_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__ognl_ognl_3_0_8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_apache_commons_commons_lang3_3_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_apache_commons_commons_pool2_2_4_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_core_8_5_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_el_8_5_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_websocket_8_5_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_apache_tomcat_tomcat_jdbc_8_5_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_apache_tomcat_tomcat_juli_8_5_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_aspectj_aspectjweaver_1_8_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_assertj_assertj_core_2_5_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_codehaus_groovy_groovy_2_4_7.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_hamcrest_hamcrest_library_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_hibernate_common_hibernate_commons_annotations_5_0_1_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_hibernate_hibernate_core_5_0_11_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_hibernate_hibernate_entitymanager_5_0_11_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_hibernate_hibernate_validator_5_2_4_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_javassist_javassist_3_20_0_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_jboss_jandex_2_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_jboss_logging_jboss_logging_3_3_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_json_json_20140107.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_jsoup_jsoup_1_9_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_mockito_mockito_core_1_10_19.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_objenesis_objenesis_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_ow2_asm_asm_5_0_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_skyscreamer_jsonassert_1_3_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_slf4j_jcl_over_slf4j_1_7_21.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_slf4j_jul_to_slf4j_1_7_21.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_slf4j_log4j_over_slf4j_1_7_21.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_slf4j_slf4j_api_1_7_21.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_autoconfigure_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_devtools_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_aop_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_data_jpa_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_jdbc_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_logging_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_mail_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_redis_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_test_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_thymeleaf_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_tomcat_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_web_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_boot_spring_boot_test_autoconfigure_1_4_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_data_spring_data_commons_1_12_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_data_spring_data_jpa_1_10_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_data_spring_data_keyvalue_1_1_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_data_spring_data_redis_1_7_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_session_spring_session_1_2_2_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_session_spring_session_data_redis_1_2_1_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_aop_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_aspects_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_beans_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_context_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_context_support_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_core_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_expression_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_jdbc_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_orm_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_oxm_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_test_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_tx_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_web_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_springframework_spring_webmvc_4_3_4_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_thymeleaf_thymeleaf_2_1_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_thymeleaf_thymeleaf_spring4_2_1_5_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_unbescape_unbescape_1_1_0_RELEASE.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_webjars_bower_bootstrap_3_3_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_webjars_bower_jquery_2_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_webjars_bower_vue_resource_0_7_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_webjars_jquery_1_11_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_webjars_jquery_form_3_51.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_webjars_vue_1_0_24.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__org_yaml_snakeyaml_1_17.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__redis_clients_jedis_2_8_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/libraries/Gradle__xml_apis_xml_apis_1_4_01.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../favorites-web-master/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../javaEEScaffold-master/.idea/gradle.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../javaEEScaffold-master/.idea/kotlinc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../javaEEScaffold-master/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../javaEEScaffold-master/.idea/modules/javaEEScaffold-master.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../javaEEScaffold-master/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../javaEEScaffold-master/javaEEScaffold.iml" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/appendix_python.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/movielens/README" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/movielens/movies.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/movielens/ratings.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/movielens/users.dat" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/NationalReadMe.pdf" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1880.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1881.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1882.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1883.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1884.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1885.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1886.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1887.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1888.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1889.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1890.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1891.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1892.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1893.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1894.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1895.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1896.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1897.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1898.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1899.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1900.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1901.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1902.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1903.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1904.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1905.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1906.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1907.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1908.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1909.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1910.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1911.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1912.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1913.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1914.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1915.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1916.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1917.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1918.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1919.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1920.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1921.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1922.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1923.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1924.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1925.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1926.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1927.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1928.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1929.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1930.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1931.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1932.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1933.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1934.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1935.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1936.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1937.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1938.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1939.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1940.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1941.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1942.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1943.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1944.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1945.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1946.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1947.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1948.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1949.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1950.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1951.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1952.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1953.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1954.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1955.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1956.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1957.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1958.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1959.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1960.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1961.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1962.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1963.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1964.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1965.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1966.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1967.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1968.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1969.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1970.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1971.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1972.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1973.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1974.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1975.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1976.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1977.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1978.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1979.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1980.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1981.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1982.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1983.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1984.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1985.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1986.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1987.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1988.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1989.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1990.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1991.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1992.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1993.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1994.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1995.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1996.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1997.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1998.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob1999.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob2000.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob2001.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob2002.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob2003.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob2004.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob2005.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob2006.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob2007.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob2008.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob2009.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/names/yob2010.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch02/usagov_bitly_data2012-03-16-1331923249.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch03/ipython_bug.py" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch03/stinkbug.png" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch04.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch05.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/csv_mindex.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/ex1.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/ex2.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/ex3.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/ex3.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/ex4.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/ex5.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/ex6.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/ex7.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/frame_pickle" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/out.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/test_file.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch06/tseries.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch07.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch07/analysis.py" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch07/foods-2011-10-03.json" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch07/macrodata.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch07/olivier.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/Haiti.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/PortAuPrince_Roads/PortAuPrince_Roads.dbf" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/PortAuPrince_Roads/PortAuPrince_Roads.prj" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/PortAuPrince_Roads/PortAuPrince_Roads.sbn" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/PortAuPrince_Roads/PortAuPrince_Roads.sbx" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/PortAuPrince_Roads/PortAuPrince_Roads.shp" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/PortAuPrince_Roads/PortAuPrince_Roads.shx" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/PortAuPrince_Roads/PortAuPrince_Roads_README.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/PortAuPrince_Roads/PortAuPrince_Roads_sample.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/macrodata.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/spx.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch08/tips.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch09.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch09/P00000001-ALL.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch09/stock_px.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch10.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch11.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch11/stock_px.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch11/volume.csv" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch12.ipynb" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/ch13/segismundo.txt" afterPath="" />
-      <change type="DELETED" beforePath="D:/py/DataAnalysis/pydata-book-master/fec_study.ipynb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/newsong/dao/RemoteMovieInfoDOMapper.class" afterPath="$PROJECT_DIR$/target/classes/me/newsong/dao/RemoteMovieInfoDOMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/newsong/dao/crawler/DoubanCrawler.class" afterPath="$PROJECT_DIR$/target/classes/me/newsong/dao/crawler/DoubanCrawler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/newsong/domain/entity/MovieReviewDO.class" afterPath="$PROJECT_DIR$/target/classes/me/newsong/domain/entity/MovieReviewDO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/me/newsong/domain/entity/RemoteMovieInfoDO.class" afterPath="$PROJECT_DIR$/target/classes/me/newsong/domain/entity/RemoteMovieInfoDO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/MovieMiningServer_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/MovieMiningServer_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MovieMiningServer.iml" afterPath="$PROJECT_DIR$/MovieMiningServer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/newsong/dao/RemoteMovieInfoDOMapper.java" afterPath="$PROJECT_DIR$/src/main/java/me/newsong/dao/RemoteMovieInfoDOMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/newsong/dao/crawler/DoubanCrawler.java" afterPath="$PROJECT_DIR$/src/main/java/me/newsong/dao/crawler/DoubanCrawler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/MovieReviewDO.java" afterPath="$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/MovieReviewDO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/RemoteMovieInfoDO.java" afterPath="$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/RemoteMovieInfoDO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/MovieReviewDOMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MovieReviewDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/RemoteMovieInfoDOMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/RemoteMovieInfoDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterPath="$PROJECT_DIR$/target/classes/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/MovieReviewDOMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/MovieReviewDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/RemoteMovieInfoDOMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/RemoteMovieInfoDOMapper.xml" />
-      <change type="MODIFICATION" beforePath="D:/py/DataAnalysis/.idea/workspace.xml" afterPath="D:/py/DataAnalysis/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="D:/py/MovieMiningPythonServer/MovieCrawler.py" afterPath="D:/py/MovieMiningPythonServer/MovieCrawler.py" />
-      <change type="MODIFICATION" beforePath="D:/py/MovieMiningPythonServer/RPCServer.py" afterPath="D:/py/MovieMiningPythonServer/RPCServer.py" />
-    </list>
+    <list default="true" id="730535d6-0abf-412c-bfa7-15fe520c2752" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -607,50 +13,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="DoubanCrawler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/dao/crawler/DoubanCrawler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="400" column="8" lean-forward="false" selection-start-line="400" selection-start-column="8" selection-end-line="400" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spring-dao.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/UserDO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="173" column="18" lean-forward="false" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DateTimeUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/util/DateTimeUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="15" column="65" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -673,6 +36,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="D:/" />
+    <push-targets>
+      <push-target-info target-remote="server" target-branch="master" repo="D:/" source="master" />
+    </push-targets>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -706,20 +72,27 @@
         <option value="$PROJECT_DIR$/src/main/java/me/newsong/util/movie/RemoteMovieInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/newsong/util/PythonUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/newsong/util/movie/RemoteMovieInfoDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/newsong/util/DateTimeUtil.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/RemoteMovieInfoDO.java" />
         <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserDOMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/me/newsong/dao/RemoteMovieInfoDOMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/me/newsong/dao/MovieReviewDOMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/newsong/util/DateTimeUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/MovieReviewDOMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/me/newsong/dao/UserDOMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserDOMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/me/newsong/service/impl/MovieServiceImpl.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/Movie.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/UserDO.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/MovieReviewDO.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/RemoteMovieInfoDOMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/me/newsong/dao/RemoteMovieInfoDOMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/MovieReviewDOMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/RemoteMovieInfoDO.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/newsong/dao/crawler/DoubanCrawler.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/RemoteMovieInfoDOMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/i18n_en_US.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/i18n_zh_CN.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/spring-web.xml" />
       </list>
     </option>
   </component>
@@ -846,6 +219,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -883,18 +258,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -956,6 +319,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieMiningServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MovieMiningServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -990,44 +379,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MovieMiningServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MovieMiningServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsong" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
+              <option name="myItemId" value="exception" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1037,7 +394,7 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.31111112" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../restful-spring-security-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Skeleton" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -1062,8 +419,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.DoubanCrawler.testMovieReview">
-    <configuration default="false" name="DoubanCrawler.crawlMovieReview" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.DoubanCrawler.testCrawlUser">
+    <configuration default="false" name="DoubanCrawler.crawlComplele" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="me.newsong.dao.crawler.*" />
@@ -1075,7 +432,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="me.newsong.dao.crawler" />
       <option name="MAIN_CLASS_NAME" value="me.newsong.dao.crawler.DoubanCrawler" />
-      <option name="METHOD_NAME" value="crawlMovieReview" />
+      <option name="METHOD_NAME" value="crawlComplele" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1089,7 +446,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="DoubanCrawler.testMovieReview" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="DoubanCrawler.removeDuplicateMovies" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="me.newsong.dao.crawler.*" />
@@ -1101,7 +458,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="me.newsong.dao.crawler" />
       <option name="MAIN_CLASS_NAME" value="me.newsong.dao.crawler.DoubanCrawler" />
-      <option name="METHOD_NAME" value="testMovieReview" />
+      <option name="METHOD_NAME" value="removeDuplicateMovies" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1115,7 +472,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="DoubanCrawler.testCrawlMovieReview" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="DoubanCrawler.findMovieReviews" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="me.newsong.dao.crawler.*" />
@@ -1127,7 +484,33 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="me.newsong.dao.crawler" />
       <option name="MAIN_CLASS_NAME" value="me.newsong.dao.crawler.DoubanCrawler" />
-      <option name="METHOD_NAME" value="testCrawlMovieReview" />
+      <option name="METHOD_NAME" value="findMovieReviews" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="DoubanCrawler.updateMovieReviewTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="me.newsong.dao.crawler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="MovieMiningServer" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="me.newsong.dao.crawler" />
+      <option name="MAIN_CLASS_NAME" value="me.newsong.dao.crawler.DoubanCrawler" />
+      <option name="METHOD_NAME" value="updateMovieReviewTime" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1154,32 +537,6 @@
       <option name="PACKAGE_NAME" value="me.newsong.dao.crawler" />
       <option name="MAIN_CLASS_NAME" value="me.newsong.dao.crawler.DoubanCrawler" />
       <option name="METHOD_NAME" value="testCrawlUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="DoubanCrawler.testCrawl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="me.newsong.dao.crawler.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="MovieMiningServer" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="me.newsong.dao.crawler" />
-      <option name="MAIN_CLASS_NAME" value="me.newsong.dao.crawler.DoubanCrawler" />
-      <option name="METHOD_NAME" value="testCrawl" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1689,7 +1046,6 @@
     <configuration default="false" name="MovieMiningServer" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.39" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080" />
-      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="MovieMiningServer:war exploded">
           <settings>
@@ -1762,19 +1118,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.MovieMiningServer" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.crawlMovieReview" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.testMovieReview" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.testCrawlMovieReview" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.testCrawlUser" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.testCrawl" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.crawlComplele" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.removeDuplicateMovies" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.findMovieReviews" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.updateMovieReviewTime" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.testCrawlUser" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.testMovieReview" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.testCrawl" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.testCrawlUser" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.testCrawlMovieReview" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.crawlMovieReview" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.testCrawlUser" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.updateMovieReviewTime" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.crawlComplele" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.findMovieReviews" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.DoubanCrawler.removeDuplicateMovies" />
       </list>
     </recent_temporary>
   </component>
@@ -1809,44 +1165,60 @@
       <workItem from="1494584833386" duration="11487000" />
       <workItem from="1494597386381" duration="9308000" />
       <workItem from="1494649859855" duration="32128000" />
-      <workItem from="1494736043183" duration="23852000" />
+      <workItem from="1494736043183" duration="27538000" />
+      <workItem from="1494806093095" duration="2129000" />
+      <workItem from="1494815635350" duration="84000" />
+      <workItem from="1494822788605" duration="3651000" />
+      <workItem from="1494840442729" duration="14210000" />
+      <workItem from="1494892703758" duration="442000" />
+      <workItem from="1494899590670" duration="2576000" />
+      <workItem from="1494908869887" duration="8845000" />
+      <workItem from="1494930577566" duration="7484000" />
     </task>
+    <task id="LOCAL-00001" summary="迭代三爬虫基本完毕">
+      <created>1494771809852</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1494771809852</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DoubanCrawler_testCrawl - 2017.05.14 at 22h 09m 18s.xml">
-      <configuration name="DoubanCrawler.testCrawl" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DoubanCrawler_testCrawlMovieReview - 2017.05.14 at 20h 00m 40s.xml">
-      <configuration name="DoubanCrawler.testCrawlMovieReview" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.14 at 20h 40m 36s.xml">
+    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.16 at 11h 14m 24s.xml">
       <configuration name="DoubanCrawler.testCrawlUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.14 at 20h 41m 43s.xml">
+    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.16 at 13h 16m 59s.xml">
       <configuration name="DoubanCrawler.testCrawlUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.14 at 20h 42m 33s.xml">
+    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.16 at 13h 23m 14s.xml">
       <configuration name="DoubanCrawler.testCrawlUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.14 at 20h 46m 18s.xml">
+    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.16 at 13h 23m 51s.xml">
       <configuration name="DoubanCrawler.testCrawlUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.14 at 20h 55m 04s.xml">
+    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.16 at 13h 24m 51s.xml">
       <configuration name="DoubanCrawler.testCrawlUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DoubanCrawler_testMovieReview - 2017.05.14 at 20h 28m 46s.xml">
-      <configuration name="DoubanCrawler.testMovieReview" configurationId="JUnit" />
+    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.16 at 15h 39m 13s.xml">
+      <configuration name="DoubanCrawler.testCrawlUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DoubanCrawler_testMovieReview - 2017.05.14 at 21h 00m 40s.xml">
-      <configuration name="DoubanCrawler.testMovieReview" configurationId="JUnit" />
+    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.16 at 15h 53m 57s.xml">
+      <configuration name="DoubanCrawler.testCrawlUser" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DoubanCrawler_testMovieReview - 2017.05.14 at 22h 06m 35s.xml">
-      <configuration name="DoubanCrawler.testMovieReview" configurationId="JUnit" />
+    <history-entry file="DoubanCrawler_testCrawlUser - 2017.05.16 at 21h 25m 42s.xml">
+      <configuration name="DoubanCrawler.testCrawlUser" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DoubanCrawler_updateMovieReviewTime - 2017.05.16 at 10h 08m 34s.xml">
+      <configuration name="DoubanCrawler.updateMovieReviewTime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DoubanCrawler_updateMovieReviewTime - 2017.05.16 at 10h 19m 09s.xml">
+      <configuration name="DoubanCrawler.updateMovieReviewTime" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85377000" />
+    <option name="totallyTimeSpent" value="128484000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -1855,7 +1227,7 @@
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2645382" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40386802" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08645833" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14635417" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1873,10 +1245,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.65222347" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.83922464" sideWeight="0.49583334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.290625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1886,7 +1258,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28392246" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1895,9 +1267,13 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="迭代三爬虫基本完毕" />
+    <option name="LAST_COMMIT_MESSAGE" value="迭代三爬虫基本完毕" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1906,55 +1282,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/LanguageDOMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="106" column="13" lean-forward="false" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/me/newsong/test/dao/TestMovieTagDOMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/me/newsong/test/dao/TestMovieReviewDOMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/me/newsong/test/dao/TestRemoteMovieInfoDTODOMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1384">
-          <caret line="65" column="1" lean-forward="true" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MovieLanguageMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="30" column="54" lean-forward="false" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/enums/MovieReviewSortType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/enums/MovieSortType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/enums/TimeUnit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -1995,7 +1322,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="647" column="19" lean-forward="false" selection-start-line="647" selection-start-column="11" selection-end-line="647" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2052,16 +1378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="110" column="16" lean-forward="false" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
-          <folding>
-            <marker date="1494599663367" expanded="true" signature="1105:1213" ph="select from tag" />
-            <marker date="1494599663367" expanded="true" signature="1450:1506" ph="delete from " />
-            <marker date="1494599663367" expanded="true" signature="1793:1891" ph="insert into tag... " />
-            <marker date="1494599663367" expanded="true" signature="2933:3127" ph="update tag t... " />
-            <marker date="1494599663367" expanded="true" signature="3385:3487" ph="update tag s... " />
-            <marker date="1494599663367" expanded="true" signature="3565:3663" ph="select from tag" />
-            <marker date="1494599663367" expanded="true" signature="3749:3920" ph="select from tag" />
-            <marker date="1494599663367" expanded="true" signature="4000:4067" ph="select from tag" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2069,22 +1385,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="55" column="28" lean-forward="false" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/service/MovieService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="47" column="17" lean-forward="false" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/controller/MovieController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="78" column="28" lean-forward="false" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2113,7 +1413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="71" column="22" lean-forward="true" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2121,7 +1420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="90" column="15" lean-forward="false" selection-start-line="90" selection-start-column="15" selection-end-line="90" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2138,39 +1436,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-48">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/WriterDOMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="272" column="24" lean-forward="true" selection-start-line="272" selection-start-column="24" selection-end-line="272" selection-end-column="24" />
-          <folding />
+        <state relative-caret-position="336">
+          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/RemoteMovieInfoDO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/dao/RemoteMovieInfoDOMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="409" column="18" lean-forward="false" selection-start-line="409" selection-start-column="18" selection-end-line="409" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="576">
+          <caret line="89" column="39" lean-forward="false" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/Movie.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/generator.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mybatis-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2182,26 +1468,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/WriterDOMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding>
-            <marker date="1493032138240" expanded="true" signature="1107:1218" ph="select from writer" />
-            <marker date="1493032138240" expanded="true" signature="1455:1514" ph="delete from " />
-            <marker date="1493032138240" expanded="true" signature="1799:1906" ph="insert into writer... " />
-            <marker date="1493032138240" expanded="true" signature="2959:3165" ph="update write... " />
-            <marker date="1493032138240" expanded="true" signature="3421:3532" ph="update write... " />
-            <marker date="1493032138240" expanded="true" signature="3611:3715" ph="select from writer" />
-            <marker date="1493032138240" expanded="true" signature="3797:3983" ph="select from writer" />
-          </folding>
+        <state relative-caret-position="504">
+          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mybatis-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/dao/MovieReviewDOMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="72" column="40" lean-forward="false" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/dao/UserDOMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="55" column="50" lean-forward="false" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+        <state relative-caret-position="1344">
+          <caret line="59" column="37" lean-forward="false" selection-start-line="59" selection-start-column="37" selection-end-line="59" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MovieReviewDOMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-992">
+          <caret line="124" column="51" lean-forward="true" selection-start-line="124" selection-start-column="51" selection-end-line="124" selection-end-column="51" />
+          <folding>
+            <marker date="1494900574627" expanded="true" signature="2209:2326" ph="select from movie_review" />
+            <marker date="1494900574627" expanded="true" signature="2564:2629" ph="delete from " />
+            <marker date="1494900574627" expanded="true" signature="2879:3441" ph="insert into movie_review... " />
+            <marker date="1494900574627" expanded="true" signature="4533:6002" ph="update movie... " />
+            <marker date="1494900574627" expanded="true" signature="6080:6159" ph="select disti... movie_review" />
+            <marker date="1494900574627" expanded="true" signature="6236:6314" ph="select disti... movie_review" />
+            <marker date="1494900574627" expanded="true" signature="6396:6503" ph="select from movie_review" />
+            <marker date="1494900574627" expanded="true" signature="6584:6690" ph="select from movie_review" />
+            <marker date="1494900574627" expanded="true" signature="6781:6957" ph="select from movie_review" />
+            <marker date="1494900574627" expanded="true" signature="7045:7196" ph="select from movie_review" />
+            <marker date="1494900574627" expanded="true" signature="7270:7362" ph="select count... movie_review" />
+            <marker date="1494900574627" expanded="true" signature="7451:7542" ph="select from movie_review" />
+            <marker date="1494900574627" expanded="true" signature="7451:7557" ph="select from movie_review" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/util/DateTimeUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="59" column="48" lean-forward="false" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
@@ -2210,159 +1530,190 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserDOMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="156" column="48" lean-forward="false" selection-start-line="156" selection-start-column="40" selection-end-line="156" selection-end-column="48" />
+        <state relative-caret-position="4368">
+          <caret line="182" column="21" lean-forward="false" selection-start-line="182" selection-start-column="14" selection-end-line="182" selection-end-column="21" />
           <folding>
-            <marker date="1494746633881" expanded="true" signature="1494:1593" ph="select from user" />
-            <marker date="1494746633881" expanded="true" signature="1807:1860" ph="delete from " />
-            <marker date="1494746633881" expanded="true" signature="2079:2469" ph="insert into user... " />
-            <marker date="1494746633881" expanded="true" signature="4331:5117" ph="update user " />
-            <marker date="1494746633881" expanded="true" signature="5348:5752" ph="update user " />
-            <marker date="1494746633881" expanded="true" signature="5826:5919" ph="select from user" />
-            <marker date="1494746633881" expanded="true" signature="6004:6107" ph="select from user" />
+            <marker date="1494904204453" expanded="true" signature="1580:1689" ph="select from user" />
+            <marker date="1494904204453" expanded="true" signature="1926:1983" ph="delete from " />
+            <marker date="1494904204453" expanded="true" signature="2225:2623" ph="insert into user... " />
+            <marker date="1494904204453" expanded="true" signature="4849:5779" ph="update user " />
+            <marker date="1494904204453" expanded="true" signature="6033:6457" ph="update user " />
+            <marker date="1494904204453" expanded="true" signature="6537:6635" ph="select from user" />
+            <marker date="1494904204453" expanded="true" signature="6724:6832" ph="select from user" />
+            <marker date="1494904204453" expanded="true" signature="6917:7014" ph="select from user" />
+            <marker date="1494904204453" expanded="true" signature="6917:7015" ph="select from user" />
+            <marker date="1494904204453" expanded="true" signature="7096:7198" ph="select from user" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/service/MovieService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="33" column="38" lean-forward="false" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/controller/MovieController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="87" column="23" lean-forward="false" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/service/impl/MovieServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="67" column="33" lean-forward="false" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="33" />
-          <folding />
+        <state relative-caret-position="329">
+          <caret line="157" column="20" lean-forward="false" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/MovieReviewDO.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4344">
-          <caret line="181" column="0" lean-forward="true" selection-start-line="181" selection-start-column="0" selection-end-line="181" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/RemoteMovieInfoDOMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="322" column="38" lean-forward="false" selection-start-line="322" selection-start-column="16" selection-end-line="322" selection-end-column="38" />
-          <folding>
-            <marker date="1494761231440" expanded="true" signature="3909:4019" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="4256:4314" ph="delete from " />
-            <marker date="1494761231440" expanded="true" signature="4621:5015" ph="insert into movie... " />
-            <marker date="1494761231440" expanded="true" signature="4621:5186" ph="insert into movie... " />
-            <marker date="1494761231440" expanded="true" signature="5315:7067" ph="update movie... " />
-            <marker date="1494761231440" expanded="true" signature="7146:7244" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="7393:7495" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="7575:7605" ph="select name movie" />
-            <marker date="1494761231440" expanded="true" signature="7575:7635" ph="select name movie" />
-            <marker date="1494761231440" expanded="true" signature="7724:7857" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="7952:8280" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="8068:8202" ph="select movie... movie_tag" />
-            <marker date="1494761231440" expanded="true" signature="8142:8200" ph="select id fr... tag" />
-            <marker date="1494761231440" expanded="true" signature="8373:8703" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="8489:8623" ph="select movie... movie_tag" />
-            <marker date="1494761231440" expanded="true" signature="8563:8621" ph="select id fr... tag" />
-            <marker date="1494761231440" expanded="true" signature="8773:8966" ph="select count... movie" />
-            <marker date="1494761231440" expanded="true" signature="8773:9001" ph="select count... movie" />
-            <marker date="1494761231440" expanded="true" signature="8847:8921" ph="select movie... movie_tag" />
-            <marker date="1494761231440" expanded="true" signature="9067:9101" ph="select count... movie" />
-            <marker date="1494761231440" expanded="true" signature="9067:9130" ph="select count... movie" />
-            <marker date="1494761231440" expanded="true" signature="9288:9397" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="9555:9872" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="9671:9827" ph="select movie... movie_country" />
-            <marker date="1494761231440" expanded="true" signature="9751:9825" ph="select id fr... country" />
-            <marker date="1494761231440" expanded="true" signature="10033:10355" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="10149:10310" ph="select movie... movie_director" />
-            <marker date="1494761231440" expanded="true" signature="10231:10308" ph="select id fr... director" />
-            <marker date="1494761231440" expanded="true" signature="10516:10838" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="10632:10793" ph="select movie... movie_language" />
-            <marker date="1494761231440" expanded="true" signature="10714:10791" ph="select id fr... language" />
-            <marker date="1494761231440" expanded="true" signature="10993:11305" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="11109:11260" ph="select movie... movie_writer" />
-            <marker date="1494761231440" expanded="true" signature="11187:11258" ph="select id fr... writer" />
-            <marker date="1494761231440" expanded="true" signature="11387:11487" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="11580:11658" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="11580:11687" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="11777:11884" ph="select from movie" />
-            <marker date="1494761231440" expanded="true" signature="11973:12036" ph="select movie... movie" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/dao/RemoteMovieInfoDOMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="89" column="39" lean-forward="false" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MovieReviewDOMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="128" column="13" lean-forward="true" selection-start-line="128" selection-start-column="13" selection-end-line="128" selection-end-column="13" />
-          <folding>
-            <marker date="1494761927046" expanded="true" signature="2145:2262" ph="select from movie_review" />
-            <marker date="1494761927046" expanded="true" signature="2500:2565" ph="delete from " />
-            <marker date="1494761927046" expanded="true" signature="2815:3377" ph="insert into movie_review... " />
-            <marker date="1494761927046" expanded="true" signature="4469:5935" ph="update movie... " />
-            <marker date="1494761927046" expanded="true" signature="6013:6063" ph="select disti... movie_review" />
-            <marker date="1494761927046" expanded="true" signature="6013:6092" ph="select disti... movie_review" />
-            <marker date="1494761927046" expanded="true" signature="6169:6218" ph="select disti... movie_review" />
-            <marker date="1494761927046" expanded="true" signature="6169:6247" ph="select disti... movie_review" />
-            <marker date="1494761927046" expanded="true" signature="6329:6436" ph="select from movie_review" />
-            <marker date="1494761927046" expanded="true" signature="6517:6623" ph="select from movie_review" />
-            <marker date="1494761927046" expanded="true" signature="6714:6890" ph="select from movie_review" />
-            <marker date="1494761927046" expanded="true" signature="6978:7129" ph="select from movie_review" />
-            <marker date="1494761927046" expanded="true" signature="7203:7275" ph="select count... movie_review" />
-            <marker date="1494761927046" expanded="true" signature="7203:7295" ph="select count... movie_review" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/util/DateTimeUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="15" column="65" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="65" />
+        <state relative-caret-position="461">
+          <caret line="196" column="36" lean-forward="false" selection-start-line="196" selection-start-column="36" selection-end-line="196" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/UserDO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="173" column="18" lean-forward="false" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
+        <state relative-caret-position="1344">
+          <caret line="56" column="39" lean-forward="false" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="57" lean-forward="false" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/MovieReviewDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="25" column="7" lean-forward="true" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/Movie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="16" column="43" lean-forward="true" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/domain/entity/RemoteMovieInfoDO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/generator.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="576">
+          <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
-          <caret line="1" column="44" lean-forward="false" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+          <caret line="1" column="60" lean-forward="false" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/RemoteMovieInfoDOMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="281" column="18" lean-forward="true" selection-start-line="281" selection-start-column="18" selection-end-line="281" selection-end-column="18" />
+          <folding>
+            <marker date="1494920977156" expanded="true" signature="3909:4019" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="4256:4314" ph="delete from " />
+            <marker date="1494920977156" expanded="true" signature="4621:5186" ph="insert into movie... " />
+            <marker date="1494920977156" expanded="true" signature="5315:7067" ph="update movie... " />
+            <marker date="1494920977156" expanded="true" signature="7146:7244" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="7393:7495" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="7575:7635" ph="select name movie" />
+            <marker date="1494920977156" expanded="true" signature="7724:7857" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="7952:8315" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="8068:8202" ph="select movie... movie_tag" />
+            <marker date="1494920977156" expanded="true" signature="8142:8200" ph="select id fr... tag" />
+            <marker date="1494920977156" expanded="true" signature="8408:8773" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="8524:8658" ph="select movie... movie_tag" />
+            <marker date="1494920977156" expanded="true" signature="8598:8656" ph="select id fr... tag" />
+            <marker date="1494920977156" expanded="true" signature="8843:9071" ph="select count... movie" />
+            <marker date="1494920977156" expanded="true" signature="8917:8991" ph="select movie... movie_tag" />
+            <marker date="1494920977156" expanded="true" signature="9137:9200" ph="select count... movie" />
+            <marker date="1494920977156" expanded="true" signature="9358:9486" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="9644:9996" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="9760:9916" ph="select movie... movie_country" />
+            <marker date="1494920977156" expanded="true" signature="9840:9914" ph="select id fr... country" />
+            <marker date="1494920977156" expanded="true" signature="10157:10514" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="10273:10434" ph="select movie... movie_director" />
+            <marker date="1494920977156" expanded="true" signature="10355:10432" ph="select id fr... director" />
+            <marker date="1494920977156" expanded="true" signature="10675:11032" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="10791:10952" ph="select movie... movie_language" />
+            <marker date="1494920977156" expanded="true" signature="10873:10950" ph="select id fr... language" />
+            <marker date="1494920977156" expanded="true" signature="11187:11534" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="11303:11454" ph="select movie... movie_writer" />
+            <marker date="1494920977156" expanded="true" signature="11381:11452" ph="select id fr... writer" />
+            <marker date="1494920977156" expanded="true" signature="11616:11716" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="11809:11916" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="12006:12113" ph="select from movie" />
+            <marker date="1494920977156" expanded="true" signature="12202:12265" ph="select movie... movie" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/validation.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/i18n_en_US.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        <state relative-caret-position="144">
+          <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/i18n_zh_CN.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="25" lean-forward="true" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="26" column="89" lean-forward="true" selection-start-line="26" selection-start-column="89" selection-end-line="26" selection-end-column="89" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/newsong/dao/crawler/DoubanCrawler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="400" column="8" lean-forward="false" selection-start-line="400" selection-start-column="8" selection-end-line="400" selection-end-column="8" />
+        <state relative-caret-position="-6">
+          <caret line="807" column="0" lean-forward="false" selection-start-line="807" selection-start-column="0" selection-end-line="807" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
