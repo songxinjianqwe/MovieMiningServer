@@ -2,6 +2,7 @@ package me.newsong.service;
 
 
 import com.github.pagehelper.PageInfo;
+import me.newsong.domain.common.SpecilaMovieDTO;
 import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.MovieReviewDO;
 import me.newsong.domain.entity.RemoteMovieInfoDO;
@@ -56,5 +57,6 @@ public interface MovieService extends MovieReviewTemplate {
     PageInfo<RemoteMovieInfoDO> findByLanguageContaining(String language, int pageNum, int pageSize);
 
     PageInfo<RemoteMovieInfoDO> findByWriterContaining(String writer, int pageNum, int pageSize);
-    
+ 
+    List<SpecilaMovieDTO> findSpecialMovies();
 }

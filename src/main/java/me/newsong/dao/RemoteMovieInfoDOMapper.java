@@ -89,5 +89,4 @@ public interface RemoteMovieInfoDOMapper {
     
     List<String> findAllDisplayMovieIds();
     
-    
 }

@@ -8,12 +8,14 @@ import me.newsong.domain.time.Season;
 import me.newsong.enums.TimeUnit;
 import me.newsong.exception.TimeUnitNotFoundException;
 import me.newsong.service.UserService;
-import me.newsong.util.DateTimeUtil;
+import me.newsong.util.Const;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -52,7 +54,8 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}/desc_lengths", method = RequestMethod.GET)
     public Map<DescLengthRange, Long> findDescLengthsWithRange(@PathVariable("id") String id,
-                                                               @RequestParam(defaultValue = "20", required = false) int gap) {
+                                                                @RequestParam(defaultValue = "20", required = false) int gap) {
+        
         return service.findDescLengthsWithRange(id, gap);
     }
 
@@ -60,11 +63,16 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}/accum_review_counts", method = RequestMethod.GET)
     public Map<Season, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("time_unit") String timeUnit,
-                                                         @RequestParam("begin") Long begin, @RequestParam("end") Long end) {
+                                                       @DateTimeFormat(pattern = Const.DATE_TIME_PATTERN) @RequestParam("begin") LocalDateTime begin,@DateTimeFormat(pattern = Const.DATE_TIME_PATTERN)  @RequestParam("end") LocalDateTime end) {
         TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
         if (unit == null) {
             throw new TimeUnitNotFoundException(timeUnit);
         }
-        return service.findAccumulatedReviewCountsBy(unit, id, DateTimeUtil.toLocalDateTime(begin), DateTimeUtil.toLocalDateTime(end));
+        return service.findAccumulatedReviewCountsBy(unit, id, begin, end);
+    }
+    
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    public void test(@DateTimeFormat(pattern = Const.DATE_TIME_PATTERN) @RequestParam("datetime") LocalDateTime dateTime){
+        System.out.println(dateTime);
     }
 }

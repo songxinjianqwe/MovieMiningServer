@@ -2,6 +2,7 @@ package me.newsong.controller;
 
 import com.github.pagehelper.PageInfo;
 import me.newsong.domain.common.ReviewTimesAndScores;
+import me.newsong.domain.common.SpecilaMovieDTO;
 import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.RemoteMovieInfoDO;
 import me.newsong.domain.time.BaseTimeUnit;
@@ -10,14 +11,18 @@ import me.newsong.enums.TimeUnit;
 import me.newsong.exception.SortTypeNotFoundException;
 import me.newsong.exception.TimeUnitNotFoundException;
 import me.newsong.service.MovieService;
-import me.newsong.util.DateTimeUtil;
+import me.newsong.util.Const;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.*;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author Sinjin Song
@@ -50,12 +55,12 @@ public class MovieController {
 
     @RequestMapping(value = "/{id}/accum_review_counts", method = RequestMethod.GET)
     public Map<? extends BaseTimeUnit, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("time_unit") String timeUnit,
-                                                                         @RequestParam("begin") Long begin, @RequestParam("end") Long end) {
+                                                                         @DateTimeFormat(pattern = Const.DATE_TIME_PATTERN) @RequestParam("begin") LocalDateTime begin, @DateTimeFormat(pattern = Const.DATE_TIME_PATTERN)  @RequestParam("end") LocalDateTime end) {
         TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
         if (unit == null) {
             throw new TimeUnitNotFoundException(timeUnit);
         }
-        return service.findAccumulatedReviewCountsBy(unit, id, DateTimeUtil.toLocalDateTime(begin), DateTimeUtil.toLocalDateTime(end));
+        return service.findAccumulatedReviewCountsBy(unit, id,begin, end);
     }
 
     @RequestMapping(value = "/names", method = RequestMethod.GET)
@@ -133,5 +138,9 @@ public class MovieController {
         return service.findByWriterContaining(writer,pageNum,pageSize);
     }
     
+    @RequestMapping(value = "/special",method = RequestMethod.GET)
+    public List<SpecilaMovieDTO> findAllSpecialMovies(){
+        return service.findSpecialMovies();
+    }
     
 }

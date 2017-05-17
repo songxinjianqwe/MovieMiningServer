@@ -27,7 +27,6 @@ me\newsong\domain\time\Day.class
 me\newsong\dao\LanguageDOMapper.class
 me\newsong\dao\MovieWriterMapper.class
 me\newsong\domain\entity\MovieDirectorKey.class
-me\newsong\cache\RedisCacheConfig.class
 me\newsong\domain\entity\MovieWriterKey.class
 me\newsong\domain\entity\LanguageDO.class
 me\newsong\validator\Not999Validator.class
@@ -90,5 +89,4 @@ me\newsong\service\UserService.class
 me\newsong\domain\entity\DirectorDO.class
 me\newsong\util\movie\MovieTag.class
 me\newsong\validator\Not999.class
-me\newsong\cache\RedisCacheConfig$1.class
 me\newsong\util\ConvertUtil.class

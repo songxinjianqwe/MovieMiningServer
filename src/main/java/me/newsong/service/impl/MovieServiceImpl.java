@@ -1,9 +1,11 @@
 package me.newsong.service.impl;
 
 import com.github.pagehelper.PageInfo;
+import me.newsong.cache.CacheManager;
 import me.newsong.dao.MovieReviewDOMapper;
 import me.newsong.dao.MovieTagDOMapper;
 import me.newsong.dao.RemoteMovieInfoDOMapper;
+import me.newsong.domain.common.SpecilaMovieDTO;
 import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.MovieReviewDO;
 import me.newsong.domain.entity.MovieTagDO;
@@ -33,7 +35,9 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     private RemoteMovieInfoDOMapper remoteMovieInfoDOMapper;
     @Autowired
     private MovieTagDOMapper movieTagDOMapper;
-
+    @Autowired
+    private CacheManager cacheManager;
+    
     @Override
     public List<String> findAllIds() {
         return movieReviewDOMapper.findAllMovieIds();
@@ -254,6 +258,18 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     @Override
     public PageInfo<RemoteMovieInfoDO> findByWriterContaining(String writer, int pageNum, int pageSize) {
         return remoteMovieInfoDOMapper.findByWriterContaining(writer, pageNum, pageSize).toPageInfo();
+    }
+
+    @Override
+    public List<SpecilaMovieDTO> findSpecialMovies() {
+        List<SpecilaMovieDTO> result = cacheManager.getList("findSpecialMovies",SpecilaMovieDTO.class);
+        if(result == null){
+            result = remoteMovieInfoDOMapper.findSpecialMovies().stream().map(SpecilaMovieDTO::new).collect(Collectors.toList());
+            cacheManager.put("findSpecialMovies",result);
+            return result;
+        }else{
+            return result;
+        }
     }
 
     private <T> Map<T, Double> findMovieScores(TimeUnit unit, List<MovieReviewDO> reviews) {
