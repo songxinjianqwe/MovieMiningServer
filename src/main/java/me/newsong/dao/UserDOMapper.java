@@ -1,5 +1,6 @@
 package me.newsong.dao;
 
+import com.github.pagehelper.Page;
 import me.newsong.domain.entity.UserDO;
 import org.apache.ibatis.annotations.Param;
 
@@ -58,4 +59,7 @@ public interface UserDOMapper {
     UserDO findByUserRecommendId(@Param("id") Long id);
     List<UserDO >  findAllDisplay();
     List<UserDO > findAllUnDisplay();
+    List<String> findAllNames();
+    Page<UserDO> findByNameContaining(@Param("name") String name,@Param("pageNum") int pageNum,@Param("pageSize") int pageSize);
+    List<String> findAllUserIds();
 }

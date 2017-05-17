@@ -1,7 +1,9 @@
 package me.newsong.controller;
 
+import com.github.pagehelper.PageInfo;
 import me.newsong.domain.common.DescLengthRange;
 import me.newsong.domain.entity.User;
+import me.newsong.domain.entity.UserDO;
 import me.newsong.domain.time.Season;
 import me.newsong.enums.TimeUnit;
 import me.newsong.exception.TimeUnitNotFoundException;
@@ -29,10 +31,23 @@ public class UserController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/names", method = RequestMethod.GET)
+    public List<String> findAllUserNames() {
+        return service.findAllUserNames();
+    }
+    
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/ids/{id}", method = RequestMethod.GET)
     public User findMovieByID(@PathVariable("id") String id) {
         return service.findUserById(id);
     }
+    
+    @ResponseStatus(HttpStatus.OK)
+    @RequestMapping(value = "/names/{name}", method = RequestMethod.GET)
+    public PageInfo<UserDO> findMovieByNameContaining(@PathVariable("name") String name, @RequestParam(value = "pageNum", required = false, defaultValue = "0") Integer pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize) {
+        return service.findUsersByContainingName(name,pageNum,pageSize);
+    }
+    
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}/desc_lengths", method = RequestMethod.GET)
