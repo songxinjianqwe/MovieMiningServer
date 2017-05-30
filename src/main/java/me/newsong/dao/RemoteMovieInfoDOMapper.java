@@ -84,8 +84,7 @@ public interface RemoteMovieInfoDOMapper {
     Page<RemoteMovieInfoDO> findByWriterContaining(@Param("writer") String writer, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     
     RemoteMovieInfoDO findByMovieId(@Param("id") String id);
-    List<RemoteMovieInfoDO> findAllDisplayMovies();
-    List<RemoteMovieInfoDO> findSpecialMovies();
+    List<RemoteMovieInfoDO> findAll();
     
     List<String> findAllDisplayMovieIds();
     

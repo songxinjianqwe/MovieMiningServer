@@ -75,4 +75,9 @@ public class UserServiceImpl extends MovieReviewTemplateImpl implements UserServ
         return reviews.stream().collect(Collectors.averagingDouble((review) -> review.getContent().length()));
     }
 
+    @Override
+    public UserDO findUserByUsername(String username) {
+        return userDOMapper.findByUsername(username);
+    }
+
 }

@@ -38,20 +38,17 @@ public class DoubanCrawler extends BaseSpringTester {
     @Autowired
     private RemoteMovieInfoDOMapper remoteMovieInfoDOMapper;
     private PythonUtil pythonUtil = PythonUtil.getInstance();
-    private static String DOUBAN_URL = "https://movie.douban.com/tag/2016";
+    private static String DOUBAN_URL = "https://movie.douban.com/tag/2015";
     private static String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; LCTE; rv:11.0) like Gecko";
     private static ObjectMapper mapper = new ObjectMapper();
     private static int MIN_REVIRE_TIME = 5000;
     private static Map<String, String> COOKIE = new HashMap<>();
     private static int PAUSE = 1000;
     private static String IMDB_MOVIE_REVIEW_URL = "http://www.imdb.com/title/%s/reviews?ref_=tt_urv";
-
     private static String NUMBER_REG = "([0-9]*)";
     private static String TWO_NUMBER_REG = "([0-9]*)([0-9]*)";
-
     private static String USER_URL = "http://www.imdb.com/user/%s/";
-
-
+    
     @Autowired
     private DirectorDOMapper directorDOMapper;
     @Autowired
@@ -80,7 +77,7 @@ public class DoubanCrawler extends BaseSpringTester {
     private MovieWriterMapper movieWriterMapper;
     @Autowired
     private UserDOMapper userDOMapper;
-
+    
     private static Map<String, Integer> months = new HashMap<>();
 
     static {
@@ -97,7 +94,7 @@ public class DoubanCrawler extends BaseSpringTester {
         months.put("November", 11);
         months.put("December", 12);
     }
-
+    
     @BeforeClass
     public static void init() {
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -121,22 +118,18 @@ public class DoubanCrawler extends BaseSpringTester {
         COOKIE.put("__utmv", "30149280.15840");
         COOKIE.put("bid", "hxJ0ucxP-Qw");
     }
-
-
+    
     public static Map<String, String> generateCookie() {
         return COOKIE;
     }
-
-    /**
-     * 爬取2000部电影，AJAX获取电影列表，得到URLs
-     */
+    
     @Test
     public void crawl() throws InterruptedException {
         System.out.println("start crawling...");
-        int movieCount = 2460;
-        int successMovieCount = 594;
+        int movieCount = 0;
+        int successMovieCount = 0;
         try {
-            for (int pageStart = 2460; ; pageStart += 20) {
+            for (int pageStart = 0; ; pageStart += 20) {
                 Document doc = Jsoup.connect(DOUBAN_URL)
                         .userAgent(USER_AGENT)
                         .data("start", String.valueOf(pageStart))
@@ -166,7 +159,7 @@ public class DoubanCrawler extends BaseSpringTester {
             e.printStackTrace();
         }
     }
-
+    
     /**
      * 爬取单部电影信息
      *
@@ -254,7 +247,7 @@ public class DoubanCrawler extends BaseSpringTester {
 
     @Test
     public void crawlIMDB() {
-        for (RemoteMovieInfoDO movie : remoteMovieInfoDOMapper.findAllDisplayMovies()) {
+        for (RemoteMovieInfoDO movie : remoteMovieInfoDOMapper.findAll()) {
 
             RemoteMovieInfoDTO remoteMovieInfoDTO = pythonUtil.call("getMovieInfo", Arrays.asList(movie.getMovieId()), RemoteMovieInfoDTO.class);
             if (remoteMovieInfoDTO == null || remoteMovieInfoDTO.getPosterURL() == null) {
@@ -399,19 +392,19 @@ public class DoubanCrawler extends BaseSpringTester {
             }
         }
     }
-    
+
     @Test
-    public void findMovieReviews(){
+    public void findMovieReviews() {
         List<String> movieIds = new ArrayList<>();
-        for(String movieId:remoteMovieInfoDOMapper.findAllDisplayMovieIds()){
+        for (String movieId : remoteMovieInfoDOMapper.findAllDisplayMovieIds()) {
             Integer count = movieReviewDOMapper.countByMovieId(movieId);
-            if(count > 20){
+            if (count > 20) {
                 movieIds.add(movieId);
             }
         }
         movieIds.forEach(System.out::println);
     }
-    
+
     @Test
     public void removeDuplicateMovies() {
         try {
@@ -421,9 +414,9 @@ public class DoubanCrawler extends BaseSpringTester {
                 List<MovieReviewDO> byMovieId = movieReviewDOMapper.findByMovieId(movieId);
                 Set<String> userIds = new HashSet<>();
                 for (MovieReviewDO review : byMovieId) {
-                    if(userIds.contains(review.getUserId())){
+                    if (userIds.contains(review.getUserId())) {
                         movieReviewDOMapper.deleteByPrimaryKey(review.getId());
-                    }else{
+                    } else {
                         userIds.add(review.getUserId());
                     }
                 }
@@ -609,7 +602,6 @@ public class DoubanCrawler extends BaseSpringTester {
                 movie.setImdbReviewTime(remoteMovieInfoDTO.getImdbReviewTime());
                 movie.setDuration(remoteMovieInfoDTO.getDuration());
                 movie.setGross(remoteMovieInfoDTO.getGross());
-                movie.setDisplay(Boolean.TRUE);
 
 
                 String[] directors = remoteMovieInfoDTO.getDirectors();
@@ -793,7 +785,7 @@ public class DoubanCrawler extends BaseSpringTester {
     public void testCrawlUser() {
 //        crawlUser(userDOMapper.findByUserId("ur3922673")
         for (UserDO userDO : userDOMapper.findAllDisplay()) {
-            if(userDO.getIsDisplay() == null){
+            if (userDO.getIsDisplay() == null) {
                 crawlUser(userDO);
             }
         }
@@ -817,9 +809,9 @@ public class DoubanCrawler extends BaseSpringTester {
                 if (months.containsKey(slice)) {
                     month = months.get(slice);
                 } else if (slice.matches("^[0-9]*$")) {
-                    if(StringUtils.isNotEmpty(slice)){
+                    if (StringUtils.isNotEmpty(slice)) {
                         year = Integer.parseInt(slice);
-                    }else{
+                    } else {
                         return;
                     }
                 }
@@ -837,12 +829,12 @@ public class DoubanCrawler extends BaseSpringTester {
             e.printStackTrace();
         }
     }
-    
+
     @Test
-    public void updateMovieReviewTime(){
+    public void updateMovieReviewTime() {
         for (MovieReviewDO movieReviewDO : movieReviewDOMapper.findAllUnDisplay()) {
-            movieReviewDO.setTime(DateTimeUtil.toLocalDateTime(DateTimeUtil.toLong(movieReviewDO.getTime())*1000));
-            movieReviewDOMapper.updateByPrimaryKeySelective(movieReviewDO);       
+            movieReviewDO.setTime(DateTimeUtil.toLocalDateTime(DateTimeUtil.toLong(movieReviewDO.getTime()) * 1000));
+            movieReviewDOMapper.updateByPrimaryKeySelective(movieReviewDO);
         }
     }
 }

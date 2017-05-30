@@ -6,7 +6,6 @@ me\newsong\service\impl\UserServiceImpl.class
 me\newsong\aop\LoggingAspect.class
 me\newsong\enums\MovieReviewSortType.class
 me\newsong\exception\domain\RESTError.class
-me\newsong\security\https\HTTPSPKCSCoder.class
 me\newsong\exception\annotation\RESTField.class
 me\newsong\dao\MovieReviewDOMapper.class
 me\newsong\interceptor\mybatis\MyFirstPlugin.class
@@ -29,9 +28,7 @@ me\newsong\dao\MovieWriterMapper.class
 me\newsong\domain\entity\MovieDirectorKey.class
 me\newsong\domain\entity\MovieWriterKey.class
 me\newsong\domain\entity\LanguageDO.class
-me\newsong\validator\Not999Validator.class
 me\newsong\dao\MovieCountryMapper.class
-me\newsong\security\https\HTTPSCoder.class
 me\newsong\util\InternationalizeUtil.class
 me\newsong\service\comp\RemoteMovieInfoTimeDescComparator.class
 me\newsong\exception\SortTypeNotFoundException.class
@@ -55,7 +52,6 @@ me\newsong\domain\time\BaseTimeUnit.class
 me\newsong\domain\entity\MovieLanguageKey.class
 me\newsong\exception\domain\RESTFieldError.class
 me\newsong\service\comp\MovieReviewTimeDescComparator.class
-me\newsong\security\coder\DESUtil.class
 me\newsong\service\func\DayDispatcher.class
 me\newsong\util\SpringContextUtil.class
 me\newsong\service\comp\MovieReviewHelpfulDescComparator.class
@@ -66,7 +62,6 @@ me\newsong\domain\entity\RemoteMovieInfoDO.class
 me\newsong\dao\WriterDOMapper.class
 me\newsong\domain\entity\WriterDO.class
 me\newsong\exception\UserNotFoundException.class
-me\newsong\security\coder\AESUtil.class
 me\newsong\dao\ActorDOMapper.class
 me\newsong\dao\CountryDOMapper.class
 me\newsong\service\MovieReviewTemplate.class
@@ -78,7 +73,6 @@ me\newsong\domain\entity\MovieActorKey.class
 me\newsong\util\BaseSpringTester.class
 me\newsong\service\MovieService.class
 me\newsong\controller\MovieController.class
-me\newsong\quartz\Quartz.class
 me\newsong\dao\MovieDirectorMapper.class
 me\newsong\enums\TimeUnit.class
 me\newsong\exception\annotation\RESTFieldAnnotationNotFoundException.class
@@ -88,5 +82,4 @@ me\newsong\dao\MovieLanguageMapper.class
 me\newsong\service\UserService.class
 me\newsong\domain\entity\DirectorDO.class
 me\newsong\util\movie\MovieTag.class
-me\newsong\validator\Not999.class
 me\newsong\util\ConvertUtil.class

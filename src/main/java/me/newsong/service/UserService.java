@@ -15,4 +15,5 @@ public interface UserService extends MovieReviewTemplate {
     PageInfo<UserDO> findUsersByContainingName(String name, int pageNum, int pageSize);
     Map<DescLengthRange, Long> findDescLengthsWithRange(String id, int gap);
     double getAverageDescLength(List<MovieReviewDO> reviews);
+    UserDO findUserByUsername(String username);
 }

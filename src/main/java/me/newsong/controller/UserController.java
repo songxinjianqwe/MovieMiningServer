@@ -71,8 +71,5 @@ public class UserController {
         return service.findAccumulatedReviewCountsBy(unit, id, begin, end);
     }
     
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public void test(@DateTimeFormat(pattern = Const.DATE_TIME_PATTERN) @RequestParam("datetime") LocalDateTime dateTime){
-        System.out.println(dateTime);
-    }
+    
 }

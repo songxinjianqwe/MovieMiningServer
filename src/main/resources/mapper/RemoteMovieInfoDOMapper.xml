@@ -30,7 +30,6 @@
         <result column="imdb_review_time" property="imdbReviewTime"></result>
         <result column="douban_review_time" property="doubanReviewTime"></result>
         <result column="douban_score" property="doubanScore"></result>
-        <result column="is_display" property="isDisplay"></result>
         <result column="movie_recommend_id" property="movieRecommendId"></result>
         <collection property="directors" fetchType="eager" column="id"
                     select="me.newsong.dao.DirectorDOMapper.findByMovieId"></collection>
@@ -54,7 +53,7 @@
         id, movie_id, poster_url, name, release_time, summary, imdb_score, duration
     </sql>
     <sql id="Base_Column_ListWithTable">
-         movie.id, movie.movie_id, movie.poster_url, movie.name, movie.release_time, movie.summary, movie.imdb_score, movie.duration,movie.imdb_review_time,movie.douban_review_time,movie.douban_score,movie.is_display,movie.movie_recommend_id
+         movie.id, movie.movie_id, movie.poster_url, movie.name, movie.release_time, movie.summary, movie.imdb_score, movie.duration,movie.imdb_review_time,movie.douban_review_time,movie.douban_score,movie.movie_recommend_id
     </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         <!--
@@ -83,11 +82,11 @@
         -->
         insert into movie (id, movie_id, poster_url,
         name, release_time, summary,
-        imdb_score, duration,imdb_review_time,douban_score,douban_review_time,gross,is_display,movie_recommend_id)
+        imdb_score, duration,imdb_review_time,douban_score,douban_review_time,gross,movie_recommend_id)
         values (#{id,jdbcType=BIGINT}, #{movieId,jdbcType=VARCHAR}, #{posterUrl,jdbcType=VARCHAR},
         #{name,jdbcType=VARCHAR}, #{releaseTime,jdbcType=TIMESTAMP}, #{summary,jdbcType=VARCHAR},
         #{imdbScore,jdbcType=DECIMAL},
-        #{duration,jdbcType=INTEGER},#{imdbReviewTime},#{doubanScore},#{doubanReviewTime},#{gross},#{isDisplay},#{movieRecommendId})
+        #{duration,jdbcType=INTEGER},#{imdbReviewTime},#{doubanScore},#{doubanReviewTime},#{gross},#{movieRecommendId})
     </insert>
 
     <update id="updateByPrimaryKeySelective" parameterType="me.newsong.domain.entity.RemoteMovieInfoDO">
@@ -128,9 +127,6 @@
             </if>
             <if test="gross != null">
                 gross = #{gross,jdbcType=INTEGER},
-            </if>
-            <if test="isDisplay != null">
-                is_display = #{isDisplay},
             </if>
             <if test="movieRecommendId != null">
                 movie_recommend_id = #{movieRecommendId},
@@ -183,7 +179,6 @@
         where tag_name = #{tag} )
         ) t
         on movie.id = t.movie_id
-        where movie.is_display = 1
         order by imdb_score desc
     </select>
 
@@ -201,7 +196,6 @@
         where tag_name = #{tag} )
         ) t
         on movie.id = t.movie_id
-        where movie.is_display = 1
         order by release_time desc
     </select>
 
@@ -215,14 +209,12 @@
         where movie_tag = #{tag.id}
         ) t
         on movie.id = t.movie_id
-        where movie.is_display = 1
     </select>
 
 
     <select id="count" resultType="int">
         select count(*)
         from movie
-        where is_display = 1
     </select>
 
     <select id="findByMovieIdContaining" resultMap="DetailedResultMap">
@@ -230,7 +222,7 @@
         select
         <include refid="Base_Column_List"/>
         from movie
-        where movie_id like #{_movieId} and is_display = 1
+        where movie_id like #{_movieId} 
     </select>
 
     <select id="findByCountryContaining" resultMap="DetailedResultMap">
@@ -247,7 +239,6 @@
         from country
         where country_name like #{_country} )
         ) t
-        where movie.is_display = 1
         on movie.id = t.movie_id
     </select>
 
@@ -265,7 +256,6 @@
         from director
         where director_name like #{_director} )
         ) t
-        where movie.is_display = 1
         on movie.id = t.movie_id
     </select>
 
@@ -283,7 +273,6 @@
         from language
         where language_name like #{_language} )
         ) t
-        where movie.is_display = 1
         on movie.id = t.movie_id
     </select>
 
@@ -301,7 +290,6 @@
         from writer
         where writer_name like #{_writer} )
         ) t
-        where movie.is_display = 1
         on movie.id = t.movie_id
     </select>
 
@@ -312,23 +300,10 @@
         where movie_id = #{id}
     </select>
 
-    <select id="findAllDisplayMovies" resultMap="DetailedResultMap">
+    <select id="findAll" resultMap="DetailedResultMap">
         select
         <include refid="Base_Column_ListWithTable"/>
         from movie
-        where is_display = 1
     </select>
-
-    <select id="findSpecialMovies" resultMap="DetailedResultMap">
-        select
-        <include refid="Base_Column_ListWithTable"/>
-        from movie
-        where is_display = 0
-    </select>
-    
-    <select id="findAllDisplayMovieIds" resultType="string">
-        select movie_id
-        from movie
-        where is_display = 1
-    </select>
+   
 </mapper>

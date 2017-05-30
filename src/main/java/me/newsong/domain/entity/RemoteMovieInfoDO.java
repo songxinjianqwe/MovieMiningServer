@@ -84,7 +84,6 @@ public class RemoteMovieInfoDO {
     private Integer imdbReviewTime;
     private Double doubanScore;
     private Integer gross;
-    private Boolean isDisplay;
     private Long movieRecommendId;
 
 
@@ -396,13 +395,6 @@ public class RemoteMovieInfoDO {
         this.gross = gross;
     }
 
-    public Boolean getDisplay() {
-        return isDisplay;
-    }
-
-    public void setDisplay(Boolean display) {
-        isDisplay = display;
-    }
 
     public Long getMovieRecommendId() {
         return movieRecommendId;
@@ -434,7 +426,6 @@ public class RemoteMovieInfoDO {
                 ", imdbReviewTime=" + imdbReviewTime +
                 ", doubanScore=" + doubanScore +
                 ", gross=" + gross +
-                ", isDisplay=" + isDisplay +
                 ", movieRecommendId=" + movieRecommendId +
                 '}';
     }

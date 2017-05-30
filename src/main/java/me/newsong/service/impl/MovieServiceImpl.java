@@ -5,7 +5,7 @@ import me.newsong.cache.CacheManager;
 import me.newsong.dao.MovieReviewDOMapper;
 import me.newsong.dao.MovieTagDOMapper;
 import me.newsong.dao.RemoteMovieInfoDOMapper;
-import me.newsong.domain.common.SpecilaMovieDTO;
+import me.newsong.domain.common.MovieVO;
 import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.MovieReviewDO;
 import me.newsong.domain.entity.MovieTagDO;
@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Transactional(readOnly = true)
+@Transactional
 @Service
 public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieService {
     @Autowired
@@ -50,8 +50,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
                 getVarianceOfScore(reviews), super.getKeyWords(reviews), getAverageScore(reviews));
         return movie;
     }
-
-
+    
     /**
      * 只在一个地方抛出异常
      *
@@ -261,15 +260,20 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     }
 
     @Override
-    public List<SpecilaMovieDTO> findSpecialMovies() {
-        List<SpecilaMovieDTO> result = cacheManager.getList("findSpecialMovies",SpecilaMovieDTO.class);
+    public List<MovieVO> findDisplayMovies() {
+        List<MovieVO> result = cacheManager.getList("findDisplayMovies",MovieVO.class);
         if(result == null){
-            result = remoteMovieInfoDOMapper.findSpecialMovies().stream().map(SpecilaMovieDTO::new).collect(Collectors.toList());
-            cacheManager.put("findSpecialMovies",result);
+            result = remoteMovieInfoDOMapper.findAll().stream().map(MovieVO::new).collect(Collectors.toList());
+            cacheManager.put("findDisplayMovies",result);
             return result;
         }else{
             return result;
         }
+    }
+
+    @Override
+    public void addMovieReview(MovieReviewDO movieReviewDO) {
+        movieReviewDOMapper.insert(movieReviewDO);
     }
 
     private <T> Map<T, Double> findMovieScores(TimeUnit unit, List<MovieReviewDO> reviews) {

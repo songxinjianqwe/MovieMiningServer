@@ -62,4 +62,5 @@ public interface UserDOMapper {
     List<String> findAllNames();
     Page<UserDO> findByNameContaining(@Param("name") String name,@Param("pageNum") int pageNum,@Param("pageSize") int pageSize);
     List<String> findAllUserIds();
+    UserDO findByUsername(@Param("username") String username);
 }

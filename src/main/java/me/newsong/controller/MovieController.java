@@ -2,7 +2,7 @@ package me.newsong.controller;
 
 import com.github.pagehelper.PageInfo;
 import me.newsong.domain.common.ReviewTimesAndScores;
-import me.newsong.domain.common.SpecilaMovieDTO;
+import me.newsong.domain.common.MovieVO;
 import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.RemoteMovieInfoDO;
 import me.newsong.domain.time.BaseTimeUnit;
@@ -138,9 +138,9 @@ public class MovieController {
         return service.findByWriterContaining(writer,pageNum,pageSize);
     }
     
-    @RequestMapping(value = "/special",method = RequestMethod.GET)
-    public List<SpecilaMovieDTO> findAllSpecialMovies(){
-        return service.findSpecialMovies();
+    @RequestMapping(method = RequestMethod.GET)
+    public List<MovieVO> findAll(){
+        return service.findDisplayMovies();
     }
     
 }

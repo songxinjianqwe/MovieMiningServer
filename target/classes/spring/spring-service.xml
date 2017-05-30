@@ -17,6 +17,8 @@
     <context:component-scan base-package="me.newsong.service"/>
     <context:component-scan base-package="me.newsong.aop"/>
     <context:component-scan base-package="me.newsong.util"/>
+    <context:component-scan base-package="me.newsong.propeties"/>
+
 
     <!--事务管理器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -25,7 +27,7 @@
 
     <!-- 使用注解来配置AOP -->
     <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
-    
+
     <!--配置基于注解的声明式事务,默认使用注解来管理事务行为-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
@@ -34,6 +36,15 @@
           class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="i18n"></property>
     </bean>
-
+    
+    <bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:token.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"></property>
+    </bean>
+    
     <bean id="springContextUtil" class="me.newsong.util.SpringContextUtil"></bean>
 </beans>
