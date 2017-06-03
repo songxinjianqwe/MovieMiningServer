@@ -1,5 +1,6 @@
 package me.newsong.security.domain;
 
+import me.newsong.domain.entity.UserDO;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,18 +10,16 @@ import java.util.Collection;
  * Created by SinjinSong on 2017/5/8.
  */
 public class JWTUser implements UserDetails {
-    private String userId;
     private String username;
     private String password;
     private boolean isAccountNonExpired;
     private boolean isAccountNonLocked;
     private boolean isCredentialsNonExpired;
     private boolean isEnabled;
-    
+    private UserDO user;
     private Collection<? extends GrantedAuthority> authorities;
     
-    public JWTUser(String userId, String username, String password, boolean isEnabled, boolean isAccountNonLocked, boolean isAccountNonExpired, boolean isCredentialsNonExpired, Collection<? extends GrantedAuthority> authorities) {
-        this.userId = userId;
+    public JWTUser(String username, String password, boolean isEnabled, boolean isAccountNonLocked, boolean isAccountNonExpired, boolean isCredentialsNonExpired, Collection<? extends GrantedAuthority> authorities,UserDO user) {
         this.username = username;
         this.password = password;
         this.isEnabled = isEnabled;
@@ -28,11 +27,9 @@ public class JWTUser implements UserDetails {
         this.isAccountNonExpired = isAccountNonExpired;
         this.isCredentialsNonExpired = isCredentialsNonExpired;
         this.authorities = authorities;
+        this.user = user;
     }
     
-    public String getUserId() {
-        return userId;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -67,5 +64,9 @@ public class JWTUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return this.isEnabled;
+    }
+
+    public UserDO getUser() {
+        return user;
     }
 }

@@ -153,14 +153,12 @@
     <select id="findAllMovieNames" resultType="string">
         select name
         from movie 
-        where is_display = 1
     </select>
 
     <select id="findLatestMovies" resultMap="DetailedResultMap">
         select
         <include refid="Base_Column_List"/>
         from movie
-        where is_display = 1
         order by release_time desc
     </select>
 
@@ -222,7 +220,7 @@
         select
         <include refid="Base_Column_List"/>
         from movie
-        where movie_id like #{_movieId} 
+        where movie_id like #{_movieId}
     </select>
 
     <select id="findByCountryContaining" resultMap="DetailedResultMap">
@@ -293,9 +291,9 @@
         on movie.id = t.movie_id
     </select>
 
-    <select id="findByMovieId" resultMap="BaseResultMap">
+    <select id="findByMovieId" resultMap="DetailedResultMap">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_ListWithTable"/>
         from movie
         where movie_id = #{id}
     </select>
@@ -305,5 +303,22 @@
         <include refid="Base_Column_ListWithTable"/>
         from movie
     </select>
-   
+
+    <select id="findByRecommendIds" resultMap="DetailedResultMap">
+        select
+        <include refid="Base_Column_ListWithTable"/>
+        from movie
+        where movie_recommend_id in
+        <foreach collection="recommendIds" open="(" close=")" item="item_id" separator=",">
+            #{item_id}
+        </foreach>
+    </select>
+
+    <select id="findByRecommendId" resultMap="DetailedResultMap">
+        select
+        <include refid="Base_Column_ListWithTable"/>
+        from movie
+        where movie_recommend_id = #{recommendId}
+    </select>
+
 </mapper>

@@ -62,6 +62,7 @@ public interface MovieReviewDOMapper {
     List<MovieReviewDO> findByMovieId(@Param("id") String id);
 
     List<MovieReviewDO> findByUserId(@Param("id") String id);
+    Page<MovieReviewDO> findByUserRecommendId(@Param("id") Long id, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
     
     Page<MovieReviewDO> findByIdOrderByHelpful(@Param("id") String id, @Param("pageNum") int pageNum, @Param("pageSize") int pageSize);
 
@@ -71,4 +72,5 @@ public interface MovieReviewDOMapper {
 
     void insertBatch(@Param("reviews") List<MovieReviewDO> reviews);
     List<MovieReviewDO> findAllUnDisplay();
+    
 }

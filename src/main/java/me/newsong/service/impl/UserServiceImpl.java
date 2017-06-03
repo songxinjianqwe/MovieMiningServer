@@ -1,13 +1,17 @@
 package me.newsong.service.impl;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import me.newsong.dao.UserDOMapper;
 import me.newsong.domain.common.DescLengthRange;
+import me.newsong.domain.common.MovieReviewVO;
 import me.newsong.domain.entity.MovieReviewDO;
 import me.newsong.domain.entity.User;
 import me.newsong.domain.entity.UserDO;
 import me.newsong.exception.UserNotFoundException;
 import me.newsong.service.UserService;
+import me.newsong.util.MovieReviewConverter;
+import me.newsong.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +25,9 @@ import java.util.stream.Collectors;
 public class UserServiceImpl extends MovieReviewTemplateImpl implements UserService {
     @Autowired
     private UserDOMapper userDOMapper;
-
+    @Autowired
+    private MovieReviewConverter movieReviewConverter;
+    
     @Override
     public List<String> findAllIds() {
         return userDOMapper.findAllUserIds();
@@ -80,4 +86,9 @@ public class UserServiceImpl extends MovieReviewTemplateImpl implements UserServ
         return userDOMapper.findByUsername(username);
     }
 
+    @Override
+    public PageInfo<MovieReviewVO> findPagingMovieReviewsByUserRecommendId(Long userRecommendId, int pageNum, int pageSize) {
+        Page<MovieReviewDO> page = movieReviewDOMapper.findByUserRecommendId(userRecommendId, pageNum, pageSize);
+        return PageUtil.convertPage(page.toPageInfo(),movieReviewConverter);
+    }
 }

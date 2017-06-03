@@ -60,8 +60,10 @@ public class RESTWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 //添加JWTFilter
                 .authorizeRequests()
-                //检查用户名是否重复
-                .antMatchers(HttpMethod.POST, "/movie_reviews").authenticated().and()
+                .antMatchers(HttpMethod.POST, "/movie_reviews").authenticated()
+                .antMatchers(HttpMethod.GET,"/users/movie_reviews").authenticated()
+                .antMatchers(HttpMethod.GET,"/recommend/users").authenticated()
+                .and()
                 //除上面外的所有请求全部需要鉴权认证
                 .authorizeRequests().anyRequest().permitAll().and()
                 //Filter要放到是否认证的配置之后

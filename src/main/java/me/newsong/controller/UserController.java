@@ -2,17 +2,20 @@ package me.newsong.controller;
 
 import com.github.pagehelper.PageInfo;
 import me.newsong.domain.common.DescLengthRange;
+import me.newsong.domain.common.MovieReviewVO;
 import me.newsong.domain.entity.User;
 import me.newsong.domain.entity.UserDO;
 import me.newsong.domain.time.Season;
 import me.newsong.enums.TimeUnit;
 import me.newsong.exception.TimeUnitNotFoundException;
+import me.newsong.security.domain.JWTUser;
 import me.newsong.service.UserService;
 import me.newsong.util.Const;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -71,5 +74,8 @@ public class UserController {
         return service.findAccumulatedReviewCountsBy(unit, id, begin, end);
     }
     
-    
+    @RequestMapping(value="/movie_reviews",method = RequestMethod.GET)
+    public PageInfo<MovieReviewVO> findMovieReviews(@AuthenticationPrincipal JWTUser user, @RequestParam(value = "pageNum", required = false, defaultValue = "1") Integer pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize){
+        return  service.findPagingMovieReviewsByUserRecommendId(user.getUser().getUserRecommendId(), pageNum, pageSize);
+    }
 }

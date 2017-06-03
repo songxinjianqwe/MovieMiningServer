@@ -5,6 +5,7 @@ import me.newsong.cache.CacheManager;
 import me.newsong.dao.MovieReviewDOMapper;
 import me.newsong.dao.MovieTagDOMapper;
 import me.newsong.dao.RemoteMovieInfoDOMapper;
+import me.newsong.dao.UserDOMapper;
 import me.newsong.domain.common.MovieVO;
 import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.MovieReviewDO;
@@ -37,7 +38,9 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     private MovieTagDOMapper movieTagDOMapper;
     @Autowired
     private CacheManager cacheManager;
-    
+    @Autowired
+    private UserDOMapper userDOMapper;
+
     @Override
     public List<String> findAllIds() {
         return movieReviewDOMapper.findAllMovieIds();
@@ -50,7 +53,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
                 getVarianceOfScore(reviews), super.getKeyWords(reviews), getAverageScore(reviews));
         return movie;
     }
-    
+
     /**
      * 只在一个地方抛出异常
      *
@@ -163,12 +166,19 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
 
     @Override
     public PageInfo<MovieReviewDO> findSortedMovieReviewsById(String id, MovieReviewSortType sort, int pageNum, int pageSize) {
+        PageInfo<MovieReviewDO> page = null;
         if (sort == MovieReviewSortType.Helpful) {
-            return movieReviewDOMapper.findByIdOrderByHelpful(id, pageNum, pageSize).toPageInfo();
+            page = movieReviewDOMapper.findByIdOrderByHelpful(id, pageNum, pageSize).toPageInfo();
         } else if (sort == MovieReviewSortType.Time) {
-            return movieReviewDOMapper.findByIdOrderByTime(id, pageNum, pageSize).toPageInfo();
+            page = movieReviewDOMapper.findByIdOrderByTime(id, pageNum, pageSize).toPageInfo();
         }
-        return null;
+        if (page == null) {
+            return null;
+        }
+        for (MovieReviewDO movieReviewDO : page.getList()) {
+            movieReviewDO.setUsername(userDOMapper.findByUserId(movieReviewDO.getUserId()).getUserName());
+        }
+        return page;
     }
 
     @Override
@@ -261,18 +271,19 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
 
     @Override
     public List<MovieVO> findDisplayMovies() {
-        List<MovieVO> result = cacheManager.getList("findDisplayMovies",MovieVO.class);
-        if(result == null){
+        List<MovieVO> result = cacheManager.getList("findDisplayMovies", MovieVO.class);
+        if (result == null) {
             result = remoteMovieInfoDOMapper.findAll().stream().map(MovieVO::new).collect(Collectors.toList());
-            cacheManager.put("findDisplayMovies",result);
+            cacheManager.put("findDisplayMovies", result);
             return result;
-        }else{
+        } else {
             return result;
         }
     }
 
     @Override
     public void addMovieReview(MovieReviewDO movieReviewDO) {
+        movieReviewDO.setUserRecommendId(userDOMapper.findByUserId(movieReviewDO.getUserId()).getUserRecommendId());
         movieReviewDOMapper.insert(movieReviewDO);
     }
 

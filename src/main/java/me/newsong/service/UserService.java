@@ -2,6 +2,7 @@ package me.newsong.service;
 
 import com.github.pagehelper.PageInfo;
 import me.newsong.domain.common.DescLengthRange;
+import me.newsong.domain.common.MovieReviewVO;
 import me.newsong.domain.entity.MovieReviewDO;
 import me.newsong.domain.entity.User;
 import me.newsong.domain.entity.UserDO;
@@ -16,4 +17,5 @@ public interface UserService extends MovieReviewTemplate {
     Map<DescLengthRange, Long> findDescLengthsWithRange(String id, int gap);
     double getAverageDescLength(List<MovieReviewDO> reviews);
     UserDO findUserByUsername(String username);
+    PageInfo<MovieReviewVO> findPagingMovieReviewsByUserRecommendId(Long userRecommendId, int pageNum, int pageSize);
 }

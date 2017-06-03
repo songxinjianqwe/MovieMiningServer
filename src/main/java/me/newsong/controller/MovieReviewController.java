@@ -48,7 +48,7 @@ public class MovieReviewController {
         movieReviewDO.setDisplay(Boolean.TRUE);
         movieReviewDO.setSummary(movieReview.getSummary());
         movieReviewDO.setContent(movieReview.getContent());
-        movieReviewDO.setUserId(user.getUserId() != null ? user.getUserId() : user.getUsername());
+        movieReviewDO.setUserId(user.getUser().getUserId() != null ? user.getUser().getUserId() : user.getUsername());
         service.addMovieReview(movieReviewDO);
     }
 }

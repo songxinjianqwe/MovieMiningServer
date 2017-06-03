@@ -28,14 +28,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         } 
         return new JWTUser(
-                user.getUserId(),
                 user.getUserName(),
                 user.getPassword(),
                 true,
                 true,
                 true,
                 true,
-                Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"))
+                Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")),
+                user
         );
     }
 }

@@ -48,7 +48,7 @@ public class PythonUtil {
 
     public void call(String methodName, List<?> params) {
         try {
-            client.invoke(methodName, params.toArray());
+            client.invoke(methodName, params == null ? null:params.toArray());
         } catch (ConnectException e) {
             connect();
         } catch (Throwable e) {
@@ -59,7 +59,7 @@ public class PythonUtil {
     public <T> T call(String methodName, List<?> params, Class<T> returnType) {
         T res = null;
         try {
-            res = client.invoke(methodName, params.toArray(), returnType);
+            res = client.invoke(methodName, params == null ? null:params.toArray(), returnType);
         } catch (ConnectException e) {
             connect();
         } catch (Throwable e) {
@@ -71,7 +71,7 @@ public class PythonUtil {
     @SuppressWarnings("unchecked")
     public <T> List<T> callForRawList(String methodName, List<?> params, Class<T> returnType) {
         try {
-            return client.invoke(methodName, params.toArray(), List.class);
+            return client.invoke(methodName, params == null ? null:params.toArray(), List.class);
         } catch (ConnectException e) {
             connect();
         } catch (Throwable e) {
@@ -84,7 +84,7 @@ public class PythonUtil {
     public <T> List<T> callForModelList(String methodName, List<?> params, Class<T> returnType) {
         List<Map<String, Object>> rawDatas = null;
         try {
-            rawDatas = client.invoke(methodName, params.toArray(), List.class);
+            rawDatas = client.invoke(methodName, params == null ? null:params.toArray(), List.class);
         } catch (ConnectException e) {
             connect();
         } catch (Throwable e) {
