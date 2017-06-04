@@ -1,6 +1,7 @@
 D:\idea\MovieMiningServer\src\test\java\me\newsong\test\dao\TestRemoteMovieInfoDTODOMapper.java
 D:\idea\MovieMiningServer\src\test\java\me\newsong\test\service\TestMovieService.java
 D:\idea\MovieMiningServer\src\test\java\me\newsong\service\GraphServiceTest.java
+D:\idea\MovieMiningServer\src\test\java\me\newsong\domain\time\MonthTest.java
 D:\idea\MovieMiningServer\src\test\java\me\newsong\service\impl\RecommendServiceImplTest.java
 D:\idea\MovieMiningServer\src\test\java\me\newsong\test\service\TestUserService.java
 D:\idea\MovieMiningServer\src\test\java\me\newsong\test\dao\TestMovieReviewDOMapper.java

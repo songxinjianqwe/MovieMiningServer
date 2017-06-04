@@ -1,6 +1,6 @@
 package me.newsong.domain.time;
 
-public class Season extends BaseTimeUnit implements Comparable<Season> {
+public class Season extends BaseTimeUnit {
     private int year;
     private int season;
 
@@ -59,8 +59,19 @@ public class Season extends BaseTimeUnit implements Comparable<Season> {
         return true;
     }
 
+   
     @Override
-    public int compareTo(Season rhs) {
+    public BaseTimeUnit inc() {
+        if (season == 4) {
+            return new Season(year + 1, 1);
+        } else {
+            return new Season(year, season + 1);
+        }
+    }
+
+    @Override
+    public int compareTo(BaseTimeUnit o) {
+        Season rhs = (Season) o;
         int yearDuration = this.year - rhs.year;
         if (yearDuration != 0) {
             return yearDuration;
@@ -68,5 +79,4 @@ public class Season extends BaseTimeUnit implements Comparable<Season> {
             return this.season - rhs.season;
         }
     }
-
 }

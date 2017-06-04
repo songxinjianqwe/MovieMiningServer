@@ -1,6 +1,6 @@
 package me.newsong.domain.common;
 
-public class DescLengthRange {
+public class DescLengthRange implements Comparable<DescLengthRange>{
 	private int low;
 	private int high;
 	public DescLengthRange() {
@@ -49,5 +49,9 @@ public class DescLengthRange {
 			return false;
 		return true;
 	}
-	
+
+    @Override
+    public int compareTo(DescLengthRange o) {
+        return this.low - o.low;
+    }
 }

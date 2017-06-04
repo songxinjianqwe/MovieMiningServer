@@ -2,6 +2,7 @@ package me.newsong.service.impl;
 
 import me.newsong.dao.MovieReviewDOMapper;
 import me.newsong.domain.entity.MovieReviewDO;
+import me.newsong.domain.time.BaseTimeUnit;
 import me.newsong.enums.TimeUnit;
 import me.newsong.service.comp.MovieReviewTimeDescComparator;
 import me.newsong.util.PythonUtil;
@@ -12,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
 @Transactional(readOnly = true)
@@ -36,19 +36,27 @@ public abstract class MovieReviewTemplateImpl {
         return reviews;
     }
 
-    public <T> Map<T, Long> findAccumulatedReviewCountsBy(TimeUnit unit, String id, LocalDateTime begin, LocalDateTime end) {
-        Map<T, Long> map = findMovieReviewDOsById(id)
+    public  Map<BaseTimeUnit, Long> findAccumulatedReviewCountsBy(TimeUnit unit, String id, LocalDateTime begin, LocalDateTime end) {
+        Map<BaseTimeUnit, Long> map = findMovieReviewDOsById(id)
                 .stream()
                 .filter((review) -> !review.getTime().isBefore(begin) && !review.getTime().isAfter(end))
                 .collect(
-                        Collectors.groupingBy(SpringContextUtil.getBean(unit.toString()), 
+                        Collectors.groupingBy(SpringContextUtil.getBean(unit.toString()),
                                 Collectors.counting()));
-        Map<T, Long> result = new TreeMap<>();
-        result.putAll(map);
+        TreeMap<BaseTimeUnit, Long> result = new TreeMap<>(map);
         long accumulatedCount = 0;
-        for (Entry<T, Long> entry : result.entrySet()) {
-            entry.setValue(entry.getValue() + accumulatedCount);
-            accumulatedCount = entry.getValue();
+//        for (Entry<BaseTimeUnit, Long> entry : result.entrySet()) {
+//            entry.setValue(entry.getValue() + accumulatedCount);
+//            accumulatedCount = entry.getValue();
+//        }
+        for ( BaseTimeUnit t =   result.firstKey(); t.compareTo(result.lastKey()) <= 0; t = t.inc()) {
+            if (result.containsKey(t)) {
+                Long curr = result.get(t);
+                result.put(t, curr + accumulatedCount);
+                accumulatedCount = curr + accumulatedCount;
+            }else{
+                result.put(t,accumulatedCount);
+            }
         }
         return result;
     }

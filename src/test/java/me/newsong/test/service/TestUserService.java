@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import static org.junit.Assert.*;
 
@@ -47,11 +46,9 @@ public class TestUserService extends BaseSpringTester {
 
 	@Test
 	public void testFindDescLengthsWithRange() {
-		User user = service.findUserById("A2S4S7JW1JSFXU");
-		List<MovieReviewDO> reviews = dao.findByUserId("A2S4S7JW1JSFXU");
-		Map<DescLengthRange, Long> map = service.findDescLengthsWithRange("A2S4S7JW1JSFXU", 10);
-		for (Entry<DescLengthRange, Long> entry : map.entrySet()) {
-			System.out.println(entry);
-		}
+		Map<DescLengthRange, Long> map = service.findDescLengthsWithRange("ur0562732", 10);
+	    for(Map.Entry<DescLengthRange,Long> entry:map.entrySet()){
+            System.out.println(entry);
+        }
 	}
 }

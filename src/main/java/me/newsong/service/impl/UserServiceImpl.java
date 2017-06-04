@@ -2,6 +2,7 @@ package me.newsong.service.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
+import lombok.extern.slf4j.Slf4j;
 import me.newsong.dao.UserDOMapper;
 import me.newsong.domain.common.DescLengthRange;
 import me.newsong.domain.common.MovieReviewVO;
@@ -18,16 +19,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 @Transactional(readOnly = true)
 @Service
+@Slf4j
 public class UserServiceImpl extends MovieReviewTemplateImpl implements UserService {
     @Autowired
     private UserDOMapper userDOMapper;
     @Autowired
     private MovieReviewConverter movieReviewConverter;
-    
+
     @Override
     public List<String> findAllIds() {
         return userDOMapper.findAllUserIds();
@@ -68,12 +71,18 @@ public class UserServiceImpl extends MovieReviewTemplateImpl implements UserServ
 
     @Override
     public Map<DescLengthRange, Long> findDescLengthsWithRange(String id, int gap) {
-        return findMovieReviewDOsById(id).stream().map((review) -> review.getContent().length())
+        Map<DescLengthRange, Long> mid = findMovieReviewDOsById(id).stream().map((review) -> review.getContent().length())
                 .collect(Collectors.groupingBy((len) -> {
                     int level = len / gap;
                     DescLengthRange descLengthRange = new DescLengthRange(level * gap, (level + 1) * gap);
                     return descLengthRange;
                 }, Collectors.counting()));
+        TreeMap<DescLengthRange, Long> result = new TreeMap<>(mid);
+        for (int i = result.firstKey().getLow(); i < result.lastKey().getLow(); i += gap) {
+            DescLengthRange range = new DescLengthRange(i,i+gap);
+            result.putIfAbsent(range,0L);
+        }
+        return result;
     }
 
     @Override
@@ -89,6 +98,6 @@ public class UserServiceImpl extends MovieReviewTemplateImpl implements UserServ
     @Override
     public PageInfo<MovieReviewVO> findPagingMovieReviewsByUserRecommendId(Long userRecommendId, int pageNum, int pageSize) {
         Page<MovieReviewDO> page = movieReviewDOMapper.findByUserRecommendId(userRecommendId, pageNum, pageSize);
-        return PageUtil.convertPage(page.toPageInfo(),movieReviewConverter);
+        return PageUtil.convertPage(page.toPageInfo(), movieReviewConverter);
     }
 }

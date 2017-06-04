@@ -1,6 +1,8 @@
 package me.newsong.domain.time;
 
-public class Month extends BaseTimeUnit implements Comparable<Month> {
+import java.time.LocalDate;
+
+public class Month extends BaseTimeUnit  {
     private int year;
     private int month;
 
@@ -59,8 +61,16 @@ public class Month extends BaseTimeUnit implements Comparable<Month> {
         return true;
     }
 
+
     @Override
-    public int compareTo(Month rhs) {
+    public BaseTimeUnit inc() {
+        LocalDate localDate = LocalDate.of(year,month,1).plusMonths(1);
+        return new Month(localDate.getYear(),localDate.getMonthValue());
+    }
+
+    @Override
+    public int compareTo(BaseTimeUnit o) {
+        Month rhs = (Month) o;
         int yearDuration = this.year - rhs.year;
         if (yearDuration != 0) {
             return yearDuration;
@@ -68,5 +78,4 @@ public class Month extends BaseTimeUnit implements Comparable<Month> {
             return this.month - rhs.month;
         }
     }
-
 }

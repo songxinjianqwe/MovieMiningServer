@@ -2,6 +2,7 @@ package me.newsong.service;
 
 
 import me.newsong.domain.entity.MovieReviewDO;
+import me.newsong.domain.time.BaseTimeUnit;
 import me.newsong.enums.TimeUnit;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,8 @@ import java.util.Map;
  */
 public interface MovieReviewTemplate {
     List<String> findAllIds();
-    <T> Map<T, Long> findAccumulatedReviewCountsBy(TimeUnit unit, String id, LocalDateTime begin, LocalDateTime end);
+
+    Map<BaseTimeUnit, Long> findAccumulatedReviewCountsBy(TimeUnit unit, String id, LocalDateTime begin, LocalDateTime end);
+
     List<String> getKeyWords(List<MovieReviewDO> reviews);
 }

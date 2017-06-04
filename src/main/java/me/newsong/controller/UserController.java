@@ -5,7 +5,7 @@ import me.newsong.domain.common.DescLengthRange;
 import me.newsong.domain.common.MovieReviewVO;
 import me.newsong.domain.entity.User;
 import me.newsong.domain.entity.UserDO;
-import me.newsong.domain.time.Season;
+import me.newsong.domain.time.BaseTimeUnit;
 import me.newsong.enums.TimeUnit;
 import me.newsong.exception.TimeUnitNotFoundException;
 import me.newsong.security.domain.JWTUser;
@@ -65,8 +65,8 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/{id}/accum_review_counts", method = RequestMethod.GET)
-    public Map<Season, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("time_unit") String timeUnit,
-                                                       @DateTimeFormat(pattern = Const.DATE_TIME_PATTERN) @RequestParam("begin") LocalDateTime begin,@DateTimeFormat(pattern = Const.DATE_TIME_PATTERN)  @RequestParam("end") LocalDateTime end) {
+    public Map<? extends BaseTimeUnit, Long> findAccumulatedReviewCounts(@PathVariable("id") String id, @RequestParam("time_unit") String timeUnit,
+                                                                         @DateTimeFormat(pattern = Const.DATE_TIME_PATTERN) @RequestParam("begin") LocalDateTime begin, @DateTimeFormat(pattern = Const.DATE_TIME_PATTERN)  @RequestParam("end") LocalDateTime end) {
         TimeUnit unit = TimeUnit.fromString(StringUtils.capitalize(timeUnit));
         if (unit == null) {
             throw new TimeUnitNotFoundException(timeUnit);

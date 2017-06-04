@@ -3,8 +3,8 @@ package me.newsong.test.service;
 import me.newsong.dao.MovieReviewDOMapper;
 import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.MovieReviewDO;
+import me.newsong.domain.time.BaseTimeUnit;
 import me.newsong.domain.time.Month;
-import me.newsong.domain.time.Season;
 import me.newsong.enums.TimeUnit;
 import me.newsong.service.MovieService;
 import me.newsong.service.comp.MovieReviewTimeDescComparator;
@@ -145,10 +145,10 @@ public class TestMovieService extends BaseSpringTester {
 	public void testFindAccumulatedReviewCountsByMonth() {
 		Movie movie = service.findMovieByID("B0002RGNRU");
 		System.out.println("reviewTimes:" + movie.getReviewTimes());
-		Map<Month, Long> map = service.findAccumulatedReviewCountsBy(TimeUnit.Month, "B0002RGNRU",
+		Map<BaseTimeUnit, Long> map = service.findAccumulatedReviewCountsBy(TimeUnit.Month, "B0002RGNRU",
 				movie.getEarliestReviewTime(), movie.getLatestReviewTime());
 		System.out.println("Result");
-		for (Entry<Month, Long> entry : map.entrySet()) {
+		for (Entry<BaseTimeUnit, Long> entry : map.entrySet()) {
 			System.out.println(entry.getKey() + "    " + entry.getValue());
 		}
 		assertEquals(movie.getReviewTimes(), map.get(new Month(2012, 10)).intValue());
@@ -156,15 +156,14 @@ public class TestMovieService extends BaseSpringTester {
 	
 	@Test
 	public void testFindAccumulatedReviewCountsBySeason() {
-		Movie movie = service.findMovieByID("B0002RGNRU");
+		Movie movie = service.findMovieByID("tt0006333");
 		System.out.println("reviewTimes:" + movie.getReviewTimes());
-		Map<Season, Long> map = service.findAccumulatedReviewCountsBy(TimeUnit.Season, "B0002RGNRU",
+		Map<BaseTimeUnit, Long> map = service.findAccumulatedReviewCountsBy(TimeUnit.Season, "tt0006333",
 				movie.getEarliestReviewTime(), movie.getLatestReviewTime());
 		System.out.println("Result");
-		for (Entry<Season, Long> entry : map.entrySet()) {
+		for (Entry<BaseTimeUnit, Long> entry : map.entrySet()) {
 			System.out.println(entry.getKey() + "    " + entry.getValue());
 		}
-		assertEquals(movie.getReviewTimes(), map.get(new Season(2012, 3)).intValue());
 	}
 
 }

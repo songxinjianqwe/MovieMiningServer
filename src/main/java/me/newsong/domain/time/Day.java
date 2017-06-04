@@ -1,9 +1,11 @@
 package me.newsong.domain.time;
 
+import java.time.LocalDate;
+
 /**
  * Created by SinjinSong on 2017/3/19.
  */
-public class Day extends BaseTimeUnit implements Comparable<Day> {
+public class Day extends BaseTimeUnit {
     private int year;
     private int month;
     private int day;
@@ -72,8 +74,16 @@ public class Day extends BaseTimeUnit implements Comparable<Day> {
         return result;
     }
 
+
     @Override
-    public int compareTo(Day rhs) {
+    public BaseTimeUnit inc() {
+        LocalDate localDate = LocalDate.of(year,month,day).plusDays(1);
+        return new Day(localDate.getYear(),localDate.getMonthValue(),localDate.getDayOfMonth());
+    }
+
+    @Override
+    public int compareTo(BaseTimeUnit o) {
+        Day rhs = (Day) o;
         int yearDuration = this.year - rhs.year;
         if (yearDuration != 0) {
             return yearDuration;
@@ -86,5 +96,4 @@ public class Day extends BaseTimeUnit implements Comparable<Day> {
             }
         }
     }
-    
 }
