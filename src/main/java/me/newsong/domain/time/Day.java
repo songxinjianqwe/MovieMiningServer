@@ -11,7 +11,7 @@ public class Day extends BaseTimeUnit {
     private int day;
 
     public Day() {
-
+        
     }
 
     public Day(int year, int month, int day) {

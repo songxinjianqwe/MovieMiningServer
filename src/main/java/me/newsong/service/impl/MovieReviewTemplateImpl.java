@@ -36,7 +36,7 @@ public abstract class MovieReviewTemplateImpl {
         return reviews;
     }
 
-    public  Map<BaseTimeUnit, Long> findAccumulatedReviewCountsBy(TimeUnit unit, String id, LocalDateTime begin, LocalDateTime end) {
+    public Map<BaseTimeUnit, Long> findAccumulatedReviewCountsBy(TimeUnit unit, String id, LocalDateTime begin, LocalDateTime end) {
         Map<BaseTimeUnit, Long> map = findMovieReviewDOsById(id)
                 .stream()
                 .filter((review) -> !review.getTime().isBefore(begin) && !review.getTime().isAfter(end))
@@ -45,19 +45,12 @@ public abstract class MovieReviewTemplateImpl {
                                 Collectors.counting()));
         TreeMap<BaseTimeUnit, Long> result = new TreeMap<>(map);
         long accumulatedCount = 0;
-//        for (Entry<BaseTimeUnit, Long> entry : result.entrySet()) {
-//            entry.setValue(entry.getValue() + accumulatedCount);
-//            accumulatedCount = entry.getValue();
-//        }
-        for ( BaseTimeUnit t =   result.firstKey(); t.compareTo(result.lastKey()) <= 0; t = t.inc()) {
-            if (result.containsKey(t)) {
-                Long curr = result.get(t);
-                result.put(t, curr + accumulatedCount);
-                accumulatedCount = curr + accumulatedCount;
-            }else{
-                result.put(t,accumulatedCount);
-            }
+        for (Map.Entry<BaseTimeUnit, Long> entry : result.entrySet()) {
+            entry.setValue(entry.getValue() + accumulatedCount);
+            accumulatedCount = entry.getValue();
         }
+        result.putIfAbsent(BaseTimeUnit.from(unit,begin),0L);
+        result.putIfAbsent(BaseTimeUnit.from(unit,end),result.lastEntry().getValue());
         return result;
     }
 

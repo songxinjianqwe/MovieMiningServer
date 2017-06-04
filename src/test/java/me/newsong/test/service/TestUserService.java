@@ -4,11 +4,14 @@ import me.newsong.dao.MovieReviewDOMapper;
 import me.newsong.domain.common.DescLengthRange;
 import me.newsong.domain.entity.MovieReviewDO;
 import me.newsong.domain.entity.User;
+import me.newsong.domain.time.BaseTimeUnit;
+import me.newsong.enums.TimeUnit;
 import me.newsong.service.UserService;
 import me.newsong.util.BaseSpringTester;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -50,5 +53,17 @@ public class TestUserService extends BaseSpringTester {
 	    for(Map.Entry<DescLengthRange,Long> entry:map.entrySet()){
             System.out.println(entry);
         }
+	}
+	
+	@Test
+	public void testFindAccumulatedReviewCountsBySeason() {
+        User user = service.findUserById("ur3922673");
+        System.out.println(user);
+		Map<BaseTimeUnit, Long> map = service.findAccumulatedReviewCountsBy(TimeUnit.Season, "ur3922673",
+                LocalDateTime.of(2005,1,1,0,0,0),LocalDateTime.of(2010,1,1,0,0,0));
+		System.out.println("Result");
+		for (Map.Entry<BaseTimeUnit, Long> entry : map.entrySet()) {
+			System.out.println(entry.getKey() + "    " + entry.getValue());
+		}
 	}
 }
