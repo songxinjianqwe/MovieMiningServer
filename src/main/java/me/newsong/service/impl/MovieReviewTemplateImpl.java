@@ -33,6 +33,7 @@ public abstract class MovieReviewTemplateImpl {
     protected List<MovieReviewDO> findMovieReviewDOsSortedByTimeDesc(String id) {
         List<MovieReviewDO> reviews = findMovieReviewDOsById(id);
         Collections.sort(reviews, new MovieReviewTimeDescComparator());
+        reviews.forEach(System.out::println);
         return reviews;
     }
 

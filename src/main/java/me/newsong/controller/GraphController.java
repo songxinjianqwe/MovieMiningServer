@@ -5,6 +5,8 @@ import me.newsong.service.GraphService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 /**
  * Created by SinjinSong on 2017/6/1.
  */
@@ -26,19 +28,19 @@ public class GraphController {
         return service.getHistDistributionOfImdbReviewCount(bins,normed);
     }
     
-    @RequestMapping(value= "/cdf_of_imdb_score",method = RequestMethod.GET,produces="application/json")
-    public String  getCdfOfImdbScore(){
+    @RequestMapping(value= "/cdf_of_imdb_score",method = RequestMethod.GET)
+    public Map<Double,Double>  getCdfOfImdbScore(){
         return service.getCdfOfImdbScore();
     }
     
     
-    @RequestMapping(value= "/kde_of_imdb_score",method = RequestMethod.GET,produces="application/json")
-    public String  getKdeOfImdbScore(){
+    @RequestMapping(value= "/kde_of_imdb_score",method = RequestMethod.GET)
+    public Map<Double,Double>  getKdeOfImdbScore(){
         return service.getKdeOfImdbScore();
     }
     
     @RequestMapping(value= "/kde_of_imdb_review_count",method = RequestMethod.GET,produces="application/json")
-    public String  getKdeOfImdbReviewCount(){
+    public Map<Integer,Double>  getKdeOfImdbReviewCount(){
         return service.getKdeOfImdbReviewCount();
     }
     

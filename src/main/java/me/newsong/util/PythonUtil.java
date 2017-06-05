@@ -81,7 +81,7 @@ public class PythonUtil {
     }
 
     @SuppressWarnings("unchecked")
-    public <T> List<T> callForModelList(String methodName, List<?> params, Class<T> returnType) {
+    public <T> List<T> callForEntityList(String methodName, List<?> params, Class<T> returnType) {
         List<Map<String, Object>> rawDatas = null;
         try {
             rawDatas = client.invoke(methodName, params == null ? null:params.toArray(), List.class);
@@ -97,5 +97,4 @@ public class PythonUtil {
         }
         return results;
     }
-
 }

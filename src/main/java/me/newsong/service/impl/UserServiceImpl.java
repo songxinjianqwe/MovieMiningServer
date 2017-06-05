@@ -39,7 +39,7 @@ public class UserServiceImpl extends MovieReviewTemplateImpl implements UserServ
     @Override
     public User findUserById(String id) {
         List<MovieReviewDO> reviews = findMovieReviewDOsSortedByTimeDesc(id);
-        return new User(id, reviews.get(0).getTime(), reviews.get(reviews.size() - 1).getTime(), reviews.size(),
+        return new User(id, reviews.get(reviews.size() - 1).getTime(), reviews.get(0).getTime(), reviews.size(),
                 super.getKeyWords(reviews), getAverageDescLength(reviews));
     }
 

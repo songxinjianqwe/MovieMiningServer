@@ -11,10 +11,10 @@ public class User {
     private String id;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
-    private LocalDateTime earliestReviweTime;
+    private LocalDateTime earliestReviewTime;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
-    private LocalDateTime lastestReviweTime;
+    private LocalDateTime latestReviewTime;
     private int reviewTimes;
     private List<String> keyWords;
     private double avgDescLength;
@@ -22,12 +22,12 @@ public class User {
     public User() {
     }
 
-    public User(String id, LocalDateTime earliestReviweTime, LocalDateTime lastestReviweTime, int reviewTimes, List<String> keyWords,
+    public User(String id, LocalDateTime earliestReviewTime, LocalDateTime latestReviewTime, int reviewTimes, List<String> keyWords,
                 double avgDescLength) {
         super();
         this.id = id;
-        this.earliestReviweTime = earliestReviweTime;
-        this.lastestReviweTime = lastestReviweTime;
+        this.earliestReviewTime = earliestReviewTime;
+        this.latestReviewTime = latestReviewTime;
         this.reviewTimes = reviewTimes;
         this.keyWords = keyWords;
         this.avgDescLength = avgDescLength;
@@ -41,20 +41,20 @@ public class User {
         this.id = id;
     }
 
-    public LocalDateTime getEarliestReviweTime() {
-        return earliestReviweTime;
+    public LocalDateTime getEarliestReviewTime() {
+        return earliestReviewTime;
     }
 
-    public void setEarliestReviweTime(LocalDateTime earliestReviweTime) {
-        this.earliestReviweTime = earliestReviweTime;
+    public void setEarliestReviewTime(LocalDateTime earliestReviewTime) {
+        this.earliestReviewTime = earliestReviewTime;
     }
 
-    public LocalDateTime getLastestReviweTime() {
-        return lastestReviweTime;
+    public LocalDateTime getLatestReviewTime() {
+        return latestReviewTime;
     }
 
-    public void setLastestReviweTime(LocalDateTime lastestReviweTime) {
-        this.lastestReviweTime = lastestReviweTime;
+    public void setLatestReviewTime(LocalDateTime latestReviewTime) {
+        this.latestReviewTime = latestReviewTime;
     }
 
     public int getReviewTimes() {
@@ -83,8 +83,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", earliestReviweTime=" + earliestReviweTime + ", lastestReviweTime="
-                + lastestReviweTime + ", reviewTimes=" + reviewTimes + ", keyWords=" + keyWords + ", avgDescLength="
+        return "User [id=" + id + ", earliestReviewTime=" + earliestReviewTime + ", latestReviewTime="
+                + latestReviewTime + ", reviewTimes=" + reviewTimes + ", keyWords=" + keyWords + ", avgDescLength="
                 + avgDescLength + "]";
     }
 
@@ -95,10 +95,10 @@ public class User {
         long temp;
         temp = Double.doubleToLongBits(avgDescLength);
         result = prime * result + (int) (temp ^ (temp >>> 32));
-        result = prime * result + ((earliestReviweTime == null) ? 0 : earliestReviweTime.hashCode());
+        result = prime * result + ((earliestReviewTime == null) ? 0 : earliestReviewTime.hashCode());
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((keyWords == null) ? 0 : keyWords.hashCode());
-        result = prime * result + ((lastestReviweTime == null) ? 0 : lastestReviweTime.hashCode());
+        result = prime * result + ((latestReviewTime == null) ? 0 : latestReviewTime.hashCode());
         result = prime * result + reviewTimes;
         return result;
     }
@@ -114,10 +114,10 @@ public class User {
         User other = (User) obj;
         if (Double.doubleToLongBits(avgDescLength) != Double.doubleToLongBits(other.avgDescLength))
             return false;
-        if (earliestReviweTime == null) {
-            if (other.earliestReviweTime != null)
+        if (earliestReviewTime == null) {
+            if (other.earliestReviewTime != null)
                 return false;
-        } else if (!earliestReviweTime.equals(other.earliestReviweTime))
+        } else if (!earliestReviewTime.equals(other.earliestReviewTime))
             return false;
         if (id == null) {
             if (other.id != null)
@@ -129,10 +129,10 @@ public class User {
                 return false;
         } else if (!keyWords.equals(other.keyWords))
             return false;
-        if (lastestReviweTime == null) {
-            if (other.lastestReviweTime != null)
+        if (latestReviewTime == null) {
+            if (other.latestReviewTime != null)
                 return false;
-        } else if (!lastestReviweTime.equals(other.lastestReviweTime))
+        } else if (!latestReviewTime.equals(other.latestReviewTime))
             return false;
         if (reviewTimes != other.reviewTimes)
             return false;
