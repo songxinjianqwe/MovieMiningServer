@@ -19,7 +19,7 @@ public class GraphServiceTest extends BaseSpringTester{
 //        System.out.println(histDistributionOfImdbScore);
 //        Map<Double, Double> cdf = service.getKdeOfImdbScore();
 //        System.out.println(cdf);
-        Map<Integer, Double> kdeOfImdbReviewCount = service.getKdeOfImdbReviewCount();
+        Map<Double, Double> kdeOfImdbReviewCount = service.getKdeOfImdbReviewCount();
         System.out.println(kdeOfImdbReviewCount);
     }
 

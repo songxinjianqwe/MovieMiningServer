@@ -14,7 +14,7 @@ public interface GraphService {
 
     Map<Double, Double> getKdeOfImdbScore();
 
-    Map<Integer, Double> getKdeOfImdbReviewCount();
+    Map<Double, Double> getKdeOfImdbReviewCount();
 
     String getScoreOfSingleYear();
 

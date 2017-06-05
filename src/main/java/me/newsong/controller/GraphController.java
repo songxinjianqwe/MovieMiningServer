@@ -40,7 +40,7 @@ public class GraphController {
     }
     
     @RequestMapping(value= "/kde_of_imdb_review_count",method = RequestMethod.GET,produces="application/json")
-    public Map<Integer,Double>  getKdeOfImdbReviewCount(){
+    public Map<Double,Double>  getKdeOfImdbReviewCount(){
         return service.getKdeOfImdbReviewCount();
     }
     

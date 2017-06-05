@@ -55,10 +55,10 @@ public class GraphServiceImpl implements GraphService {
     }
 
     @Override
-    public Map<Integer, Double> getKdeOfImdbReviewCount() {
+    public Map<Double, Double> getKdeOfImdbReviewCount() {
         String json = util.call("get_kde_of_imdb_review_count", null, String.class);
         try {
-            Map<Integer, Double> rawMap = JsonUtil.getObjectMapper().readValue(json, new TypeReference<Map<Integer, Double>>() {
+            Map<Double, Double> rawMap = JsonUtil.getObjectMapper().readValue(json, new TypeReference<Map<Double, Double>>() {
             });
             return new TreeMap<>(rawMap);
         } catch (IOException e) {

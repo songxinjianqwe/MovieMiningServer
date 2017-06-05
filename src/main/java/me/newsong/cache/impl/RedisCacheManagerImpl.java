@@ -19,10 +19,8 @@ import java.util.Set;
  */
 @Component("cacheManager")
 public class RedisCacheManagerImpl implements CacheManager {
-    public final static int EXPIRE_TIME = 60;//默认缓存时间
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
-
 
     public boolean put(String key, Object obj) {
         final byte[] keyBytes = key.getBytes();

@@ -144,4 +144,8 @@ public class MovieController {
         return service.findDisplayMovies();
     }
     
+    @RequestMapping(value="/in_theaters",method = RequestMethod.GET)
+    public List<RemoteMovieInfoDO> findInTheaterMovies(){
+        return service.findInTheatersMovies();
+    }
 }

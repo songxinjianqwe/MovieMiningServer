@@ -6,6 +6,7 @@ import me.newsong.dao.MovieReviewDOMapper;
 import me.newsong.dao.MovieTagDOMapper;
 import me.newsong.dao.RemoteMovieInfoDOMapper;
 import me.newsong.dao.UserDOMapper;
+import me.newsong.dao.crawler.IMDBInTheaterCrawler;
 import me.newsong.domain.common.MovieVO;
 import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.MovieReviewDO;
@@ -16,6 +17,7 @@ import me.newsong.domain.time.Month;
 import me.newsong.enums.MovieReviewSortType;
 import me.newsong.enums.MovieSortType;
 import me.newsong.enums.TimeUnit;
+import me.newsong.exception.DataSourceNotFoundException;
 import me.newsong.exception.MovieNotFoundException;
 import me.newsong.service.MovieService;
 import me.newsong.util.SpringContextUtil;
@@ -23,6 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -40,7 +43,9 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     private CacheManager cacheManager;
     @Autowired
     private UserDOMapper userDOMapper;
-
+    @Autowired
+    private IMDBInTheaterCrawler crawler;
+    
     @Override
     public List<String> findAllIds() {
         return movieReviewDOMapper.findAllMovieIds();
@@ -285,6 +290,15 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     public void addMovieReview(MovieReviewDO movieReviewDO) {
         movieReviewDO.setUserRecommendId(userDOMapper.findByUserId(movieReviewDO.getUserId()).getUserRecommendId());
         movieReviewDOMapper.insert(movieReviewDO);
+    }
+    
+    @Override
+    public List<RemoteMovieInfoDO> findInTheatersMovies() {
+        try {
+            return crawler.findInTheaterMovies();
+        } catch (IOException e) {
+            throw new DataSourceNotFoundException(IMDBInTheaterCrawler.URL);
+        }
     }
 
     private <T> Map<T, Double> findMovieScores(TimeUnit unit, List<MovieReviewDO> reviews) {

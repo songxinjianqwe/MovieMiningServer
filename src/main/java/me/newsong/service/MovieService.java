@@ -61,4 +61,6 @@ public interface MovieService extends MovieReviewTemplate {
     List<MovieVO> findDisplayMovies();
     
     void addMovieReview(MovieReviewDO movieReviewDO);
+    
+    List<RemoteMovieInfoDO> findInTheatersMovies();
 }

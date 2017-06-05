@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import me.newsong.dao.RemoteMovieInfoDOMapper;
 import me.newsong.domain.entity.RemoteMovieInfoDO;
 import me.newsong.exception.MovieNotFoundException;
+import me.newsong.exception.PythonServerErrorException;
 import me.newsong.service.RecommendService;
 import me.newsong.util.PythonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,11 @@ public class RecommendServiceImpl implements RecommendService{
             throw new MovieNotFoundException(movieId);
         }
         Long movieRecommendId = movie.getMovieRecommendId();
-        log.info("{}",movieRecommendId);
+        log.info("movieRecommendId:{}",movieRecommendId);
         List<Long> movieRecommendIds = pythonUtil.callForRawList("getSimilarMovies", Arrays.asList(movieRecommendId), Long.class);
+        if(movieRecommendIds.size() == 0){
+            throw new PythonServerErrorException();
+        }
         return remoteMovieInfoDOMapper.findByRecommendIds(movieRecommendIds);
     }
 }
