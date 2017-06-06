@@ -790,7 +790,7 @@ public class DoubanCrawler extends BaseSpringTester {
             }
         }
     }
-
+    
     public void crawlUser(UserDO user) {
         Document doc = null;
         try {

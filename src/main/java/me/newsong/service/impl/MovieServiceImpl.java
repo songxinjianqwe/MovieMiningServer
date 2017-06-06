@@ -6,7 +6,7 @@ import me.newsong.dao.MovieReviewDOMapper;
 import me.newsong.dao.MovieTagDOMapper;
 import me.newsong.dao.RemoteMovieInfoDOMapper;
 import me.newsong.dao.UserDOMapper;
-import me.newsong.dao.crawler.IMDBInTheaterCrawler;
+import me.newsong.dao.crawler.IMDBCrawler;
 import me.newsong.domain.common.MovieVO;
 import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.MovieReviewDO;
@@ -44,7 +44,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     @Autowired
     private UserDOMapper userDOMapper;
     @Autowired
-    private IMDBInTheaterCrawler crawler;
+    private IMDBCrawler crawler;
     
     @Override
     public List<String> findAllIds() {
@@ -297,7 +297,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         try {
             return crawler.findInTheaterMovies();
         } catch (IOException e) {
-            throw new DataSourceNotFoundException(IMDBInTheaterCrawler.URL);
+            throw new DataSourceNotFoundException(IMDBCrawler.URL);
         }
     }
 
