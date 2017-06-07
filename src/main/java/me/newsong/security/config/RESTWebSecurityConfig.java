@@ -63,8 +63,8 @@ public class RESTWebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/movie_reviews").authenticated()
                 .antMatchers(HttpMethod.GET,"/users/movie_reviews").authenticated()
                 .antMatchers(HttpMethod.GET,"/recommend/users").authenticated()
+                .antMatchers(HttpMethod.DELETE,"/tokens").authenticated()
                 .and()
-                //除上面外的所有请求全部需要鉴权认证
                 .authorizeRequests().anyRequest().permitAll().and()
                 //Filter要放到是否认证的配置之后
                 .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);

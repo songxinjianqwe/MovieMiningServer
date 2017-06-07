@@ -27,14 +27,18 @@ public class IMDBCrawler extends BaseSpringTester {
     public static final String URL = "http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1";
     public static final String MOVIE_URL = "http://www.imdb.com/title/%s/?ref_=inth_ov_tt";
     private PythonUtil util = PythonUtil.getInstance();
-
+    
+    
+    
     public List<RemoteMovieInfoDO> findInTheaterMovies() throws IOException {
         Document doc = Jsoup.connect(URL)
                 .timeout(10000)
                 .get();
         List<RemoteMovieInfoDO> result = new ArrayList<>();
-        Elements odds = doc.getElementsByClass("list_item odd");
-        Elements evens = doc.getElementsByClass("list_item even");
+        Element parent = doc.getElementsByClass("list detail sub-list").get(1);
+        System.out.println(parent);
+        Elements odds = parent.getElementsByClass("list_item odd");
+        Elements evens = parent.getElementsByClass("list_item even");
         for (Element odd : odds) {
             result.add(parse(odd));
         }
@@ -104,14 +108,14 @@ public class IMDBCrawler extends BaseSpringTester {
     
     public PredictedMovieDTO crawlForPrediction(String movieId) {
         PredictedMovieDTO result = util.call("crawlForPredication", Arrays.asList(String.format(MOVIE_URL, movieId)), PredictedMovieDTO.class);
-        System.out.println(result);
+        System.out.println("PredictedMovieDTO:"+result);
         result.getMovie().setMovieId(movieId);
         return result;
     }
     
     @Test
     public void test() {
-        PredictedMovieDTO predictedMovieDTO = crawlForPrediction("tt2345759");
+        PredictedMovieDTO predictedMovieDTO = crawlForPrediction("tt5655222");
         System.out.println(predictedMovieDTO);
     }
     

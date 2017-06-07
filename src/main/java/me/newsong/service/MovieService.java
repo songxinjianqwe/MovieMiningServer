@@ -3,6 +3,7 @@ package me.newsong.service;
 
 import com.github.pagehelper.PageInfo;
 import me.newsong.domain.common.MovieVO;
+import me.newsong.domain.common.PredictedMovieVO;
 import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.MovieReviewDO;
 import me.newsong.domain.entity.RemoteMovieInfoDO;
@@ -63,4 +64,6 @@ public interface MovieService extends MovieReviewTemplate {
     void addMovieReview(MovieReviewDO movieReviewDO);
     
     List<RemoteMovieInfoDO> findInTheatersMovies();
+    
+    PredictedMovieVO predict(String movieId);
 }

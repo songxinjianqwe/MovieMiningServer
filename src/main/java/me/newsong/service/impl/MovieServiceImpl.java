@@ -1,6 +1,7 @@
 package me.newsong.service.impl;
 
 import com.github.pagehelper.PageInfo;
+import lombok.extern.slf4j.Slf4j;
 import me.newsong.cache.CacheManager;
 import me.newsong.dao.MovieReviewDOMapper;
 import me.newsong.dao.MovieTagDOMapper;
@@ -8,6 +9,8 @@ import me.newsong.dao.RemoteMovieInfoDOMapper;
 import me.newsong.dao.UserDOMapper;
 import me.newsong.dao.crawler.IMDBCrawler;
 import me.newsong.domain.common.MovieVO;
+import me.newsong.domain.common.PredictedMovieDTO;
+import me.newsong.domain.common.PredictedMovieVO;
 import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.MovieReviewDO;
 import me.newsong.domain.entity.MovieTagDO;
@@ -32,6 +35,7 @@ import java.util.stream.Collectors;
 
 @Transactional
 @Service
+@Slf4j
 public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieService {
     @Autowired
     private MovieReviewDOMapper movieReviewDOMapper;
@@ -299,6 +303,24 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         } catch (IOException e) {
             throw new DataSourceNotFoundException(IMDBCrawler.URL);
         }
+    }
+    
+    @Override
+    public PredictedMovieVO predict(String movieId) {
+        PredictedMovieDTO predictedMovieDTO = crawler.crawlForPrediction(movieId);
+        log.info("PredictedMovieDTO:{}",predictedMovieDTO);
+        List<?> scoreParams = Arrays.asList(predictedMovieDTO.getMovie().getImdbReviewTime(),predictedMovieDTO.getBudget(),predictedMovieDTO.getNum_user_for_reviews(),predictedMovieDTO.getNum_critic_for_reviews(),predictedMovieDTO.getMovie().getDuration());
+        Double score = util.call("predict_score",scoreParams,Double.class);
+        log.info("score:{}",score);
+        List<?> boxOfficeParams = Arrays.asList(predictedMovieDTO.getNum_critic_for_reviews(),predictedMovieDTO.getBudget(),predictedMovieDTO.getMovie().getImdbReviewTime());
+        Double boxOffice = util.call("predict_box_office", boxOfficeParams, Double.class);
+        log.info("boxOffice:{}",boxOffice);
+        PredictedMovieVO vo = new PredictedMovieVO();
+        vo.setMovie(predictedMovieDTO.getMovie());
+        vo.setPredictedScore(score);
+        vo.setPredictedBoxOffice((long) (boxOffice*100000000));
+        log.info("PredictedMovieVO:{}",vo);
+        return vo;
     }
 
     private <T> Map<T, Double> findMovieScores(TimeUnit unit, List<MovieReviewDO> reviews) {

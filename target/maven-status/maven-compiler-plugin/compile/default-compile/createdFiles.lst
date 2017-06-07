@@ -40,6 +40,7 @@ me\newsong\domain\time\Month.class
 me\newsong\domain\common\ReviewTimesAndScores.class
 me\newsong\service\func\SeasonDispatcher.class
 me\newsong\enums\MovieSortType.class
+me\newsong\domain\common\PredictedMovieVO.class
 me\newsong\util\MapUtil.class
 me\newsong\controller\advice\RestExceptionHandler.class
 me\newsong\dao\MovieTagDOMapper.class
