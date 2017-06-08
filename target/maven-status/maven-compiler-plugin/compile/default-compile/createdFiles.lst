@@ -8,7 +8,6 @@ me\newsong\enums\MovieReviewSortType.class
 me\newsong\exception\domain\RESTError.class
 me\newsong\exception\annotation\RESTField.class
 me\newsong\dao\MovieReviewDOMapper.class
-me\newsong\interceptor\mybatis\MyFirstPlugin.class
 me\newsong\exception\TimeUnitNotFoundException.class
 me\newsong\dao\DirectorDOMapper.class
 me\newsong\dao\MovieActorMapper.class
@@ -52,13 +51,16 @@ me\newsong\domain\entity\MovieTagKey.class
 me\newsong\domain\time\BaseTimeUnit.class
 me\newsong\domain\entity\MovieLanguageKey.class
 me\newsong\exception\domain\RESTFieldError.class
+me\newsong\controller\PredictionController.class
 me\newsong\service\comp\MovieReviewTimeDescComparator.class
 me\newsong\service\func\DayDispatcher.class
 me\newsong\util\SpringContextUtil.class
 me\newsong\service\comp\MovieReviewHelpfulDescComparator.class
 me\newsong\exception\base\BaseRESTException.class
+me\newsong\service\impl\PredictionServiceImpl.class
 me\newsong\service\impl\MovieServiceImpl.class
 me\newsong\util\movie\MovieReviewRepositoryImpl$1.class
+me\newsong\service\PredictionService.class
 me\newsong\domain\entity\RemoteMovieInfoDO.class
 me\newsong\dao\WriterDOMapper.class
 me\newsong\domain\entity\WriterDO.class
