@@ -34,6 +34,7 @@ me\newsong\exception\SortTypeNotFoundException.class
 me\newsong\domain\entity\MovieTagDO.class
 me\newsong\exception\MovieNotFoundException.class
 me\newsong\domain\entity\CountryDO.class
+me\newsong\service\impl\MovieServiceImpl$1.class
 me\newsong\util\movie\MovieReview.class
 me\newsong\domain\time\Month.class
 me\newsong\domain\common\ReviewTimesAndScores.class

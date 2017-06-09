@@ -13,11 +13,12 @@ import org.springframework.stereotype.Component;
 public class MovieReviewConverter implements POVOConverter<MovieReviewDO, MovieReviewVO> {
     @Autowired
     private RemoteMovieInfoDOMapper remoteMovieInfoDOMapper;
-
+    
     @Override
     public MovieReviewVO apply(MovieReviewDO movieReviewDO) {
         MovieReviewVO vo = new MovieReviewVO();
         vo.setScore(movieReviewDO.getScore());
+        vo.setReviewTime(movieReviewDO.getTime());
         vo.setMovie(remoteMovieInfoDOMapper.findByRecommendId(movieReviewDO.getMovieRecommendId()));
         return vo;
     }

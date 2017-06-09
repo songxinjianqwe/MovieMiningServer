@@ -27,6 +27,7 @@
         <id column="id" property="id"/>
         <result column="movie_recommend_id" property="movieRecommendId" />
         <result column="score" property="score"/>
+        <result column="time" property="time"/>
     </resultMap>
     
     <sql id="Base_Column_List">
@@ -39,7 +40,7 @@
     </sql>
 
     <sql id="Simplified_Column_List">
-        id,movie_recommend_id,score
+        id,movie_recommend_id,score,time
     </sql>
     
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -169,6 +170,7 @@
         <include refid="Simplified_Column_List"/>
         from movie_review
         where user_recommend_id = #{id}
+        order by time desc
     </select>
     
     <select id="findByIdOrderByHelpful" resultMap="BaseResultMap">

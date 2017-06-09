@@ -156,4 +156,9 @@ public class MovieController {
     public PredictedMovieVO predict(@PathVariable("id") String movieId) {
         return service.predict(movieId);
     }
+    
+    @RequestMapping(value = "/{index}/prediction_with_history",method = GET)
+    public Map<Integer,Long> predictWithHistory(@PathVariable("index") Integer index){
+        return service.predictWithHistory(index);
+    }
 }

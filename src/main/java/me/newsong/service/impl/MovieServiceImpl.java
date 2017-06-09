@@ -1,5 +1,6 @@
 package me.newsong.service.impl;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import me.newsong.cache.CacheManager;
@@ -7,6 +8,7 @@ import me.newsong.dao.MovieReviewDOMapper;
 import me.newsong.dao.MovieTagDOMapper;
 import me.newsong.dao.RemoteMovieInfoDOMapper;
 import me.newsong.dao.UserDOMapper;
+import me.newsong.dao.crawler.GrossCrawler;
 import me.newsong.dao.crawler.IMDBCrawler;
 import me.newsong.domain.common.MovieVO;
 import me.newsong.domain.common.PredictedMovieDTO;
@@ -23,6 +25,7 @@ import me.newsong.enums.TimeUnit;
 import me.newsong.exception.DataSourceNotFoundException;
 import me.newsong.exception.MovieNotFoundException;
 import me.newsong.service.MovieService;
+import me.newsong.util.JsonUtil;
 import me.newsong.util.SpringContextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,8 +51,10 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     @Autowired
     private UserDOMapper userDOMapper;
     @Autowired
-    private IMDBCrawler crawler;
-    
+    private IMDBCrawler imdbCrawler;
+    @Autowired
+    private GrossCrawler grossCrawler;
+
     @Override
     public List<String> findAllIds() {
         return movieReviewDOMapper.findAllMovieIds();
@@ -254,11 +259,6 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     }
 
     @Override
-    public PageInfo<RemoteMovieInfoDO> findByMovieIdContaining(String movieId, int pageNum, int pageSize) {
-        return remoteMovieInfoDOMapper.findByMovieIdContaining(movieId, pageNum, pageSize).toPageInfo();
-    }
-
-    @Override
     public PageInfo<RemoteMovieInfoDO> findByCountryContaining(String country, int pageNum, int pageSize) {
         return remoteMovieInfoDOMapper.findByCountryContaining(country, pageNum, pageSize).toPageInfo();
     }
@@ -295,33 +295,48 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         movieReviewDO.setUserRecommendId(userDOMapper.findByUserId(movieReviewDO.getUserId()).getUserRecommendId());
         movieReviewDOMapper.insert(movieReviewDO);
     }
-    
+
     @Override
     public List<RemoteMovieInfoDO> findInTheatersMovies() {
         try {
-            return crawler.findInTheaterMovies();
+            return imdbCrawler.findInTheaterMovies();
         } catch (IOException e) {
             throw new DataSourceNotFoundException(IMDBCrawler.URL);
         }
     }
-    
+
     @Override
     public PredictedMovieVO predict(String movieId) {
-        PredictedMovieDTO predictedMovieDTO = crawler.crawlForPrediction(movieId);
-        log.info("PredictedMovieDTO:{}",predictedMovieDTO);
-        List<?> scoreParams = Arrays.asList(predictedMovieDTO.getMovie().getImdbReviewTime(),predictedMovieDTO.getBudget(),predictedMovieDTO.getNum_user_for_reviews(),predictedMovieDTO.getNum_critic_for_reviews(),predictedMovieDTO.getMovie().getDuration());
-        Double score = util.call("predict_score",scoreParams,Double.class);
-        log.info("score:{}",score);
-        List<?> boxOfficeParams = Arrays.asList(predictedMovieDTO.getNum_critic_for_reviews(),predictedMovieDTO.getBudget(),predictedMovieDTO.getMovie().getImdbReviewTime());
+        PredictedMovieDTO predictedMovieDTO = imdbCrawler.crawlForPrediction(movieId);
+        log.info("PredictedMovieDTO:{}", predictedMovieDTO);
+        List<?> scoreParams = Arrays.asList(predictedMovieDTO.getMovie().getImdbReviewTime(), predictedMovieDTO.getBudget(), predictedMovieDTO.getNum_user_for_reviews(), predictedMovieDTO.getNum_critic_for_reviews(), predictedMovieDTO.getMovie().getDuration());
+        Double score = util.call("predict_score", scoreParams, Double.class);
+        log.info("score:{}", score);
+        List<?> boxOfficeParams = Arrays.asList(predictedMovieDTO.getNum_critic_for_reviews(), predictedMovieDTO.getBudget(), predictedMovieDTO.getMovie().getImdbReviewTime());
         Double boxOffice = util.call("predict_box_office", boxOfficeParams, Double.class);
-        log.info("boxOffice:{}",boxOffice);
+        log.info("boxOffice:{}", boxOffice);
         PredictedMovieVO vo = new PredictedMovieVO();
         vo.setMovie(predictedMovieDTO.getMovie());
         vo.setPredictedScore(score);
-        vo.setPredictedBoxOffice((long) (boxOffice*100000000));
-        log.info("PredictedMovieVO:{}",vo);
+        vo.setPredictedBoxOffice((long) (boxOffice * 100000000));
+        log.info("PredictedMovieVO:{}", vo);
         return vo;
     }
+
+    @Override
+    public Map<Integer, Long> predictWithHistory(int index) {
+        Map<Integer, Long> history = grossCrawler.crawl(index);
+        String json = util.call("predict_box_office_with_history", Arrays.asList(history), String.class);
+        Map<Integer, Long> result = null;
+        try {
+            result = JsonUtil.getObjectMapper().readValue(json, new TypeReference<Map<Integer, Long>>() {
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 
     private <T> Map<T, Double> findMovieScores(TimeUnit unit, List<MovieReviewDO> reviews) {
         Map<T, List<MovieReviewDO>> midResult = reviews.stream().collect(Collectors.groupingBy(SpringContextUtil.getBean(unit.toString())));

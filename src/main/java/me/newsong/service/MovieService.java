@@ -49,8 +49,6 @@ public interface MovieService extends MovieReviewTemplate {
 
     List<String> findAllMovieTags();
 
-    PageInfo<RemoteMovieInfoDO> findByMovieIdContaining(String movieId, int pageNum, int pageSize);
-
     PageInfo<RemoteMovieInfoDO> findByCountryContaining(String country, int pageNum, int pageSize);
 
     PageInfo<RemoteMovieInfoDO> findByDirectorContaining(String director, int pageNum, int pageSize);
@@ -66,4 +64,5 @@ public interface MovieService extends MovieReviewTemplate {
     List<RemoteMovieInfoDO> findInTheatersMovies();
     
     PredictedMovieVO predict(String movieId);
+    Map<Integer,Long> predictWithHistory(int index);
 }
