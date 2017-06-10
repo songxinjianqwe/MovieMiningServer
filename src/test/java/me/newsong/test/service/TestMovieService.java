@@ -5,6 +5,7 @@ import me.newsong.domain.entity.Movie;
 import me.newsong.domain.entity.MovieReviewDO;
 import me.newsong.domain.time.BaseTimeUnit;
 import me.newsong.domain.time.Month;
+import me.newsong.enums.MovieReviewSortType;
 import me.newsong.enums.TimeUnit;
 import me.newsong.service.MovieService;
 import me.newsong.service.comp.MovieReviewTimeDescComparator;
@@ -164,6 +165,11 @@ public class TestMovieService extends BaseSpringTester {
 		for (Entry<BaseTimeUnit, Long> entry : map.entrySet()) {
 			System.out.println(entry.getKey() + "    " + entry.getValue());
 		}
+	}
+	
+	@Test
+	public void testFindSortedMovieReviewsById(){
+	    service.findSortedMovieReviewsById("tt0114709", MovieReviewSortType.Helpful,1,10).getList().forEach(System.out::println);
 	}
 
 }

@@ -33,7 +33,8 @@ public class TestMovieReviewDOMapper extends BaseSpringTester{
     
     @Test
     public void findByIdOrderByHelpfulTest(){
-        mapper.findByIdOrderByHelpful("B000MMMT9Q",2,5).forEach(System.out::println);
+        mapper.findByIdOrderByHelpful("tt0114709",2,5).forEach(System.out::println);
+        
     }
     
     @Test

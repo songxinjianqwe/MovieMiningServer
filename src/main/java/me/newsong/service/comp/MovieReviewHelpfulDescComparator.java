@@ -10,14 +10,9 @@ import java.util.Comparator;
  */
 @Component("Helpful")
 public class MovieReviewHelpfulDescComparator implements Comparator<MovieReviewDO> {
-
+    
     @Override
     public int compare(MovieReviewDO o1, MovieReviewDO o2) {
-        int result = Double.compare(1 - 1.0 * o1.getHelpfulTimes() / o1.getViewTimes(), 1 - 1.0 * o2.getHelpfulTimes() / o2.getViewTimes());
-        if(result == 0){
-            return o2.getViewTimes() - o1.getViewTimes();
-        }else{
-            return result;
-        }
+        return o2.getHelpfulTimes() - o1.getHelpfulTimes();
     }
 }

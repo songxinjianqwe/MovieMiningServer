@@ -178,7 +178,7 @@
         <include refid="Base_Column_List"/>
         from movie_review
         where movie_id=#{id} and  is_display = 1
-        order by (helpful_times / view_times) desc
+        order by helpful_times  desc
     </select>
 
     <select id="findByIdOrderByTime" resultMap="BaseResultMap">
@@ -201,5 +201,8 @@
         from movie_review
         where is_display = 0
     </select>
-
+    <delete id="deleteByMovieRecommendId" >
+        delete from movie_review
+        where movie_recommend_id = #{id}
+    </delete>
 </mapper>

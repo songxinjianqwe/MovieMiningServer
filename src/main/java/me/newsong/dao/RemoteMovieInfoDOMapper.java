@@ -90,5 +90,5 @@ public interface RemoteMovieInfoDOMapper {
     
     List<RemoteMovieInfoDO> findByRecommendIds(@Param("recommendIds") List<Long> recommendIds);
     RemoteMovieInfoDO findByRecommendId(@Param("recommendId") Long recommendIds);
-    
+    List<Long> findAllMovieRecommendIds();
 }

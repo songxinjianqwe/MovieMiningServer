@@ -54,6 +54,7 @@ me\newsong\domain\entity\MovieLanguageKey.class
 me\newsong\exception\domain\RESTFieldError.class
 me\newsong\controller\PredictionController.class
 me\newsong\service\comp\MovieReviewTimeDescComparator.class
+me\newsong\exception\GraphInfoNotEnoughException.class
 me\newsong\service\func\DayDispatcher.class
 me\newsong\util\SpringContextUtil.class
 me\newsong\service\comp\MovieReviewHelpfulDescComparator.class

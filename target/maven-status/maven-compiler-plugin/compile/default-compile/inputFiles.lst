@@ -63,6 +63,7 @@ D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\entity\MovieWriterKey.
 D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\time\Season.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\service\impl\MovieServiceImpl.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\exception\PythonServerErrorException.java
+D:\idea\MovieMiningServer\src\main\java\me\newsong\dao\crawler\GrossCrawler.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\entity\MovieDirectorKey.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\aop\LoggingAspect.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\util\movie\MovieTag.java
@@ -87,6 +88,7 @@ D:\idea\MovieMiningServer\src\main\java\me\newsong\service\impl\PredictionServic
 D:\idea\MovieMiningServer\src\main\java\me\newsong\service\comp\MovieReviewHelpfulDescComparator.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\service\comp\RemoteMovieInfoScoreDescComparator.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\dao\crawler\Updater.java
+D:\idea\MovieMiningServer\src\main\java\me\newsong\util\movie\MovieRemover.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\service\impl\MovieReviewTemplateImpl.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\exception\annotation\RESTField.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\dao\WriterDOMapper.java
@@ -113,6 +115,7 @@ D:\idea\MovieMiningServer\src\main\java\me\newsong\util\MapUtil.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\exception\annotation\RESTAnnotationUtil.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\security\domain\TokenCheckResult.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\controller\MovieReviewController.java
+D:\idea\MovieMiningServer\src\main\java\me\newsong\exception\GraphInfoNotEnoughException.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\service\func\MonthDispatcher.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\domain\entity\MovieReviewDO.java
 D:\idea\MovieMiningServer\src\main\java\me\newsong\util\POVOConverter.java

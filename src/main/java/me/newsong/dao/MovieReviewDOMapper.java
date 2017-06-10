@@ -72,5 +72,5 @@ public interface MovieReviewDOMapper {
 
     void insertBatch(@Param("reviews") List<MovieReviewDO> reviews);
     List<MovieReviewDO> findAllUnDisplay();
-    
+    void deleteByMovieRecommendId(@Param("id") Long movieRecommendId);
 }

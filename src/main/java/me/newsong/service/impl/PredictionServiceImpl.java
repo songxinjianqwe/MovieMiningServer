@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 public class PredictionServiceImpl implements PredictionService{
     private PythonUtil util = PythonUtil.getInstance();
     
-    
     @Override
     public String getScoreFeatureImportance() {
         return util.call("get_score_feature_importance",null,String.class);

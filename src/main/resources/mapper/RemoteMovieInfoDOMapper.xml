@@ -320,5 +320,10 @@
         from movie
         where movie_recommend_id = #{recommendId}
     </select>
+    
+    <select id="findAllMovieRecommendIds" resultType="long">
+        select movie_recommend_id 
+        from movie
+    </select>
 
 </mapper>

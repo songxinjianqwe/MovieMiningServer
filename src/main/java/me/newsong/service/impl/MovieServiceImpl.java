@@ -23,6 +23,7 @@ import me.newsong.enums.MovieReviewSortType;
 import me.newsong.enums.MovieSortType;
 import me.newsong.enums.TimeUnit;
 import me.newsong.exception.DataSourceNotFoundException;
+import me.newsong.exception.GraphInfoNotEnoughException;
 import me.newsong.exception.MovieNotFoundException;
 import me.newsong.service.MovieService;
 import me.newsong.util.JsonUtil;
@@ -54,7 +55,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     private IMDBCrawler imdbCrawler;
     @Autowired
     private GrossCrawler grossCrawler;
-
+    
     @Override
     public List<String> findAllIds() {
         return movieReviewDOMapper.findAllMovieIds();
@@ -326,6 +327,10 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
     @Override
     public Map<Integer, Long> predictWithHistory(int index) {
         Map<Integer, Long> history = grossCrawler.crawl(index);
+        log.info("history:{}",history);
+        if(history.size() <= 1){
+            throw new GraphInfoNotEnoughException(index);
+        }
         String json = util.call("predict_box_office_with_history", Arrays.asList(history), String.class);
         Map<Integer, Long> result = null;
         try {
@@ -336,8 +341,7 @@ public class MovieServiceImpl extends MovieReviewTemplateImpl implements MovieSe
         }
         return result;
     }
-
-
+    
     private <T> Map<T, Double> findMovieScores(TimeUnit unit, List<MovieReviewDO> reviews) {
         Map<T, List<MovieReviewDO>> midResult = reviews.stream().collect(Collectors.groupingBy(SpringContextUtil.getBean(unit.toString())));
         Map<T, Double> result = new TreeMap<>();

@@ -1,5 +1,6 @@
 package me.newsong.dao.crawler;
 
+import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -35,7 +36,11 @@ public class GrossCrawler {
             for (int i = 1; i < grossTRs.size(); ++i) {
                 Element grossTR = grossTRs.get(i);
                 Elements tds = grossTR.getElementsByTag("td");
-                Integer key = Integer.valueOf(tds.get(tds.size()-1).text().trim());
+                String keyStr = tds.get(tds.size() - 1).text().trim();
+                if(StringUtils.isEmpty(keyStr)){
+                    continue;
+                }
+                Integer key = Integer.valueOf(keyStr);
                 Long value = Long.valueOf(tds.get(tds.size()-2).text().replace("$","").replace(",","").trim());
                 map.put(key,value);
             }
