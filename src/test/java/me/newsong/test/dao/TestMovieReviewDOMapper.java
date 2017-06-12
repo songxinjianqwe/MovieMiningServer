@@ -47,4 +47,13 @@ public class TestMovieReviewDOMapper extends BaseSpringTester{
         System.out.println(mapper.countByMovieId("B000MMMT9Q"));
     }
     
+    @Test
+    public void test(){
+        for (int i  = 0; i < 4; i++) {
+            mapper.findByUserRecommendId(2L,i+1,5).forEach(System.out::println);
+            System.out.println();
+        }
+        
+        
+    }
 }

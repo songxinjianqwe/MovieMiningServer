@@ -39,12 +39,9 @@ public class IMDBCrawler extends BaseSpringTester {
         System.out.println(parent);
         Elements odds = parent.getElementsByClass("list_item odd");
         Elements evens = parent.getElementsByClass("list_item even");
-        for (Element odd : odds) {
-            result.add(parse(odd));
-        }
-
-        for (Element even : evens) {
-            result.add(parse(even));
+        for(int i = 0; i < 5;++i){
+            result.add(parse(odds.get(i)));
+            result.add(parse(evens.get(i)));
         }
         return result;
     }
@@ -115,8 +112,11 @@ public class IMDBCrawler extends BaseSpringTester {
     
     @Test
     public void test() {
-        PredictedMovieDTO predictedMovieDTO = crawlForPrediction("tt5655222");
-        System.out.println(predictedMovieDTO);
+        try {
+            findInTheaterMovies().forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
 }

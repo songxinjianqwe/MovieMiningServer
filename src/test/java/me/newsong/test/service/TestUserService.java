@@ -66,4 +66,12 @@ public class TestUserService extends BaseSpringTester {
 			System.out.println(entry.getKey() + "    " + entry.getValue());
 		}
 	}
+	
+	@Test
+	public void test(){
+	    service.findPagingMovieReviewsByUserRecommendId(2L,1,5).getList().forEach(System.out::println);
+	    service.findPagingMovieReviewsByUserRecommendId(2L,2,5).getList().forEach(System.out::println);
+	    
+	    
+    }
 }

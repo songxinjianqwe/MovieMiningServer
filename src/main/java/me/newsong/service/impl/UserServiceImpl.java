@@ -30,7 +30,7 @@ public class UserServiceImpl extends MovieReviewTemplateImpl implements UserServ
     private UserDOMapper userDOMapper;
     @Autowired
     private MovieReviewConverter movieReviewConverter;
-
+    
     @Override
     public List<String> findAllIds() {
         return userDOMapper.findAllUserIds();

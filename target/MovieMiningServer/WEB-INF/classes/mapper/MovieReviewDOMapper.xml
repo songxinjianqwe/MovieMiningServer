@@ -201,5 +201,8 @@
         from movie_review
         where is_display = 0
     </select>
-
+    <delete id="deleteByMovieRecommendId" >
+        delete from movie_review
+        where movie_recommend_id = #{id}
+    </delete>
 </mapper>

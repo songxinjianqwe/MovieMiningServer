@@ -42,6 +42,8 @@ public class RecommendServiceImpl implements RecommendService{
         if(movieRecommendIds.size() == 0){
             throw new PythonServerErrorException();
         }
-        return remoteMovieInfoDOMapper.findByRecommendIds(movieRecommendIds);
+        List<RemoteMovieInfoDO> result = remoteMovieInfoDOMapper.findByRecommendIds(movieRecommendIds);
+        log.info("{}",result.size());
+        return result;
     }
 }
